@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class DragonCave {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int choice;
+        int choice = 0;
 
         System.out.println("You are in a land full of dragons. In front of you, \n" +
                 "you see two caves.  In one cave, the dragon is friendly \n" +
@@ -12,7 +12,9 @@ public class DragonCave {
                 "Which cave will you go into?  (1 or 2)\n");
         try {
             choice = scan.nextInt();
-
+        } catch (Exception e) {
+            System.out.println("Exception");
+        }
             switch (choice) {
                 case 1:
                     System.out.println("You approach the cave...\n" +
@@ -28,9 +30,9 @@ public class DragonCave {
                             "The dragon generously shares his wealth with you!\n" +
                             "At dinner time, it gobbles you up because... dragon!\n");
                     break;
+                default:
+                    System.out.println("Not a valid choice.\n");
             }
-        } catch (Exception e) {
-            System.out.println("Exception");
-        }
+        
     }
 }

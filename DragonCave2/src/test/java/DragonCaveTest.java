@@ -77,4 +77,30 @@ class DragonCaveTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    void testoptionNot() {
+
+        //option 1 to be tested
+        String option = "5";
+        String expected = "Not a valid choice.\n";
+
+        //simulates user input
+        String userInput = String.format(option,
+                System.lineSeparator(),
+                System.lineSeparator());
+        ByteArrayInputStream bais = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(bais);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        System.setOut(printStream);
+
+        DragonCave.main(null); // call the main method
+
+        String[] lines = baos.toString().split(System.lineSeparator());
+        String actual = lines[lines.length - 1];
+
+        assertEquals(expected,actual);
+    }
 }
