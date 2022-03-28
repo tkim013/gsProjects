@@ -17,4 +17,24 @@ class GuessTest {
     @Test
     void main() {
     }
+
+    @Test
+    void evaluateGuess() {
+    }
+
+    @Test
+    void resultString() {
+    }
+
+    @Test
+    void guessInput() {
+    }
+
+    @Test
+    void nameInput() {
+    }
+
+    @Test
+    void getCont() {
+    }
 }
