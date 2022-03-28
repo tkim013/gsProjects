@@ -58,6 +58,7 @@ public class Guess {
             //user input to play again
             cont = getCont(in);
         }
+        in.close();
     }
 
     public static boolean evaluateGuess(int rNumber, int guess) {
@@ -117,6 +118,7 @@ public class Guess {
             System.out.println("Exception: nameInput");
         }
 
+        //Capitalized name if applicable
         return name.substring(0,1).toUpperCase() + name.substring(1);
     }
 
@@ -124,6 +126,13 @@ public class Guess {
         String cont = "";
         try {
             cont = in.nextLine().toLowerCase();
+            //if answer is "y" or "n" return answer
+            if (cont.equals("y") || cont.equals("n")) {
+                return cont;
+            }
+
+            //message for input not "y" or "n"
+            System.out.println("Invalid Input");
         } catch (Exception e) {
             System.out.println("Exception");
         }

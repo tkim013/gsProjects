@@ -14,7 +14,7 @@ public class DragonCave {
             System.out.println("Exception");
         }
         result(choice);
-        
+        scan.close();
     }
 
     public static void descText() {
