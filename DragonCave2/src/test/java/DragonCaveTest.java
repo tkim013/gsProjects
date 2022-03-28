@@ -19,39 +19,28 @@ class DragonCaveTest {
     }
 
     @Test
-    void testoption1() {
+    void testOption1() {
 
-        //option 1 to be tested
-        String option = "1";
         String expected = "You approach the cave...\n" +
                 "It is dark and spooky...\n" +
                 "A large dragon jumps out in front of you!  He opens his jaws and...\n" +
                 "Gobbles you down in one bite!\n";
 
-        //simulates user input
-        String userInput = String.format(option,
-                System.lineSeparator(),
-                System.lineSeparator());
-        ByteArrayInputStream bais = new ByteArrayInputStream(userInput.getBytes());
-        System.setIn(bais);
-
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         System.setOut(printStream);
 
-        DragonCave.main(null); // call the main method
+        DragonCave.result(1);
 
         String[] lines = baos.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 1];
 
-        assertEquals(expected,actual);
+        assertEquals(expected, actual, "Error with user input: 1");
     }
 
     @Test
-    void testoption2() {
+    void testOption2() {
 
-        //option 2 to be tested
-        String option = "2";
         String expected = "You approach the cave...\n" +
                 "The entrance seems inviting enough as you cautiously peak inside...\n" +
                 "Inside the cave you find glittering gold and sparkling treasures!\n" +
@@ -59,36 +48,28 @@ class DragonCaveTest {
                 "The dragon generously shares his wealth with you!\n" +
                 "At dinner time, it gobbles you up because... dragon!\n";
 
-        //simulates user input
-        String userInput = String.format(option,
-                System.lineSeparator(),
-                System.lineSeparator());
-        ByteArrayInputStream bais = new ByteArrayInputStream(userInput.getBytes());
-        System.setIn(bais);
-
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         System.setOut(printStream);
 
-        DragonCave.main(null); // call the main method
+        DragonCave.result(2);
 
         String[] lines = baos.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 1];
 
-        assertEquals(expected,actual);
+        assertEquals(expected, actual, "Error with user input: 2");
     }
 
-    @Test
-    void testoptionNot() {
 
-        //option 1 to be tested
-        String option = "5";
+    @Test
+    void testInvalidUserInput() {
+
+        //option to be tested
+        String option = "53288iier";
         String expected = "Not a valid choice.\n";
 
         //simulates user input
-        String userInput = String.format(option,
-                System.lineSeparator(),
-                System.lineSeparator());
+        String userInput = String.format(option, System.lineSeparator(), System.lineSeparator());
         ByteArrayInputStream bais = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(bais);
 
@@ -101,6 +82,7 @@ class DragonCaveTest {
         String[] lines = baos.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 1];
 
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
 }
