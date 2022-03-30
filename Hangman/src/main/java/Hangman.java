@@ -8,27 +8,32 @@ import java.util.Random;
 public class Hangman {
     public static void main(String[] args) {
 
-        Random rand = new Random();
-
         List<String> dict = new ArrayList<>();
-        String cont;
+        String cont = "yes";
+        String secretWord;
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/usa.txt"));
-            while (br.ready()) {
-                dict.add(br.readLine());
-            }
-        } catch (IOException e) {
-            System.out.println("Exception");
+        while (cont.equals("yes")) {
+            secretWord = new RandomWord().getWord();
+            System.out.println(secretWord);
+
+            System.out.println("H A N G M A N");
+
+            //display here
+
+            //guess input
+
+            //resultDisplay
+
+            cont = "no";
         }
 
-//        randomWord(dict);
-        System.out.println(randomWord(dict, rand));
+
 
     }
+//
+//    public String randomWord(List<String> dict, Random rand) {
+//        int rNumber = rand.nextInt(dict.size() - 1);
+//        return dict.get(rNumber);
+//    }
 
-    public static String randomWord(List<String> dict, Random rand) {
-        int rNumber = rand.nextInt(dict.size() - 1);
-        return dict.get(rNumber);
-    }
 }
