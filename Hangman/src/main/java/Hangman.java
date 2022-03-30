@@ -1,24 +1,24 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class Hangman {
     public static void main(String[] args) {
 
-        List<String> dict = new ArrayList<>();
+        RandomWord rWord = new RandomWord();
+
         String cont = "yes";
         String secretWord;
 
+        int guessState; //hangman attempts
+
         while (cont.equals("yes")) {
-            secretWord = new RandomWord().getWord();
+            rWord.generate();
+            guessState = 0;
+            secretWord = rWord.getWord();
             System.out.println(secretWord);
 
             System.out.println("H A N G M A N");
 
             //display here
+
+            display1(5);
 
             //guess input
 
@@ -26,14 +26,21 @@ public class Hangman {
 
             cont = "no";
         }
-
-
-
     }
-//
-//    public String randomWord(List<String> dict, Random rand) {
-//        int rNumber = rand.nextInt(dict.size() - 1);
-//        return dict.get(rNumber);
-//    }
 
+    public static void display1(int guessState) {
+
+        String display;
+
+        System.out.println(" +---+");
+        display = guessState == 0 ? "     |" : " O   |";
+        System.out.println(display);
+        display = guessState < 2 ? "     |" : guessState < 4 ? " |   |" : guessState == 4 ? "\\|   |" : "\\|/  |";
+        System.out.println(display);
+        display = guessState < 3 ? "     |" : " |   |";
+        System.out.println(display);
+        display = guessState < 6 ? "     |" : guessState < 7 ? "/   |" : "/ \\  |";
+        System.out.println(display);
+        System.out.println("    ===");
+    }
 }
