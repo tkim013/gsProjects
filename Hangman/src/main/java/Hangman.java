@@ -1,6 +1,10 @@
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 public class Hangman {
     public static void main(String[] args) {
 
+        SortedSet<Character> guessSet = new TreeSet<>();
         RandomWord rWord = new RandomWord();
 
         String cont = "yes";
@@ -18,8 +22,12 @@ public class Hangman {
 
             //display here
 
-            display1(5);
+            display1(6);
 
+            guessSet.add('a');
+            guessSet.add('e');
+            guessSet.add('b');
+            wordBox(secretWord, guessSet);
             //guess input
 
             //resultDisplay
@@ -35,12 +43,30 @@ public class Hangman {
         System.out.println(" +---+");
         display = guessState == 0 ? "     |" : " O   |";
         System.out.println(display);
-        display = guessState < 2 ? "     |" : guessState < 4 ? " |   |" : guessState == 4 ? "\\|   |" : "\\|/  |";
+        display = guessState < 2 ? "     |" : guessState < 4 ? " |   |" : guessState < 5 ? "\\|   |" : "\\|/  |";
         System.out.println(display);
         display = guessState < 3 ? "     |" : " |   |";
         System.out.println(display);
-        display = guessState < 6 ? "     |" : guessState < 7 ? "/   |" : "/ \\  |";
+        display = guessState < 6 ? "     |" : guessState < 7 ? "/    |" : "/ \\  |";
         System.out.println(display);
         System.out.println("    ===");
+    }
+
+    private static void wordBox(String word, SortedSet<Character> set) {
+
+        System.out.print("Missed letters: ");
+        for (Character c : set) {
+            if (!word.contains(c.toString())) {
+                System.out.print(c);
+            }
+        }
+        System.out.println();
+
+        for (int i = 0; i < word.length(); i++) {
+
+            System.out.print(set.contains(word.charAt(i)) ? word.charAt(i) : "_");
+        }
+
+        System.out.println("\nGuess a letter.\n");
     }
 }
