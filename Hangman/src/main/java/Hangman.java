@@ -13,7 +13,7 @@ public class Hangman {
         String secretWord; //word to be guessed
         String guessString = ""; //stores character guess
 
-        int guessState; //hangman attempts
+        int guessState; //hangman missed letter attempts
         int guessResult; //used to check input validity
 
         while (true) {
@@ -23,11 +23,9 @@ public class Hangman {
             missString.setLength(0); //clear missString
             secretWord = rWord.getWord(); //set secret word
 
-            secretWord = "pop";
-
             while (true) {
 
-                //display here
+                //display hangman by missed guesses
                 display1(guessState);
 
                 //check for complete hanged stickman victim, loop exit
@@ -37,7 +35,7 @@ public class Hangman {
                     break;
                 }
 
-                //check for win, loop exit
+                //check for win, loop exit, wordbox display
                 if (wordBox(secretWord, missString.toString(), guessSet)) {
                     System.out.println("Yes! The secret word is \"" + secretWord + "\"! You have won!\n");
                     break;
@@ -87,7 +85,7 @@ public class Hangman {
         System.out.println("    ===");
     }
 
-    private static boolean wordBox(String word,String missed, SortedSet<Character> set) {
+    private static boolean wordBox(String word, String missed, SortedSet<Character> set) {
 
         StringBuilder sb = new StringBuilder();
 

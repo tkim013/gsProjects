@@ -15,7 +15,7 @@ public class RandomWord {
     public RandomWord() {
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/usa.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/hangmanWords.txt"));
             while (br.ready()) {
                 dict.add(br.readLine());
             }
