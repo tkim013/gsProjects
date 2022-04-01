@@ -5,37 +5,43 @@ import java.util.TreeSet;
 public class Hangman {
     public static void main(String[] args) {
 
-        SortedSet<Character> guessSet = new TreeSet<>();
+        SortedSet<Character> guessSet = new TreeSet<>(); //holds guessed characters
         Scanner in = new Scanner(System.in);
         RandomWord rWord = new RandomWord();
-        StringBuilder missString = new StringBuilder();
+        StringBuilder missString = new StringBuilder(); //miss string for wordbox display
 
-        String secretWord;
-        String guessString = "";
+        String secretWord; //word to be guessed
+        String guessString = ""; //stores character guess
 
         int guessState; //hangman attempts
-        int guessResult;
+        int guessResult; //used to check input validity
 
         while (true) {
-            rWord.generate();
-            guessState = 0;
-            guessSet.clear();
-            missString.setLength(0);
-            secretWord = rWord.getWord();
-            System.out.println(secretWord);
+            rWord.generate(); //generate random word
+            guessState = 0; //reset guessState
+            guessSet.clear(); //clear guessSet
+            missString.setLength(0); //clear missString
+            secretWord = rWord.getWord(); //set secret word
+
+            secretWord = "pop";
 
             while (true) {
-                //display here
 
+                //display here
                 display1(guessState);
 
-                //check for complete hanged stickman victim and loop exit
+                //check for complete hanged stickman victim, loop exit
                 if (guessState == 7) {
-                    System.out.println("you died");
+                    System.out.println("Everyone reaches their eventual demise. It just came for you a bit sooner than " +
+                            "expected. At least you finished life before anyone else you know right? W-I-N-N-E-R!!! but not.");
                     break;
                 }
 
-                wordBox(secretWord, missString.toString(), guessSet);
+                //check for win, loop exit
+                if (wordBox(secretWord, missString.toString(), guessSet)) {
+                    System.out.println("Yes! The secret word is \"" + secretWord + "\"! You have won!\n");
+                    break;
+                }
 
                 //guess input
                 while (true) {
@@ -57,15 +63,15 @@ public class Hangman {
                         break;
                     }
                 }
-                //if letter guessed is not in secret word, append miss String and increment guessState
+
+                //if letter guessed is not in secret word, append missString and increment guessState
                 if (!secretWord.contains(String.valueOf(guessString.charAt(0)))) {
                     missString.append(guessString.charAt(0));
                     guessState++;
                 }
-//                if (secretWord.equals()) {
-//
-//                }
             }
+            //repeat logic
+            System.out.println("Do you want to play again? (yes or no)");
             break;
         }
     }
@@ -81,7 +87,7 @@ public class Hangman {
         System.out.println("    ===");
     }
 
-    private static void wordBox(String word,String missed, SortedSet<Character> set) {
+    private static boolean wordBox(String word,String missed, SortedSet<Character> set) {
 
         StringBuilder sb = new StringBuilder();
 
@@ -96,6 +102,8 @@ public class Hangman {
 
         System.out.println(sb);
         System.out.println();
+
+        return word.equals(sb.toString());
     }
 
     private static int evaluateGuess(SortedSet<Character> set, String guess) {
