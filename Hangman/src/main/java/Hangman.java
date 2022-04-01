@@ -8,6 +8,7 @@ public class Hangman {
         SortedSet<Character> guessSet = new TreeSet<>();
         Scanner in = new Scanner(System.in);
         RandomWord rWord = new RandomWord();
+        StringBuilder missString = new StringBuilder();
 
         String secretWord;
         String guessString = "";
@@ -18,6 +19,8 @@ public class Hangman {
         while (true) {
             rWord.generate();
             guessState = 0;
+            guessSet.clear();
+            missString.setLength(0);
             secretWord = rWord.getWord();
             System.out.println(secretWord);
 
@@ -26,15 +29,13 @@ public class Hangman {
 
                 display1(guessState);
 
+                //check for complete hanged stickman victim and loop exit
                 if (guessState == 7) {
                     System.out.println("you died");
                     break;
                 }
 
-                guessSet.add('a');
-                guessSet.add('e');
-                guessSet.add('b');
-                wordBox(secretWord, guessSet);
+                wordBox(secretWord, missString.toString(), guessSet);
 
                 //guess input
                 while (true) {
@@ -47,16 +48,23 @@ public class Hangman {
                         System.out.println("Exception guess input");
                     }
 
+                    //evaluates validity of guess
                     guessResult = evaluateGuess(guessSet, guessString);
 
+                    //breaks loop on valid input
                     if (guessResult == 1) {
                         guessSet.add(Character.toLowerCase(guessString.charAt(0)));
                         break;
                     }
                 }
-
-                guessState++;
-                //resultDisplay
+                //if letter guessed is not in secret word, append miss String and increment guessState
+                if (!secretWord.contains(String.valueOf(guessString.charAt(0)))) {
+                    missString.append(guessString.charAt(0));
+                    guessState++;
+                }
+//                if (secretWord.equals()) {
+//
+//                }
             }
             break;
         }
@@ -73,21 +81,20 @@ public class Hangman {
         System.out.println("    ===");
     }
 
-    private static void wordBox(String word, SortedSet<Character> set) {
+    private static void wordBox(String word,String missed, SortedSet<Character> set) {
+
+        StringBuilder sb = new StringBuilder();
 
         System.out.print("Missed letters: ");
-        for (Character c : set) {
-            if (!word.contains(c.toString())) {
-                System.out.print(c);
-            }
-        }
+        System.out.println(missed);
         System.out.println();
 
         for (int i = 0; i < word.length(); i++) {
 
-            System.out.print(set.contains(word.charAt(i)) ? word.charAt(i) : "_");
+            sb.append(set.contains(word.charAt(i)) ? word.charAt(i) : "_");
         }
 
+        System.out.println(sb);
         System.out.println();
     }
 
