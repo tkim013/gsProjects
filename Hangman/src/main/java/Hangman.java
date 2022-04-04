@@ -12,6 +12,7 @@ public class Hangman {
 
         String secretWord; //word to be guessed
         String guessString = ""; //stores character guess
+        String playAgain = ""; //input for main loop continuation
 
         int guessState; //hangman missed letter attempts
         int guessResult; //used to check input validity
@@ -30,6 +31,7 @@ public class Hangman {
 
                 //check for complete hanged stickman victim, loop exit
                 if (guessState == 7) {
+                    System.out.println("The word is: " + secretWord);
                     System.out.println("Everyone reaches their eventual demise. It just came for you a bit sooner than " +
                             "expected. At least you finished life before anyone else you know right? W-I-N-N-E-R!!! but not.");
                     break;
@@ -41,13 +43,14 @@ public class Hangman {
                     break;
                 }
 
-                //guess input
+                //guess input loop
                 while (true) {
 
                     System.out.println("Guess a letter.\n");
 
+                    //char guess input
                     try {
-                        guessString = in.nextLine();
+                        guessString = in.nextLine().toLowerCase();
                     } catch (Exception e) {
                         System.out.println("Exception guess input");
                     }
@@ -57,7 +60,7 @@ public class Hangman {
 
                     //breaks loop on valid input
                     if (guessResult == 1) {
-                        guessSet.add(Character.toLowerCase(guessString.charAt(0)));
+                        guessSet.add(guessString.charAt(0));
                         break;
                     }
                 }
@@ -68,14 +71,33 @@ public class Hangman {
                     guessState++;
                 }
             }
-            //repeat logic
-            System.out.println("Do you want to play again? (yes or no)");
-            break;
+
+            //continuation input loop
+            while (true) {
+                System.out.println("Do you want to play again? (yes or no)");
+
+                //input for continuation of main outer loop
+                try {
+                    playAgain = in.nextLine().toLowerCase();
+                } catch (Exception e) {
+                    System.out.println("Exception");
+                }
+
+                //breaks loop if valid input
+                if (evaluatePlayAgain(playAgain)) {
+                    break;
+                }
+            }
+            //main loop exit
+            if (playAgain.equals("no")) {
+                break;
+            }
         }
     }
 
     public static void display1(int guessState) {
 
+        //console output using ternary operators for the fun of it
         System.out.println("H A N G M A N");
         System.out.println(" +---+");
         System.out.println(guessState == 0 ? "     |" : " O   |");
@@ -89,10 +111,12 @@ public class Hangman {
 
         StringBuilder sb = new StringBuilder();
 
+        //missed letters console output
         System.out.print("Missed letters: ");
         System.out.println(missed);
         System.out.println();
 
+        //builds string of "_" and correctly guessed letters
         for (int i = 0; i < word.length(); i++) {
 
             sb.append(set.contains(word.charAt(i)) ? word.charAt(i) : "_");
@@ -101,19 +125,32 @@ public class Hangman {
         System.out.println(sb);
         System.out.println();
 
+        //check for correct guess, returns boolean
         return word.equals(sb.toString());
     }
 
     private static int evaluateGuess(SortedSet<Character> set, String guess) {
-            if (!guess.isEmpty() && set.contains(guess.charAt(0)) && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
-
-                System.out.println("You have already guessed that letter. Choose again.\n");
-                return 0;
-            } else if (!guess.isEmpty() && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
-                return 1;
-            } else {
-                System.out.println("Invalid input. Choose again.\n");
-            }
+        //check not empty, previous guess, is a char, length check - char has already been guessed
+        if (!guess.isEmpty() && set.contains(guess.charAt(0)) && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
+            System.out.println("You have already guessed that letter. Choose again.\n");
+            return 0;
+        //check not empty, is a char, length check - valid input
+        } else if (!guess.isEmpty() && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
+            return 1;
+        } else {
+            System.out.println("Invalid input. Choose again.\n");
+        }
         return 2;
+    }
+
+    public static boolean evaluatePlayAgain(String s) {
+
+        //check string for "yes" or "no", returns true if valid
+        if (s.equals("yes") || s.equals("no")) {
+            return true;
+        }
+        //returns false if unacceptable value
+        System.out.println("Invalid input.");
+        return false;
     }
 }
