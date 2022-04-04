@@ -107,7 +107,7 @@ public class Hangman {
         System.out.println("    ===");
     }
 
-    private static boolean wordBox(String word, String missed, SortedSet<Character> set) {
+    public static boolean wordBox(String word, String missed, SortedSet<Character> set) {
 
         StringBuilder sb = new StringBuilder();
 
@@ -129,7 +129,7 @@ public class Hangman {
         return word.equals(sb.toString());
     }
 
-    private static int evaluateGuess(SortedSet<Character> set, String guess) {
+    public static int evaluateGuess(SortedSet<Character> set, String guess) {
         //check not empty, previous guess, is a char, length check - char has already been guessed
         if (!guess.isEmpty() && set.contains(guess.charAt(0)) && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
             System.out.println("You have already guessed that letter. Choose again.\n");

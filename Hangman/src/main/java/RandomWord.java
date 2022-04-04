@@ -10,19 +10,22 @@ public class RandomWord {
     private List<String> dict = new ArrayList<>();
     private Random rand = new Random();
 
-    private String word;
+    private String word; //holds random word
 
     public RandomWord() {
 
         try {
+            //reads txt file of words
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/hangmanWords.txt"));
             while (br.ready()) {
+                //adds word to List<String>
                 dict.add(br.readLine());
             }
         } catch (IOException e) {
             System.out.println("Exception");
         }
 
+        //generate random word
         this.generate();
     }
 
@@ -36,6 +39,7 @@ public class RandomWord {
 
     public void generate() {
 
+        //random word generation
         this.word = this.dict.get(this.rand.nextInt(this.dict.size() - 1));
     }
 }
