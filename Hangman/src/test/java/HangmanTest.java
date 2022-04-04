@@ -21,7 +21,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 5];
 
-        assertEquals("     |", actual);
+        assertEquals("     |", actual, "displayState0 failed.");
     }
 
     @Test
@@ -36,7 +36,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 5];
 
-        assertEquals(" O   |", actual);
+        assertEquals(" O   |", actual, "displayState1 failed.");
     }
 
     @Test
@@ -51,7 +51,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 4];
 
-        assertEquals(" |   |", actual);
+        assertEquals(" |   |", actual, "displayState2 failed.");
     }
 
     @Test
@@ -66,7 +66,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 3];
 
-        assertEquals(" |   |", actual);
+        assertEquals(" |   |", actual, "displayState3 failed.");
     }
 
     @Test
@@ -81,7 +81,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 4];
 
-        assertEquals("\\|   |", actual);
+        assertEquals("\\|   |", actual, "displayState4 failed.");
     }
 
     @Test
@@ -96,7 +96,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 4];
 
-        assertEquals("\\|/  |", actual);
+        assertEquals("\\|/  |", actual, "displayState5 failed.");
     }
 
     @Test
@@ -111,7 +111,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 2];
 
-        assertEquals("/    |", actual);
+        assertEquals("/    |", actual, "displayState6 failed.");
     }
 
     @Test
@@ -126,17 +126,17 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 2];
 
-        assertEquals("/ \\  |", actual);
+        assertEquals("/ \\  |", actual, "displayState7 failed.");
     }
 
     @Test
     void evaluatePlayAgainY() {
-        assertTrue(Hangman.evaluatePlayAgain("yes"));
+        assertTrue(Hangman.evaluatePlayAgain("yes"), "\"yes\" not entered.");
     }
 
     @Test
     void evaluatePlayAgainN() {
-        assertTrue(Hangman.evaluatePlayAgain("no"));
+        assertTrue(Hangman.evaluatePlayAgain("no"), "\"no\" not entered.");
     }
 
     @Test
@@ -166,7 +166,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 3];
 
-        assertEquals("Missed letters: abc", actual);
+        assertEquals("Missed letters: abc", actual, "missed string failed.");
     }
 
     @Test
@@ -187,7 +187,7 @@ class HangmanTest {
         String[] lines = outS.toString().split(System.lineSeparator());
         String actual = lines[lines.length - 1];
 
-        assertEquals("a_c__f", actual);
+        assertEquals("a_c__f", actual, "guessing display failed.");
     }
 
     @Test
@@ -198,7 +198,7 @@ class HangmanTest {
         set.add('b');
         set.add('c');
 
-        assertFalse(Hangman.wordBox("abcd", "", set));
+        assertFalse(Hangman.wordBox("abcd", "", set), "no win condition failed.");
     }
 
     @Test
@@ -210,7 +210,7 @@ class HangmanTest {
         set.add('c');
         set.add('d');
 
-        assertTrue(Hangman.wordBox("abcd", "", set));
+        assertTrue(Hangman.wordBox("abcd", "", set), "win condition failed.");
     }
 
     @Test
