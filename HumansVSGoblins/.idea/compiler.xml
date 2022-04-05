@@ -9,5 +9,8 @@
         <module name="HumansVSGoblins" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="HumansVSGoblins" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
