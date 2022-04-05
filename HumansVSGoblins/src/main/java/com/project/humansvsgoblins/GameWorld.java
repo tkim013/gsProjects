@@ -1,21 +1,20 @@
 package com.project.humansvsgoblins;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GameWorld {
 
-    static ArrayList<ArrayList<Land>> gw = new ArrayList<>();
+    private static ArrayList<ArrayList<Land>> landList = new ArrayList<>();
     final static int row = 10;
     final static int col = 10;
 
     public GameWorld() {
 
-        for (int i = 0; i < row; i++) {
-            gw.add(new ArrayList<>());
+        for (int i = 0; i < col; i++) {
+            landList.add(new ArrayList<>());
 
-            for (int j = 0; j < col; j++) {
-                gw.get(i).add(new Land());
+            for (int j = 0; j < row; j++) {
+                landList.get(i).add(new Land());
             }
         }
     }
@@ -23,12 +22,24 @@ public class GameWorld {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (ArrayList<Land> list : gw) {
+        for (ArrayList<Land> list : landList) {
             for (Land l : list) {
-                sb.append(l.toString());
+                if (l.getHasCreature() == null) {
+                    sb.append(l);
+                } else {
+                    sb.append(l.getHasCreature());
+                }
             }
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    public static ArrayList<ArrayList<Land>> getLandList() {
+        return landList;
+    }
+
+    public static void setLandList(ArrayList<ArrayList<Land>> list) {
+        GameWorld.landList = list;
     }
 }

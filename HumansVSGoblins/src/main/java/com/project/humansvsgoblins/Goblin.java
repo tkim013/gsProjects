@@ -9,7 +9,7 @@ public class Goblin {
 
     @Override
     public String toString() {
-        return "Goblin{}";
+        return "G";
     }
 
     public int getHealth() {
