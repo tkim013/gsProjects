@@ -3,23 +3,18 @@ package com.project.humansvsgoblins;
 public class Combat {
 
     //d6 for combat
-    private final int max = 6;
-    private final int min = 1;
-    private final int range = max - min + 1;
+    private final static int max = 6;
+    private final static int min = 1;
+    private final static int range = max - min + 1;
 
-    public Combat() {
-    }
-
-    public Creature resolveCombat(Creature att, Creature def) {
+    public static Creature resolveCombat(Creature att, Creature def) {
 
         int attDamage;
         int defDamage;
 
-        System.out.println(att.getHealth());
-        System.out.println(att.getStrength());
-
         while (true) {
 
+            //attacker damage = attacker strength + d6
             attDamage = (int) ((Math.random() * range) + min) + att.getStrength();
             System.out.println(att + " attacks " + def + " for " + attDamage + " damage.");
             def.setHealth(def.getHealth() - attDamage);
@@ -30,6 +25,7 @@ public class Combat {
                 return att;
             }
 
+            //defender damage = defender strength + d6
             defDamage = (int) ((Math.random() * range) + min) + def.getStrength();
             System.out.println(def + " attacks " + att + " for " + defDamage + " damage.");
             att.setHealth(att.getHealth() - defDamage);

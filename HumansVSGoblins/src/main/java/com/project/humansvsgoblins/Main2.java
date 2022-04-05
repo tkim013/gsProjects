@@ -11,27 +11,27 @@ public class Main2 {
         Goblin g1 = new Goblin();
         String m = "";
 
-        Combat combat = new Combat();
-        System.out.println(combat.resolveCombat(h, g1));
+//        System.out.println(Combat.resolveCombat(h, g1));
 
 
-//        while (true) {
-//
-//            System.out.println(gw);
-//            System.out.println("Move human. (n/s/e/w) or \"q\" to quit");
-//
-//            try {
-//                m = in.nextLine().toLowerCase();
-//            } catch (Throwable e) {
-//                e.printStackTrace();
-//            }
-//
-//            if (m.equals("q")) {
-//                in.close();
-//                break;
-//            }
-//
-//            h.move(m);
-//        }
+        while (true) {
+
+            System.out.println(gw);
+            System.out.println("Move human. (n/s/e/w) or \"q\" to quit");
+            System.out.println(Arrays.toString(h.getCurrentPos()));
+
+            try {
+                m = in.nextLine().toLowerCase();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+
+            if (m.equals("q")) {
+                in.close();
+                break;
+            }
+
+            h.move(m);
+        }
     }
 }

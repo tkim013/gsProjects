@@ -1,6 +1,7 @@
 package com.project.humansvsgoblins;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Human extends Creature{
     ArrayList<ArrayList<Land>> gw = GameWorld.getLandList();
@@ -37,7 +38,11 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(null);
+                if (gw.get(currentPos[0] - 1).get(currentPos[1]).getHasCreature() != null) {
+
+                }
+
+                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                 this.currentPos[0]--;
                 gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
 
@@ -50,7 +55,7 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(null);
+                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                 this.currentPos[0]++;
                 gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
 
@@ -63,7 +68,7 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(null);
+                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                 this.currentPos[1]++;
                 gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
 
@@ -76,7 +81,7 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(null);
+                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                 this.currentPos[1]--;
                 gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
 
