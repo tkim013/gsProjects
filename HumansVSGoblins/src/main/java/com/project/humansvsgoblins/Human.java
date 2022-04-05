@@ -2,7 +2,7 @@ package com.project.humansvsgoblins;
 
 import java.util.ArrayList;
 
-public class Human {
+public class Human extends Creature{
     ArrayList<ArrayList<Land>> gw = GameWorld.getLandList();
 
     private int health = 20;
@@ -10,15 +10,15 @@ public class Human {
     private int[] currentPos = {0, 0}; //element0 - n/s, element1 - e/w
 
     public Human() {
-        gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+        gw.get(this.currentPos[0]).get(this.currentPos[1]).setHasCreature(this);
     }
 
-    public Human(int health, int strength, int[] currentPos) {
+    public Human(int health, int strength, int[] pos) {
         this.health = health;
         this.strength = strength;
-        this.currentPos = currentPos;
+        this.currentPos = pos;
 
-        gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+        gw.get(this.currentPos[0]).get(this.currentPos[1]).setHasCreature(this);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Human {
 
     public int move(String s) {
 
-        //check valid moves
+        //check valid moves, assign null to land object at currentPos, assign this Human to new position
         switch (s) {
             case "n" :
 

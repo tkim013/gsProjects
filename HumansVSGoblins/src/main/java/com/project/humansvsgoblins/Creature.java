@@ -1,16 +1,8 @@
 package com.project.humansvsgoblins;
 
-public class Goblin extends Creature {
-    private int health = 50;
-    private int strength = 5;
-
-    public Goblin() {
-    }
-
-    @Override
-    public String toString() {
-        return "G";
-    }
+public class Creature {
+    public int health;
+    public int strength;
 
     public int getHealth() {
         return health;
