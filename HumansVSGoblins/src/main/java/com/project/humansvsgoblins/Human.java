@@ -1,7 +1,6 @@
 package com.project.humansvsgoblins;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Human extends Creature{
     ArrayList<ArrayList<Land>> gw = GameWorld.getLandList();
@@ -30,6 +29,7 @@ public class Human extends Creature{
     public int move(String s) {
 
         //check valid moves, assign null to land object at currentPos, assign this Human to new position
+        //check if destination Land.hasCreature not null, Combat.resolveCombat with Object, assigns winner to Land.hasCreature
         switch (s) {
             case "n" :
 
@@ -40,13 +40,21 @@ public class Human extends Creature{
 
                 if (gw.get(currentPos[0] - 1).get(currentPos[1]).getHasCreature() != null) {
 
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[0]--;
+                    gw.get(currentPos[0]).get(currentPos[1])
+                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+
+                    return 2;
+
+                } else {
+
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[0]--;
+                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+
+                    return 1;
                 }
-
-                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                this.currentPos[0]--;
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-
-                return 1;
 
             case "s" :
 
@@ -55,11 +63,23 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                this.currentPos[0]++;
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                if (gw.get(currentPos[0] + 1).get(currentPos[1]).getHasCreature() != null) {
 
-                return 1;
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[0]++;
+                    gw.get(currentPos[0]).get(currentPos[1])
+                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+
+                    return 2;
+
+                } else {
+
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[0]++;
+                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+
+                    return 1;
+                }
 
             case "e" :
 
@@ -68,11 +88,23 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                this.currentPos[1]++;
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                if (gw.get(currentPos[0]).get(currentPos[1] + 1).getHasCreature() != null) {
 
-                return 1;
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[1]++;
+                    gw.get(currentPos[0]).get(currentPos[1])
+                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+
+                    return 2;
+
+                } else {
+
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[1]++;
+                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+
+                    return 1;
+                }
 
             case "w" :
 
@@ -81,11 +113,23 @@ public class Human extends Creature{
                     return 0;
                 }
 
-                gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                this.currentPos[1]--;
-                gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                if (gw.get(currentPos[0]).get(currentPos[1] - 1).getHasCreature() != null) {
 
-                return 1;
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[1]--;
+                    gw.get(currentPos[0]).get(currentPos[1])
+                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+
+                    return 2;
+
+                } else {
+
+                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                    this.currentPos[1]--;
+                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+
+                    return 1;
+                }
 
             default :
 
