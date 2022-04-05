@@ -21,9 +21,11 @@ public class GameWorld {
 
     @Override
     public String toString() {
+        //builds String representation of game world
         StringBuilder sb = new StringBuilder();
         for (ArrayList<Land> list : landList) {
             for (Land l : list) {
+                //if there is object in Land.hasCreature, append with char representation of object
                 if (l.getHasCreature() == null) {
                     sb.append(l);
                 } else {
