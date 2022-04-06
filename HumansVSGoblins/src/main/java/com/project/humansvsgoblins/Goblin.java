@@ -1,8 +1,8 @@
 package com.project.humansvsgoblins;
 
 public class Goblin extends Creature {
-    private int health = 50;
-    private int strength = 5;
+    private int health = 20;
+    private int strength = 3;
 
     public Goblin() {
     }

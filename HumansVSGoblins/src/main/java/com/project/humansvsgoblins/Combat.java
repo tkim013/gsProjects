@@ -34,6 +34,8 @@ public class Combat {
                 System.out.println(def + " is winner.");
                 return def;
             }
+
+            System.out.println(att + " health: " + att.getHealth() + "\n" + def + " health: " + def.getHealth());
         }
     }
 }

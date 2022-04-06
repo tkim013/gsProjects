@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="dbb0f1cf-7b1b-4000-9f2d-6211f666c8c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumansVSGoblins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HumansVSGoblins.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Combat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Goblin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Goblin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Goblin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Main2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Main2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

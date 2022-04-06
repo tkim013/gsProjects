@@ -1,9 +1,9 @@
 package com.project.humansvsgoblins;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Human extends Creature{
-    ArrayList<ArrayList<Land>> gw = GameWorld.getLandList();
+    List<List<Land>> gw = GameWorld.getLandList();
 
     private int health = 20;
     private int strength = 5;
