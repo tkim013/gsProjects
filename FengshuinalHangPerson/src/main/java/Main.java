@@ -4,6 +4,8 @@ import java.nio.file.Path;
 public class Main {
     public static void main(String[] args) {
 
+        RandomWord rw = new RandomWord();
+
         int state = 0;
 
         //one loop to rule them all
