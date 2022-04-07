@@ -5,11 +5,13 @@ import java.util.List;
 
 public class GameWorld {
 
-    private static List<List<Land>> landList = new ArrayList<>();
+    private static List<List<Land>> landList;
     final static int row = 10;
     final static int col = 10;
 
     public GameWorld() {
+
+        landList = new ArrayList<>();
 
         for (int i = 0; i < col; i++) {
             landList.add(new ArrayList<>());

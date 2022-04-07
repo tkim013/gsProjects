@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbb0f1cf-7b1b-4000-9f2d-6211f666c8c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumansVSGoblins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HumansVSGoblins.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Combat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Goblin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Goblin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Goblin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Main2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/humansvsgoblins/Main2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -43,10 +41,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.Main2">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.HelloApplication" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.project.humansvsgoblins" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CombatTest">
+    <configuration name="CombatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblins" />
       <extension name="coverage">
         <pattern>
@@ -54,12 +64,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.Main" />
+    <configuration name="CombatTest.resolveCombatAttWin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblins" />
       <extension name="coverage">
         <pattern>
@@ -67,12 +79,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
+      <option name="METHOD_NAME" value="resolveCombatAttWin" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.Main2" />
+    <configuration name="CombatTest.resolveCombatDefWin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblins" />
       <extension name="coverage">
         <pattern>
@@ -80,15 +95,53 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
+      <option name="METHOD_NAME" value="resolveCombatDefWin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CombatTest.resolveCombatGoblinVGoblin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HumansVSGoblins" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.humansvsgoblins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
+      <option name="METHOD_NAME" value="resolveCombatGoblinVGoblin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CombatTest.resolveCombatHumanVHuman" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HumansVSGoblins" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.humansvsgoblins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
+      <option name="METHOD_NAME" value="resolveCombatHumanVHuman" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main2" />
-        <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CombatTest" />
+        <item itemvalue="JUnit.CombatTest.resolveCombatDefWin" />
+        <item itemvalue="JUnit.CombatTest.resolveCombatAttWin" />
+        <item itemvalue="JUnit.CombatTest.resolveCombatHumanVHuman" />
+        <item itemvalue="JUnit.CombatTest.resolveCombatGoblinVGoblin" />
       </list>
     </recent_temporary>
   </component>
