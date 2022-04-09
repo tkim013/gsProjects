@@ -9,15 +9,14 @@ public class Main {
         RandomWord rw = new RandomWord();
         Scanner in = new Scanner(System.in);
         Set<Character> guessSet = new HashSet<>(); //holds guessed chararacters
-        List<Character> secretWord = new ArrayList<>();; //word to be guessed
+        List<Character> secretWord; //word to be guessed
         StringBuilder missString = new StringBuilder(); //miss string for wordbox display
 
-        String guessString = ""; //stores character guess
+        String guessString = "c"; //stores character guess
         String playAgain = ""; //input for main loop continuation
         String wordOut = ""; //String of secretWord
 
         int state; //hangman state
-        int result; //input validity
 
         //The One Loop to rule them all
         while (true) {
@@ -57,7 +56,13 @@ public class Main {
             }
 
             //input
+            guessString = guessInput(in, guessString, guessSet, 0);
 
+            //if letter guessed is not in secret word, append missString and increment guessState
+            if (!secretWord.contains(guessString.charAt(0))) {
+                missString.append(guessString.charAt(0));
+                state++;
+            }
             break;
         }
         //high score
@@ -102,5 +107,43 @@ public class Main {
 
         //check for correct guess, returns boolean
         return wordOut.equals(guessed);
+    }
+
+    public static String guessInput(Scanner in, String guessString, Set<Character> guessSet, int guessResult) {
+
+        System.out.println("Guess a letter.\n");
+
+        //char guess input
+        try {
+
+            guessString = in.nextLine().toLowerCase();
+
+        } catch (Exception e) {
+                System.out.println("Exception guess input");
+        }
+        //evaluates validity of guess
+        guessResult = evaluateGuess(guessSet, guessString);
+
+        //end condition
+        if (guessResult == 1) {
+            guessSet.add(guessString.charAt(0));
+            return guessString;
+        } else {
+            return guessInput(in, guessString, guessSet, guessResult);
+        }
+    }
+
+    public static int evaluateGuess(Set<Character> set, String guess) {
+        //check not empty, previous guess, is a char, length check - char has already been guessed
+        if (!guess.isEmpty() && set.contains(guess.charAt(0)) && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
+            System.out.println("You have already guessed that letter. Choose again.\n");
+            return 0;
+            //check not empty, is a char, length check - valid input
+        } else if (!guess.isEmpty() && Character.isLetter(guess.charAt(0)) && guess.length() == 1) {
+            return 1;
+        } else {
+            System.out.println("Invalid input. Choose again.\n");
+        }
+        return 2;
     }
 }
