@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -218,6 +219,7 @@ public class Main {
         try {
             //read file into List<List<String>>
             Files.readAllLines(Path.of(fName))
+                    //add each line as split array into scoreList
                     .forEach(e -> scoreList.add(Arrays.asList(e.split(" "))));
 
         } catch (IOException e) {
@@ -237,14 +239,23 @@ public class Main {
                     .getAsInt();
         }
 
+        //high score if score list empty or score is > current high score
         if (scoreList.isEmpty() || score > max) {
             System.out.println(pName + ", you have the highest score of " + score + ".");
         } else {
             System.out.println(pName + ", your score is: " + score + ".");
-//            List<String> hscinfo = scoreList.stream()
-//                    .filter(e -> e.contains(max));
-////            System.out.println("High score is " + scoreList.get(scoreList.).get(0) +
-////                    " with score of " + max + ".");
+
+            final int m = max;
+
+            //List string of max scorer
+            List<String> h = scoreList.stream()
+                    //filter max score
+                    .filter(e -> e.get(1).contains(Integer.toString(m)))
+                    //map name
+                    .map(l -> l.get(0))
+                    .collect(Collectors.toList());
+
+            System.out.println("High score is " + h.get(0) + " with score of " + max + ".");
         }
 
         try {
