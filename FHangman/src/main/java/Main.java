@@ -1,3 +1,4 @@
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -14,8 +15,10 @@ public class Main {
 
         String guessString = ""; //stores character guess
         String playAgain = ""; //input for main loop continuation
+        String playerName;
 
         int state; //hangman state
+        int score; //game score
 
         //The One Loop to rule them all
         while (true) {
@@ -23,21 +26,32 @@ public class Main {
             state = 0; //reset guessState
             guessSet.clear(); //clear guessSet
             missString.setLength(0); //clear missString
+            score = 0; //reset score
+            playerName = "error"; //reset player name
+
             //set secret word
             secretWord = rw.getWord()
                     .chars()
                     .mapToObj(e -> (char) e)
                     .collect(Collectors.toList());
-            game(in, guessSet, secretWord, missString, guessString, state);
+
+            //name input
+            playerName = nameInput(in, playerName);
+
+            //the game
+            score = game(in, guessSet, secretWord, missString, guessString, state, score);
+            //high score
+            evaluateScore(in, playerName, score);
+            //play again?
             if (repeatInput(in, playAgain).equals("no")) {
                 break;
             }
-            //high score
         }
+        in.close();
     }
 
     public static int game(Scanner in, Set<Character> guessSet, List<Character> secretWord,
-                           StringBuilder missString, String guessString, int state) {
+                           StringBuilder missString, String guessString, int state, int score) {
 
         //hangman display by state
         display(state);
@@ -46,30 +60,33 @@ public class Main {
                 .substring(1, 3 * secretWord.size() - 1)
                 .replaceAll(", ", "");
 
-        //check for complete hanged stickman victim
+        //check for complete hanged stickman victim, return score - end condition
         if (state == 7) {
             System.out.println("The word is: " + wordOut);
             System.out.println("Everyone reaches their eventual demise. It just came for you a bit sooner than " +
                     "expected. At least you finished life before anyone else you know right? W-I-N-N-E-R!!! but not.");
-            return 1;
+            return score;
         }
 
-        //check for win, wordbox display
+        //check for win, wordbox display, return score - end condition
         if (wordBox(secretWord, missString.toString(), guessSet)) {
 
             System.out.println("Yes! The secret word is \"" + wordOut + "\"! You have won!\n");
-            return 2;
+            return score;
         }
 
         //input
-        guessString = guessInput(in, guessString, guessSet, 0);
+        guessString = guessInput(in, guessString, guessSet);
 
         //if letter guessed is not in secret word, append missString and increment guessState
         if (!secretWord.contains(guessString.charAt(0))) {
             missString.append(guessString.charAt(0));
             state++;
+            score -= 2 * guessString.length(); //-(2 * length of word) pts for missed guess
+        } else {
+            score += 10 * guessString.length(); //10 * length of word pts for correct guess
         }
-        return game(in, guessSet, secretWord, missString, guessString, state);
+        return game(in, guessSet, secretWord, missString, guessString, state, score);
     }
 
     public static void display(int state) {
@@ -79,12 +96,12 @@ public class Main {
             Files.readAllLines(Path.of("src/main/resources/display.txt")).stream()
                     //filter lines starting with state
                     .filter(e -> e.startsWith(Integer.toString(state)))
-                    //replace state with '_'
+                    //replace state with ' '
                     .map(s -> s.replace(Character.forDigit(state, 10), ' '))
                     //print
                     .forEach(System.out::println);
 
-        } catch (Throwable e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -113,7 +130,7 @@ public class Main {
         return wordOut.equals(guessed);
     }
 
-    public static String guessInput(Scanner in, String guessString, Set<Character> guessSet, int guessResult) {
+    public static String guessInput(Scanner in, String guessString, Set<Character> guessSet) {
 
         System.out.println("Guess a letter.\n");
 
@@ -123,17 +140,18 @@ public class Main {
             guessString = in.nextLine().toLowerCase();
 
         } catch (Exception e) {
-                System.out.println("Exception guess input");
+            e.printStackTrace();
         }
         //evaluates validity of guess
-        guessResult = evaluateGuess(guessSet, guessString);
+        int guessResult = evaluateGuess(guessSet, guessString);
 
         //end condition
         if (guessResult == 1) {
+            //adds valid char to guessSet
             guessSet.add(guessString.charAt(0));
             return guessString;
         } else {
-            return guessInput(in, guessString, guessSet, guessResult);
+            return guessInput(in, guessString, guessSet);
         }
     }
 
@@ -158,10 +176,10 @@ public class Main {
         try {
             playAgain = in.nextLine().toLowerCase();
         } catch (Exception e) {
-            System.out.println("Exception");
+            e.printStackTrace();
         }
 
-        //return string if valid input
+        //return string if valid input, end condition
         if (evaluatePlayAgain(playAgain)) {
             return playAgain;
         } else {
@@ -178,5 +196,93 @@ public class Main {
         //returns false if unacceptable value
         System.out.println("Invalid input.");
         return false;
+    }
+
+    public static void evaluateScore(Scanner in, String pName, int score) {
+
+        List<List<String>> scoreList = new ArrayList<>();
+        final String fName = "src/main/resources/score.txt"; //file path
+
+        int max = -1;
+
+        //create file if none
+        try {
+            File file = new File(fName);
+            if (!file.exists()) { //check if file exists
+                file.createNewFile(); //create file
+            }
+        } catch (IOException e) {
+            System.out.println("IOException create File");
+        }
+
+        try {
+            //read file into List<List<String>>
+            BufferedReader br = new BufferedReader(new FileReader(fName));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(" ");
+                scoreList.add(Arrays.asList(values));
+            }
+            br.close();
+
+        } catch (IOException e) {
+            System.out.println("IOException read File");
+        }
+
+        //find high score
+        if (!scoreList.isEmpty()) {
+            max = scoreList.stream()
+                    //map over return index 1 score
+                    .map(e -> e.get(1))
+                    //convert to intStream
+                    .mapToInt(Integer::parseInt)
+                    //find max
+                    .max()
+                    //return as int
+                    .getAsInt();
+        }
+
+        if (scoreList.isEmpty() || score > max) {
+            System.out.println(pName + ", you have the highest score of " + score + ".");
+        } else {
+            System.out.println(pName + ", your score is: " + score + ".");
+        }
+
+        try {
+            //write score to file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fName, true));
+            bw.write(pName + " " + score + System.getProperty("line.separator"));
+            bw.close();
+        } catch (IOException e) {
+            System.out.println("IOException writeToAFile");
+        }
+    }
+
+    public static String nameInput(Scanner in, String name) {
+        System.out.println("Enter your name.");
+
+        //player name input
+        try {
+            name = in.nextLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //return string if valid input, end condition
+        if (evaluateName(name)) {
+            return name;
+        } else {
+            return nameInput(in, name);
+        }
+    }
+
+    public static boolean evaluateName(String s) {
+
+        //check string for spaces, returns false if detected
+        if (s.contains(" ")) {
+            System.out.println("Name cannot have space(s). Try again.");
+            return false;
+        }
+        return true;
     }
 }
