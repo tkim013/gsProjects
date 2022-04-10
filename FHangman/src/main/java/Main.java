@@ -217,13 +217,8 @@ public class Main {
 
         try {
             //read file into List<List<String>>
-            BufferedReader br = new BufferedReader(new FileReader(fName));
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(" ");
-                scoreList.add(Arrays.asList(values));
-            }
-            br.close();
+            Files.readAllLines(Path.of(fName))
+                    .forEach(e -> scoreList.add(Arrays.asList(e.split(" "))));
 
         } catch (IOException e) {
             System.out.println("IOException read File");
@@ -246,6 +241,10 @@ public class Main {
             System.out.println(pName + ", you have the highest score of " + score + ".");
         } else {
             System.out.println(pName + ", your score is: " + score + ".");
+//            List<String> hscinfo = scoreList.stream()
+//                    .filter(e -> e.contains(max));
+////            System.out.println("High score is " + scoreList.get(scoreList.).get(0) +
+////                    " with score of " + max + ".");
         }
 
         try {
