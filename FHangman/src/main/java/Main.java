@@ -12,7 +12,7 @@ public class Main {
         List<Character> secretWord; //word to be guessed
         StringBuilder missString = new StringBuilder(); //miss string for wordbox display
 
-        String guessString = "c"; //stores character guess
+        String guessString = ""; //stores character guess
         String playAgain = ""; //input for main loop continuation
         String wordOut = ""; //String of secretWord
 
@@ -29,43 +29,46 @@ public class Main {
                     .chars()
                     .mapToObj(e -> (char) e)
                     .collect(Collectors.toList());
-
-            //hangman display by state
-            display(state);
-
-//            secretWord.add('p');
-//            secretWord.add('o');
-//            secretWord.add('p');
-//            guessSet.add('p');
-//            guessSet.add('o');
-
-            //check for complete hanged stickman victim, loop exit
-            wordOut = secretWord.toString()
-                    .substring(1, 3 * secretWord.size() - 1)
-                    .replaceAll(", ", "");
-            if (state == 7) {
-                System.out.println("The word is: " + wordOut);
-                System.out.println("Everyone reaches their eventual demise. It just came for you a bit sooner than " +
-                        "expected. At least you finished life before anyone else you know right? W-I-N-N-E-R!!! but not.");
-            }
-
-            if (wordBox(secretWord, missString.toString(), guessSet)) {
-
-                System.out.println("Yes! The secret word is \"" + wordOut + "\"! You have won!\n");
-                break;
-            }
-
-            //input
-            guessString = guessInput(in, guessString, guessSet, 0);
-
-            //if letter guessed is not in secret word, append missString and increment guessState
-            if (!secretWord.contains(guessString.charAt(0))) {
-                missString.append(guessString.charAt(0));
-                state++;
-            }
+            game(rw, in, guessSet, secretWord, missString, guessString, wordOut, state);
             break;
         }
         //high score
+    }
+
+    public static int game(RandomWord rw, Scanner in, Set<Character> guessSet, List<Character> secretWord,
+                            StringBuilder missString, String guessString, String wordOut, int state) {
+
+        //hangman display by state
+        display(state);
+
+        wordOut = secretWord.toString()
+                .substring(1, 3 * secretWord.size() - 1)
+                .replaceAll(", ", "");
+
+        //check for complete hanged stickman victim
+        if (state == 7) {
+            System.out.println("The word is: " + wordOut);
+            System.out.println("Everyone reaches their eventual demise. It just came for you a bit sooner than " +
+                    "expected. At least you finished life before anyone else you know right? W-I-N-N-E-R!!! but not.");
+            return 1;
+        }
+
+        //check for win, wordbox display
+        if (wordBox(secretWord, missString.toString(), guessSet)) {
+
+            System.out.println("Yes! The secret word is \"" + wordOut + "\"! You have won!\n");
+            return 1;
+        }
+
+        //input
+        guessString = guessInput(in, guessString, guessSet, 0);
+
+        //if letter guessed is not in secret word, append missString and increment guessState
+        if (!secretWord.contains(guessString.charAt(0))) {
+            missString.append(guessString.charAt(0));
+            state++;
+        }
+        return game(rw, in, guessSet, secretWord, missString, guessString, wordOut, state);
     }
 
     public static void display(int state) {
