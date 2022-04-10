@@ -14,7 +14,6 @@ public class Main {
 
         String guessString = ""; //stores character guess
         String playAgain = ""; //input for main loop continuation
-        String wordOut = ""; //String of secretWord
 
         int state; //hangman state
 
@@ -29,19 +28,21 @@ public class Main {
                     .chars()
                     .mapToObj(e -> (char) e)
                     .collect(Collectors.toList());
-            game(rw, in, guessSet, secretWord, missString, guessString, wordOut, state);
-            break;
+            game(in, guessSet, secretWord, missString, guessString, state);
+            if (repeatInput(in, playAgain).equals("no")) {
+                break;
+            }
+            //high score
         }
-        //high score
     }
 
-    public static int game(RandomWord rw, Scanner in, Set<Character> guessSet, List<Character> secretWord,
-                            StringBuilder missString, String guessString, String wordOut, int state) {
+    public static int game(Scanner in, Set<Character> guessSet, List<Character> secretWord,
+                           StringBuilder missString, String guessString, int state) {
 
         //hangman display by state
         display(state);
 
-        wordOut = secretWord.toString()
+        String wordOut = secretWord.toString()
                 .substring(1, 3 * secretWord.size() - 1)
                 .replaceAll(", ", "");
 
@@ -57,7 +58,7 @@ public class Main {
         if (wordBox(secretWord, missString.toString(), guessSet)) {
 
             System.out.println("Yes! The secret word is \"" + wordOut + "\"! You have won!\n");
-            return 1;
+            return 2;
         }
 
         //input
@@ -68,7 +69,7 @@ public class Main {
             missString.append(guessString.charAt(0));
             state++;
         }
-        return game(rw, in, guessSet, secretWord, missString, guessString, wordOut, state);
+        return game(in, guessSet, secretWord, missString, guessString, state);
     }
 
     public static void display(int state) {
@@ -148,5 +149,34 @@ public class Main {
             System.out.println("Invalid input. Choose again.\n");
         }
         return 2;
+    }
+
+    public static String repeatInput(Scanner in, String playAgain) {
+        System.out.println("Do you want to play again? (yes or no)");
+
+        //input for continuation of main loop
+        try {
+            playAgain = in.nextLine().toLowerCase();
+        } catch (Exception e) {
+            System.out.println("Exception");
+        }
+
+        //return string if valid input
+        if (evaluatePlayAgain(playAgain)) {
+            return playAgain;
+        } else {
+            return repeatInput(in, playAgain);
+        }
+    }
+
+    public static boolean evaluatePlayAgain(String s) {
+
+        //check string for "yes" or "no", returns true if valid
+        if (s.equals("yes") || s.equals("no")) {
+            return true;
+        }
+        //returns false if unacceptable value
+        System.out.println("Invalid input.");
+        return false;
     }
 }
