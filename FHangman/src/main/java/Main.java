@@ -214,9 +214,9 @@ public class Main {
 
         try {
             //read file into List<List<String>>
-            Files.readAllLines(Path.of(fName))
-                    //add each line as split array into scoreList
-                    .forEach(e -> scoreList.add(Arrays.asList(e.split(" "))));
+           scoreList = Files.readAllLines(Path.of(fName)).stream()
+                   .map(e -> Arrays.asList(e.split(" ")))
+                   .collect(Collectors.toList());
 
         } catch (IOException e) {
             System.out.println("IOException read File");
@@ -244,14 +244,12 @@ public class Main {
             final int m = max;
 
             //List string of max scorer
-            List<String> h = scoreList.stream()
+            String h = scoreList.stream()
                     //filter max score
                     .filter(e -> e.get(1).contains(Integer.toString(m)))
-                    //map name
-                    .map(l -> l.get(0))
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toList()).get(0).get(0);
 
-            System.out.println("High score is " + h.get(0) + " with score of " + max + ".");
+            System.out.println("High score is " + h + " with score of " + max + ".");
         }
 
         try {
