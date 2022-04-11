@@ -9,7 +9,8 @@ public class Land {
 
     @Override
     public String toString() {
-        return "_";
+        //if hasCreature not null, return toString() of hasCreature
+        return getHasCreature() == null ? "_" : hasCreature.toString();
     }
 
     public Object getHasCreature() {

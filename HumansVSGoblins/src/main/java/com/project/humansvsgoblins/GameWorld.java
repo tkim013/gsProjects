@@ -28,12 +28,7 @@ public class GameWorld {
         StringBuilder sb = new StringBuilder();
         for (List<Land> list : landList) {
             for (Land l : list) {
-                //if there is object in Land.hasCreature, append with char representation of object
-                if (l.getHasCreature() == null) {
                     sb.append(l);
-                } else {
-                    sb.append(l.getHasCreature());
-                }
             }
             sb.append("\n");
         }
