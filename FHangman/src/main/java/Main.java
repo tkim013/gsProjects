@@ -181,11 +181,7 @@ public class Main {
         }
 
         //return string if valid input, end condition
-        if (evaluatePlayAgain(playAgain)) {
-            return playAgain;
-        } else {
-            return repeatInput(in, playAgain);
-        }
+        return evaluatePlayAgain(playAgain) ? playAgain : repeatInput(in, playAgain);
     }
 
     public static boolean evaluatePlayAgain(String s) {
@@ -279,11 +275,7 @@ public class Main {
         }
 
         //return string if valid input, end condition
-        if (evaluateName(name)) {
-            return name;
-        } else {
-            return nameInput(in, name);
-        }
+        return evaluateName(name) ? name : nameInput(in, name);
     }
 
     public static boolean evaluateName(String s) {
