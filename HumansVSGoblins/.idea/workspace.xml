@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbb0f1cf-7b1b-4000-9f2d-6211f666c8c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/humansvsgoblins/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumansVSGoblins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HumansVSGoblins.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +51,35 @@
       <recent name="com.project.humansvsgoblins" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main2">
-    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.Main2" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.HelloApplication" />
+      <module name="HumansVSGoblins" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.humansvsgoblins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.Main" />
+      <module name="HumansVSGoblins" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.humansvsgoblins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.Main" />
       <module name="HumansVSGoblins" />
       <extension name="coverage">
         <pattern>
@@ -80,22 +106,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CombatTest.resolveCombatAttWin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HumansVSGoblins" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.project.humansvsgoblins.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
-      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
-      <option name="METHOD_NAME" value="resolveCombatAttWin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CombatTest.resolveCombatDefWin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblins" />
       <extension name="coverage">
@@ -112,29 +122,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CombatTest.resolveCombatHumanVHuman" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HumansVSGoblins" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.project.humansvsgoblins.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.project.humansvsgoblins" />
-      <option name="MAIN_CLASS_NAME" value="com.project.humansvsgoblins.CombatTest" />
-      <option name="METHOD_NAME" value="resolveCombatHumanVHuman" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.Main2" />
         <item itemvalue="JUnit.CombatTest" />
         <item itemvalue="JUnit.CombatTest.resolveCombatDefWin" />
-        <item itemvalue="JUnit.CombatTest.resolveCombatAttWin" />
-        <item itemvalue="JUnit.CombatTest.resolveCombatHumanVHuman" />
       </list>
     </recent_temporary>
   </component>

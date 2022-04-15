@@ -1,40 +1,43 @@
 package com.project.humansvsgoblins;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import java.util.Arrays;
+import java.util.Scanner;
 
-public class Main extends Application implements EventHandler<ActionEvent> {
-    Button button;
+public class Main {
     public static void main(String[] args) {
-        launch(args);
-    }
+        Scanner in = new Scanner(System.in);
+        GameWorld gw = new GameWorld();
+        Human h = new Human(50, 5, new int[]{5, 5});
+        String m = "";
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage.setTitle("Title thing");
+        //randomized goblin placement
+        gw.populateGoblins(5);
 
-        button = new Button();
-        button.setText("clickme");
+        while (true) {
 
-        button.setOnAction(this);
+            System.out.println(gw);
+            System.out.println("@ - Human  G - Goblin");
 
-        StackPane layout = new StackPane();
-        layout.getChildren().add(button);
+            //exit game when human health 0 or less
+            if (h.getHealth() <= 0) {
+                System.out.println("You bought the farm, met your maker, and pushing up daisies. GAME OVER.");
+                break;
+            }
+            System.out.println("Health: " + h.getHealth() + "  Position: " + Arrays.toString(h.getCurrentPos()));
+            System.out.println("Move human. (n/s/e/w) or \"q\" to quit");
 
-        Scene scene = new Scene(layout, 300, 250);
-        stage.setScene(scene);
-        stage.show();
-    }
+            try {
+                m = in.nextLine().toLowerCase();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        if (actionEvent.getSource()==button) {
-            System.out.println("ummmm yeah");
+            if (m.equals("q")) {
+                in.close();
+                break;
+            }
+
+            h.move(m);
         }
     }
 }
