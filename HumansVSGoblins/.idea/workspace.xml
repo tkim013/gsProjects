@@ -5,8 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbb0f1cf-7b1b-4000-9f2d-6211f666c8c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/PrimaryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/SecondaryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/resources/org/project/primary.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/resources/org/project/secondary.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumansVSGoblins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HumansVSGoblins.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Combat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,16 +53,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -126,7 +142,6 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="Application.Main2" />
         <item itemvalue="JUnit.CombatTest" />
         <item itemvalue="JUnit.CombatTest.resolveCombatDefWin" />
       </list>

@@ -51,7 +51,7 @@ public class GameWorld {
                 }
             }
 
-            for (int i = 0; i < num; i++) {
+            for (int i = 0; i < num;) {
 
                 r = (int) (Math.random() * row);
                 c = (int) (Math.random() * col);
@@ -60,6 +60,7 @@ public class GameWorld {
                 if (table.get(c).get(r) && landList.get(c).get(r).getHasCreature() == null) {
                     landList.get(c).get(r).setHasCreature(new Goblin());
                     table.get(c).set(r, false);
+                    i++;
                 }
             }
         } else {
