@@ -42,170 +42,271 @@ public class Human extends Creature{
 
     public int move(GridPane gridPane, String s) {
 
-        //check valid moves, assign null to land object at currentPos, assign this Human to new position
-        //check if destination Land.hasCreature not null, Combat.resolveCombat with Object, assigns winner to Land.hasCreature
-        switch (s) {
-            case "n" :
+        if (getHealth() >= 0) {
+            //check valid moves, assign null to land object at currentPos, assign this Human to new position
+            //check if destination Land.hasCreature not null, Combat.resolveCombat with Object, assigns winner to Land.hasCreature
+            switch (s) {
+                case "n":
 
-                if (this.currentPos[0] - 1 < 0) {
+                    if (this.currentPos[0] - 1 < 0) {
+                        System.out.println("Invalid move.");
+                        return 0;
+                    }
+
+                    //valid move, creature in destination
+                    if (gw.get(currentPos[0] - 1).get(currentPos[1]).getHasCreature() != null) {
+
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[0]--;
+                        gw.get(currentPos[0]).get(currentPos[1])
+                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                        if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+
+                            //remove goblin image from gridPane
+                            ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
+                            gridPane.getChildren().remove(g);
+                        } else if (gridPane != null) {
+                            //remove human image from grid
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+
+                        return 2;
+
+                    } else {
+
+                        //valid move, no creature in destination
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[0]--;
+                        gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                        if (gridPane != null) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                        }
+
+                        return 1;
+                    }
+
+                case "s":
+
+                    if (this.currentPos[0] + 1 > GameWorld.getLandList().size() - 1) {
+                        System.out.println("Invalid move.");
+                        return 0;
+                    }
+
+                    //valid move, creature in destination
+                    if (gw.get(currentPos[0] + 1).get(currentPos[1]).getHasCreature() != null) {
+
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[0]++;
+                        gw.get(currentPos[0]).get(currentPos[1])
+                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                        if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+
+                            //remove goblin image from gridPane
+                            ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
+                            gridPane.getChildren().remove(g);
+                        } else if (gridPane != null) {
+                            //remove human image from grid
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+
+                        return 2;
+
+                    } else {
+
+                        //valid move, no creature in destination
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[0]++;
+                        gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                        if (gridPane != null) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                        }
+
+                        return 1;
+                    }
+
+                case "e":
+
+                    if (this.currentPos[1] + 1 > GameWorld.getLandList().get(0).size() - 1) {
+                        System.out.println("Invalid move.");
+                        return 0;
+                    }
+
+                    //valid move, creature in destination
+                    if (gw.get(currentPos[0]).get(currentPos[1] + 1).getHasCreature() != null) {
+
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[1]++;
+                        gw.get(currentPos[0]).get(currentPos[1])
+                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+
+                        if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+
+                            //remove goblin image from gridPane
+                            ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
+                            gridPane.getChildren().remove(g);
+                        } else if (gridPane != null) {
+                            //remove human image from grid
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+
+                        return 2;
+
+                    } else {
+
+                        //valid move, no creature in destination
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[1]++;
+                        gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                        if (gridPane != null) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                        }
+
+                        return 1;
+                    }
+
+                case "w":
+
+                    if (this.currentPos[1] - 1 < 0) {
+                        System.out.println("Invalid move.");
+                        return 0;
+                    }
+
+                    //valid move, creature in destination
+                    if (gw.get(currentPos[0]).get(currentPos[1] - 1).getHasCreature() != null) {
+
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[1]--;
+                        gw.get(currentPos[0]).get(currentPos[1])
+                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+
+                        if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+
+                            //remove goblin image from gridPane
+                            ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
+                            gridPane.getChildren().remove(g);
+                        } else if (gridPane != null) {
+                            //remove human image from grid
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+
+                        return 2;
+
+                    } else {
+
+                        //valid move, no creature in destination
+                        gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
+                        //remove human image from grid
+                        if (gridPane != null) {
+                            ImageView h = (ImageView) gridPane.lookup("#human");
+                            gridPane.getChildren().remove(h);
+                        }
+                        this.currentPos[1]--;
+                        gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
+                        if (gridPane != null) {
+                            //adds human image to current pos
+                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
+                            ImageView imageView = new ImageView(image);
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("human");
+                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                        }
+
+                        return 1;
+                    }
+
+                default:
+
                     System.out.println("Invalid move.");
                     return 0;
-                }
-
-                if (gw.get(currentPos[0] - 1).get(currentPos[1]).getHasCreature() != null) {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    this.currentPos[0]--;
-                    gw.get(currentPos[0]).get(currentPos[1])
-                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
-
-                    return 2;
-
-                } else {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    //remove human image from grid
-                    if (gridPane != null) {
-                        ImageView h = (ImageView) gridPane.lookup("#human");
-                        gridPane.getChildren().remove(h);
-                    }
-                    this.currentPos[0]--;
-                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                    if (gridPane != null) {
-                        //adds human image to current pos
-                        Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                        ImageView imageView = new ImageView(image);
-                        imageView.setFitHeight(60);
-                        imageView.setFitWidth(60);
-                        imageView.setId("human");
-                        gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
-                    }
-
-                    return 1;
-                }
-
-            case "s" :
-
-                if (this.currentPos[0] + 1 > GameWorld.getLandList().size() - 1) {
-                    System.out.println("Invalid move.");
-                    return 0;
-                }
-
-                if (gw.get(currentPos[0] + 1).get(currentPos[1]).getHasCreature() != null) {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    this.currentPos[0]++;
-                    gw.get(currentPos[0]).get(currentPos[1])
-                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
-
-                    return 2;
-
-                } else {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    //remove human image from grid
-                    if (gridPane != null) {
-                        ImageView h = (ImageView) gridPane.lookup("#human");
-                        gridPane.getChildren().remove(h);
-                    }
-                    this.currentPos[0]++;
-                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                    if (gridPane != null) {
-                        //adds human image to current pos
-                        Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                        ImageView imageView = new ImageView(image);
-                        imageView.setFitHeight(60);
-                        imageView.setFitWidth(60);
-                        imageView.setId("human");
-                        gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
-                    }
-
-                    return 1;
-                }
-
-            case "e" :
-
-                if (this.currentPos[1] + 1 > GameWorld.getLandList().get(0).size() - 1) {
-                    System.out.println("Invalid move.");
-                    return 0;
-                }
-
-                if (gw.get(currentPos[0]).get(currentPos[1] + 1).getHasCreature() != null) {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    this.currentPos[1]++;
-                    gw.get(currentPos[0]).get(currentPos[1])
-                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
-
-                    return 2;
-
-                } else {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    //remove human image from grid
-                    if (gridPane != null) {
-                        ImageView h = (ImageView) gridPane.lookup("#human");
-                        gridPane.getChildren().remove(h);
-                    }
-                    this.currentPos[1]++;
-                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                    if (gridPane != null) {
-                        //adds human image to current pos
-                        Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                        ImageView imageView = new ImageView(image);
-                        imageView.setFitHeight(60);
-                        imageView.setFitWidth(60);
-                        imageView.setId("human");
-                        gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
-                    }
-
-                    return 1;
-                }
-
-            case "w" :
-
-                if (this.currentPos[1] - 1 < 0) {
-                    System.out.println("Invalid move.");
-                    return 0;
-                }
-
-                if (gw.get(currentPos[0]).get(currentPos[1] - 1).getHasCreature() != null) {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    this.currentPos[1]--;
-                    gw.get(currentPos[0]).get(currentPos[1])
-                            .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
-
-                    return 2;
-
-                } else {
-
-                    gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
-                    //remove human image from grid
-                    if (gridPane != null) {
-                        ImageView h = (ImageView) gridPane.lookup("#human");
-                        gridPane.getChildren().remove(h);
-                    }
-                    this.currentPos[1]--;
-                    gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                    if (gridPane != null) {
-                        //adds human image to current pos
-                        Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                        ImageView imageView = new ImageView(image);
-                        imageView.setFitHeight(60);
-                        imageView.setFitWidth(60);
-                        imageView.setId("human");
-                        gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
-                    }
-
-                    return 1;
-                }
-
-            default :
-
-                System.out.println("Invalid move.");
-                return 0;
+            }
         }
+        return -1;
     }
 
     public int getHealth() {
