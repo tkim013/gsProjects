@@ -10,6 +10,9 @@ import javafx.scene.layout.GridPane;
 
 public class MyController {
 
+    Human h;
+    GameWorld gw;
+
     @FXML
     private GridPane gridPane;
 
@@ -29,13 +32,9 @@ public class MyController {
     private TextField textField;
 
     public MyController() {
-        System.out.println("first");
-
     }
 
     public void initialize() {
-
-        System.out.println("testing");
 
         //load gridPane with tile_grass image
         try {
@@ -54,15 +53,29 @@ public class MyController {
             e.printStackTrace();
         }
 
-        GameWorld gw = new GameWorld();
-        Human h = new Human(gridPane,50, 5, new int[] {5,5});
+        gw = new GameWorld();
+        h = new Human(gridPane,50, 5, new int[] {5,5});
 
         gw.populateGoblins(gridPane, 5);
     }
 
     @FXML
-    public void theButtonAction(ActionEvent e) {
-        System.out.println("buttonaction");
+    public void northButtonAction(ActionEvent e) {
+        h.move(gridPane, "n");
+    }
 
+    @FXML
+    public void southButtonAction(ActionEvent e) {
+        h.move(gridPane, "s");
+    }
+
+    @FXML
+    public void eastButtonAction(ActionEvent e) {
+        h.move(gridPane, "e");
+    }
+
+    @FXML
+    public void westButtonAction(ActionEvent e) {
+        h.move(gridPane, "w");
     }
 }

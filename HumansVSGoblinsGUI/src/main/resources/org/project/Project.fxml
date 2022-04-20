@@ -41,10 +41,10 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <Button fx:id="buttonNorth" layoutX="660.0" layoutY="601.0" mnemonicParsing="false" onAction="#theButtonAction" prefHeight="50.0" prefWidth="50.0" text="North" />
-      <Button fx:id="buttonSouth" layoutX="660.0" layoutY="703.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="South" />
-      <Button fx:id="buttonEast" layoutX="710.0" layoutY="651.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="East" />
-      <Button fx:id="buttonWest" layoutX="610.0" layoutY="651.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="West" />
+      <Button fx:id="buttonNorth" layoutX="660.0" layoutY="601.0" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" text="North" />
+      <Button fx:id="buttonSouth" layoutX="660.0" layoutY="703.0" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" text="South" />
+      <Button fx:id="buttonEast" layoutX="710.0" layoutY="651.0" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" text="East" />
+      <Button fx:id="buttonWest" layoutX="610.0" layoutY="651.0" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" text="West" />
       <TextField fx:id="textField" layoutX="14.0" layoutY="614.0" prefHeight="122.0" prefWidth="584.0" />
    </children>
 </Group>

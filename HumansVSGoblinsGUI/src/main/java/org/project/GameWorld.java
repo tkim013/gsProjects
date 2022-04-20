@@ -72,7 +72,8 @@ public class GameWorld {
                         ImageView imageView = new ImageView(image);
                         imageView.setFitHeight(60);
                         imageView.setFitWidth(60);
-                        gp.add(imageView, c, r);
+                        imageView.setId("goblin" + r + c);
+                        gp.add(imageView, r, c);
                     }
                 }
             }
