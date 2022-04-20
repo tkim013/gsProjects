@@ -72,7 +72,7 @@ public class GameWorld {
                         ImageView imageView = new ImageView(image);
                         imageView.setFitHeight(60);
                         imageView.setFitWidth(60);
-                        imageView.setId("goblin" + r + c);
+                        imageView.setId("goblin" + r + c);  //goblin id with coordinates for lookup
                         gp.add(imageView, r, c);
                     }
                 }

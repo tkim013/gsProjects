@@ -42,7 +42,7 @@ public class Human extends Creature{
 
     public int move(GridPane gridPane, String s) {
 
-        if (getHealth() >= 0) {
+        if (getHealth() > 0) {
             //check valid moves, assign null to land object at currentPos, assign this Human to new position
             //check if destination Land.hasCreature not null, Combat.resolveCombat with Object, assigns winner to Land.hasCreature
             switch (s) {

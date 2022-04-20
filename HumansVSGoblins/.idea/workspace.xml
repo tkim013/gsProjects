@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbb0f1cf-7b1b-4000-9f2d-6211f666c8c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/PrimaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/SecondaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/resources/org/project/primary.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/resources/org/project/secondary.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumansVSGoblins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HumansVSGoblins.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Combat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Goblin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Land.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/src/main/java/org/project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HumansVSGoblinsGUI/target/classes/org/project/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblinsGUI/target/classes/org/project/Human.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +37,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
