@@ -10,6 +10,7 @@ import java.util.List;
 public class Human extends Creature{
     List<List<Land>> gw = GameWorld.getLandList();
 
+    private String id = "Human";
     private int health = 20;
     private int strength = 5;
     private int[] currentPos = {0, 0}; //element0 - n/s, element1 - e/w
@@ -65,9 +66,12 @@ public class Human extends Creature{
                         }
                         //adjust position
                         this.currentPos[0]--;
+                        if (textArea != null) {
+                            textArea.appendText("You move north and encounter a creature.\n");
+                        }
                         //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
-                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                                .setHasCreature(Combat.resolveCombat(textArea, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(gridPane);
@@ -132,9 +136,12 @@ public class Human extends Creature{
                         }
                         //adjust position
                         this.currentPos[0]++;
+                        if (textArea != null) {
+                            textArea.appendText("You move south and encounter a creature.\n");
+                        }
                         //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
-                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                                .setHasCreature(Combat.resolveCombat(textArea, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(gridPane);
@@ -199,9 +206,12 @@ public class Human extends Creature{
                         }
                         //adjust position
                         this.currentPos[1]++;
+                        if (textArea != null) {
+                            textArea.appendText("You move east and encounter a creature.\n");
+                        }
                         //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
-                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                                .setHasCreature(Combat.resolveCombat(textArea, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(gridPane);
@@ -266,9 +276,12 @@ public class Human extends Creature{
                         }
                         //adjust position
                         this.currentPos[1]--;
+                        if (textArea != null) {
+                            textArea.appendText("You move west and encounter a creature.\n");
+                        }
                         //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
-                                .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                                .setHasCreature(Combat.resolveCombat(textArea, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
 
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
@@ -331,6 +344,14 @@ public class Human extends Creature{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getHealth() {

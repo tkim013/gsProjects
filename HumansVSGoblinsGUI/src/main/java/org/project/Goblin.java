@@ -1,6 +1,8 @@
 package org.project;
 
 public class Goblin extends Creature {
+
+    private String id = "\"Goblin\" totally not a sheep";
     private int health = 20;
     private int strength = 3;
 
@@ -10,6 +12,16 @@ public class Goblin extends Creature {
     @Override
     public String toString() {
         return "G";
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getHealth() {

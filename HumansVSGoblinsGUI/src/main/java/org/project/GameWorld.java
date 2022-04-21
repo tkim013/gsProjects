@@ -41,13 +41,6 @@ public class GameWorld {
 
     public static void populateGoblins(GridPane gridPane, int num) {
 
-        Image goblinImage = null;
-        try {
-            goblinImage = new Image("file:src/main/resources/org/project/goblin.png");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         //set limit on num to half map size
         if (num <= (row * col) / 2 && num > 0 && col > 0 && row > 0) {
 
@@ -76,11 +69,15 @@ public class GameWorld {
 
                     if (gridPane != null) {
                         //adds goblin image to GUI
-                        ImageView imageView = new ImageView(goblinImage);
-                        imageView.setFitHeight(60);
-                        imageView.setFitWidth(60);
-                        imageView.setId("goblin" + r + c);  //goblin id with coordinates for lookup
-                        gridPane.add(imageView, r, c);
+                        try {
+                            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/goblin.png"));
+                            imageView.setFitHeight(60);
+                            imageView.setFitWidth(60);
+                            imageView.setId("goblin" + r + c);  //goblin id with coordinates for lookup
+                            gridPane.add(imageView, r, c);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
