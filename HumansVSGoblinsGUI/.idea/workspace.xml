@@ -7,10 +7,15 @@
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../HumansVSGoblins/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HumansVSGoblins/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/org/project/HumanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/org/project/HumanTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Human.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/project/HumanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/project/HumanTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
       <recent name="org.project" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CombatTest">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.project.App" />
       <module name="HumansVSGoblinsGUI" />
@@ -93,37 +98,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameWorldTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HumansVSGoblinsGUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.project" />
-      <option name="MAIN_CLASS_NAME" value="org.project.GameWorldTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameWorldTest.populateGoblins" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HumansVSGoblinsGUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.project" />
-      <option name="MAIN_CLASS_NAME" value="org.project.GameWorldTest" />
-      <option name="METHOD_NAME" value="populateGoblins" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HumanTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblinsGUI" />
       <extension name="coverage">
@@ -139,13 +113,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HumanTest.moveNInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HumansVSGoblinsGUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.project" />
+      <option name="MAIN_CLASS_NAME" value="org.project.HumanTest" />
+      <option name="METHOD_NAME" value="moveNInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HumanTest.moveSInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HumansVSGoblinsGUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.project" />
+      <option name="MAIN_CLASS_NAME" value="org.project.HumanTest" />
+      <option name="METHOD_NAME" value="moveSInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CombatTest" />
-        <item itemvalue="JUnit.GameWorldTest" />
-        <item itemvalue="JUnit.HumanTest" />
-        <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.HumanTest" />
+        <item itemvalue="JUnit.HumanTest.moveNInvalid" />
+        <item itemvalue="JUnit.HumanTest.moveSInvalid" />
+        <item itemvalue="JUnit.CombatTest" />
       </list>
     </recent_temporary>
   </component>

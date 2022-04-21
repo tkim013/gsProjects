@@ -37,7 +37,7 @@ public class Main {
                 break;
             }
 
-            h.move(null, m);
+            h.move(null, null, m);
         }
     }
 }

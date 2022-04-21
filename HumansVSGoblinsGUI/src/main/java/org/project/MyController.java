@@ -3,6 +3,7 @@ package org.project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,7 +30,7 @@ public class MyController {
     private Button buttonWest;
 
     @FXML
-    private TextField textField;
+    private TextArea textArea;
 
     public MyController() {
     }
@@ -61,21 +62,21 @@ public class MyController {
 
     @FXML
     public void northButtonAction(ActionEvent e) {
-        h.move(gridPane, "n");
+        h.move(gridPane, textArea, "n");
     }
 
     @FXML
     public void southButtonAction(ActionEvent e) {
-        h.move(gridPane, "s");
+        h.move(gridPane, textArea, "s");
     }
 
     @FXML
     public void eastButtonAction(ActionEvent e) {
-        h.move(gridPane, "e");
+        h.move(gridPane, textArea, "e");
     }
 
     @FXML
     public void westButtonAction(ActionEvent e) {
-        h.move(gridPane, "w");
+        h.move(gridPane, textArea, "w");
     }
 }

@@ -1,5 +1,6 @@
 package org.project;
 
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -26,12 +27,7 @@ public class Human extends Creature{
 
         if (gridPane != null) {
             //adds human image to GUI
-            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-            ImageView imageView = new ImageView(image);
-            imageView.setFitHeight(60);
-            imageView.setFitWidth(60);
-            imageView.setId("human");
-            gridPane.add(imageView, this.currentPos[0], this.currentPos[1]);
+            addHumanImage(gridPane);
         }
     }
 
@@ -40,7 +36,7 @@ public class Human extends Creature{
         return "@";
     }
 
-    public int move(GridPane gridPane, String s) {
+    public int move(GridPane gridPane, TextArea textArea, String s) {
 
         if (getHealth() > 0) {
             //check valid moves, assign null to land object at currentPos, assign this Human to new position
@@ -48,31 +44,33 @@ public class Human extends Creature{
             switch (s) {
                 case "n":
 
+                    //check for move out of bounds
                     if (this.currentPos[0] - 1 < 0) {
                         System.out.println("Invalid move.");
+                        if (textArea != null) {
+                            textArea.appendText("Invalid move.\n");
+                        }
                         return 0;
                     }
 
                     //valid move, creature in destination
                     if (gw.get(currentPos[0] - 1).get(currentPos[1]).getHasCreature() != null) {
 
+                        //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (gridPane != null) {
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[0]--;
+                        //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
                                 .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
@@ -94,16 +92,18 @@ public class Human extends Creature{
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[0]--;
+
+                        if (textArea != null) {
+                            textArea.appendText("You move north.\n");
+                        }
+
+                        //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
                         if (gridPane != null) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
                         }
 
                         return 1;
@@ -111,31 +111,33 @@ public class Human extends Creature{
 
                 case "s":
 
+                    //check for move out of bounds
                     if (this.currentPos[0] + 1 > GameWorld.getLandList().size() - 1) {
                         System.out.println("Invalid move.");
+                        if (textArea != null) {
+                            textArea.appendText("Invalid move.\n");
+                        }
                         return 0;
                     }
 
                     //valid move, creature in destination
                     if (gw.get(currentPos[0] + 1).get(currentPos[1]).getHasCreature() != null) {
 
+                        //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (gridPane != null) {
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[0]++;
+                        //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
                                 .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
@@ -157,16 +159,18 @@ public class Human extends Creature{
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[0]++;
+
+                        if (textArea != null) {
+                            textArea.appendText("You move south.\n");
+                        }
+
+                        //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
                         if (gridPane != null) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
                         }
 
                         return 1;
@@ -174,32 +178,33 @@ public class Human extends Creature{
 
                 case "e":
 
+                    //check for move out of bounds
                     if (this.currentPos[1] + 1 > GameWorld.getLandList().get(0).size() - 1) {
                         System.out.println("Invalid move.");
+                        if (textArea != null) {
+                            textArea.appendText("Invalid move.\n");
+                        }
                         return 0;
                     }
 
                     //valid move, creature in destination
                     if (gw.get(currentPos[0]).get(currentPos[1] + 1).getHasCreature() != null) {
 
+                        //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (gridPane != null) {
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[1]++;
+                        //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
                                 .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
-
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
@@ -221,16 +226,18 @@ public class Human extends Creature{
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[1]++;
+
+                        if (textArea != null) {
+                            textArea.appendText("You move east.\n");
+                        }
+
+                        //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
                         if (gridPane != null) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
                         }
 
                         return 1;
@@ -238,32 +245,34 @@ public class Human extends Creature{
 
                 case "w":
 
+                    //check for move out of bounds
                     if (this.currentPos[1] - 1 < 0) {
                         System.out.println("Invalid move.");
+                        if (textArea != null) {
+                            textArea.appendText("Invalid move.\n");
+                        }
                         return 0;
                     }
 
                     //valid move, creature in destination
                     if (gw.get(currentPos[0]).get(currentPos[1] - 1).getHasCreature() != null) {
 
+                        //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (gridPane != null) {
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[1]--;
+                        //invoke combat, set winner
                         gw.get(currentPos[0]).get(currentPos[1])
                                 .setHasCreature(Combat.resolveCombat(this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
 
                         if (gridPane != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) gridPane.lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
@@ -285,16 +294,18 @@ public class Human extends Creature{
                             ImageView h = (ImageView) gridPane.lookup("#human");
                             gridPane.getChildren().remove(h);
                         }
+                        //adjust position
                         this.currentPos[1]--;
+
+                        if (textArea != null) {
+                            textArea.appendText("You move west.\n");
+                        }
+
+                        //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
                         if (gridPane != null) {
                             //adds human image to current pos
-                            Image image = new Image("file:src/main/resources/org/project/hooded-assassin.png");
-                            ImageView imageView = new ImageView(image);
-                            imageView.setFitHeight(60);
-                            imageView.setFitWidth(60);
-                            imageView.setId("human");
-                            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+                            addHumanImage(gridPane);
                         }
 
                         return 1;
@@ -307,6 +318,19 @@ public class Human extends Creature{
             }
         }
         return -1;
+    }
+
+    private void addHumanImage(GridPane gridPane) {
+
+        try {
+            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/hooded-assassin.png"));
+            imageView.setFitHeight(60);
+            imageView.setFitWidth(60);
+            imageView.setId("human");
+            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public int getHealth() {
