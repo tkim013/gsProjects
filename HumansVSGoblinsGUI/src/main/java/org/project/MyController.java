@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -55,7 +54,7 @@ public class MyController {
         }
 
         gw = new GameWorld();
-        h = new Human(gridPane,50, 5, new int[] {5,5});
+        h = new Human(gridPane,50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
 
         gw.populateGoblins(gridPane, 5);
     }
