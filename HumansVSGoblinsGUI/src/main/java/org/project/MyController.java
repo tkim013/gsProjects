@@ -3,6 +3,7 @@ package org.project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,11 +32,16 @@ public class MyController {
     @FXML
     private TextArea textArea;
 
+    @FXML
+    private ProgressBar progressBar;
+
     public MyController() {
     }
 
     public void initialize() {
 
+        //set color of progress bar to red
+        progressBar.setStyle("-fx-accent: red;");
         //load gridPane with tile_grass image
         try {
             Image image = new Image("file:src/main/resources/org/project/tile_grass.png");
@@ -54,28 +60,28 @@ public class MyController {
         }
 
         gw = new GameWorld();
-        h = new Human(gridPane,50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
+        h = new Human(gridPane, progressBar, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
 
         gw.populateGoblins(gridPane, 5);
     }
 
     @FXML
     public void northButtonAction(ActionEvent e) {
-        h.move(gridPane, textArea, "n");
+        h.move(gridPane, progressBar, textArea, "n");
     }
 
     @FXML
     public void southButtonAction(ActionEvent e) {
-        h.move(gridPane, textArea, "s");
+        h.move(gridPane, progressBar, textArea, "s");
     }
 
     @FXML
     public void eastButtonAction(ActionEvent e) {
-        h.move(gridPane, textArea, "e");
+        h.move(gridPane, progressBar, textArea, "e");
     }
 
     @FXML
     public void westButtonAction(ActionEvent e) {
-        h.move(gridPane, textArea, "w");
+        h.move(gridPane, progressBar, textArea, "w");
     }
 }

@@ -4,6 +4,8 @@ public class Goblin extends Creature {
 
     private String id = "\"Goblin\" totally not a sheep";
     private int health = 20;
+
+    private int maxHealth = 20;
     private int strength = 3;
 
     public Goblin() {

@@ -1,7 +1,6 @@
 package org.project;
 
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,7 +21,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Project.fxml"));
         Parent root = loader.load();
         MyController controller = loader.getController();
-        Scene scene = new Scene(root, 770, 770);
+        scene = new Scene(root, 770, 770);
         stage.setScene(scene);
         stage.setTitle("Goblins don't exist.");
         stage.show();

@@ -1,5 +1,6 @@
 package org.project;
 
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 
 public class Combat {
@@ -9,7 +10,7 @@ public class Combat {
     private final static int min = 1;
     private final static int range = max - min + 1;
 
-    public static Creature resolveCombat(TextArea textArea, Creature att, Creature def) {
+    public static Creature resolveCombat(TextArea textArea, ProgressBar progressBar, Creature att, Creature def) {
 
         int attDamage;
         int defDamage;
@@ -40,6 +41,9 @@ public class Combat {
                 textArea.appendText(def.getId() + " attacks " + att.getId() + " for " + defDamage + " damage.\n");
             }
             att.setHealth(att.getHealth() - defDamage);
+            if (progressBar != null) {
+                progressBar.setProgress((double)att.getHealth()/att.getMaxHealth());
+            }
 
             if (att.getHealth() <= 0) {
                 System.out.println(def + " is winner.");
