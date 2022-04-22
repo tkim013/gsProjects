@@ -44,18 +44,18 @@
       <StackPane layoutX="626.0" layoutY="626.0">
          <children>
             <Circle fill="GREY" radius="65.0" smooth="false" stroke="BLACK" strokeType="INSIDE" />
-            <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="TOP_CENTER">
+            <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="arrow-button" StackPane.alignment="TOP_CENTER">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="180.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="BOTTOM_CENTER" />
-            <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="90.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="CENTER_RIGHT">
+            <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="180.0" styleClass="arrow-button" StackPane.alignment="BOTTOM_CENTER" />
+            <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="90.0" styleClass="arrow-button" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets />
                </StackPane.margin>
             </Button>
-            <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="270.0" style="-fx-background-color: orange; -fx-mark-highlight-color: blue;" styleClass="arrow-button" StackPane.alignment="CENTER_LEFT" />
+            <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="270.0" styleClass="arrow-button" StackPane.alignment="CENTER_LEFT" />
             <Circle fill="GREY" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </StackPane>
