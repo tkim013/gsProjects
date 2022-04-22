@@ -352,9 +352,9 @@ public class Human extends Creature{
     private void addHumanImage(GridPane gridPane) {
 
         try {
-            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/hooded-assassin.png"));
+            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/goblinslayer.png"));
             imageView.setFitHeight(60);
-            imageView.setFitWidth(60);
+            imageView.setFitWidth(40);
             imageView.setId("human");
             gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
         } catch (Exception e) {

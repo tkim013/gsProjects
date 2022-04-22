@@ -85,7 +85,7 @@
       </Label>
       <Button fx:id="bigRedButton" focusTraversable="false" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" onAction="#bigRedButtonAction" prefHeight="125.0" prefWidth="125.0" styleClass="big-red-button" text="BIG RED BUTTON" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Button>
       <AnchorPane layoutX="32.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
@@ -94,5 +94,10 @@
             <Button fx:id="disableRickButton" layoutX="475.0" layoutY="430.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
          </children>
       </AnchorPane>
+      <Label layoutX="624.0" layoutY="155.0" prefHeight="24.0" prefWidth="140.0" text="DO NOT PUSH!!!" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </Group>
