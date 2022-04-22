@@ -29,6 +29,9 @@ public class MyController {
     private Button buttonWest;
 
     @FXML
+    private Button bigRedButton;
+
+    @FXML
     private TextArea textArea;
 
     @FXML
