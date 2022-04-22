@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebView;
 
 public class MyController {
 
@@ -42,6 +43,9 @@ public class MyController {
 
     @FXML
     private ProgressBar progressBar;
+
+    @FXML
+    private WebView webView;
 
     public MyController() {
     }
@@ -91,5 +95,11 @@ public class MyController {
     @FXML
     public void westButtonAction(ActionEvent e) {
         h.move(uiState, "w");
+    }
+
+    @FXML
+    public void bigRedButtonAction(ActionEvent e) {
+        webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        webView.setVisible(true);
     }
 }

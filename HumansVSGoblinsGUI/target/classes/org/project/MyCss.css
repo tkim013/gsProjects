@@ -3,20 +3,23 @@
 }
 
 .big-red-button {
+    -fx-background-color: red;
     -fx-shape: "M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0";
-}
+    }
+
+.big-red-button:pressed{
+    -fx-background-color: grey;
+    }
 
 .arrow-button {
-    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color, orange;
-    -fx-background-insets: 0 0 -1 0, 0;
-    -fx-padding: 0.25em;
+    -fx-background-color: orange;
     -fx-shape: "M 50 0 L 0 70 L 30 70 L 30 100 L 70 100 L 70 70 L 100 70 L 50 0 ";
-}
+    }
 
 .arrow-button:hover {
-    -fx-background-color: green;
-}
+    -fx-background-color: blue;
+    }
 
 .arrow-button:pressed {
-    -fx-background-color: blue;
-}
+    -fx-background-color: green;
+    }
