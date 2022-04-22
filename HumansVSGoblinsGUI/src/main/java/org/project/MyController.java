@@ -2,9 +2,7 @@ package org.project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -13,6 +11,7 @@ public class MyController {
 
     Human h;
     GameWorld gw;
+    UIState uiState;
 
     @FXML
     private GridPane gridPane;
@@ -31,6 +30,9 @@ public class MyController {
 
     @FXML
     private TextArea textArea;
+
+    @FXML
+    private Label hp;
 
     @FXML
     private ProgressBar progressBar;
@@ -60,28 +62,29 @@ public class MyController {
         }
 
         gw = new GameWorld();
-        h = new Human(gridPane, progressBar, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
+        uiState = new UIState(gridPane, progressBar, textArea, hp);
+        h = new Human(uiState, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
 
         gw.populateGoblins(gridPane, 5);
     }
 
     @FXML
     public void northButtonAction(ActionEvent e) {
-        h.move(gridPane, progressBar, textArea, "n");
+        h.move(uiState, "n");
     }
 
     @FXML
     public void southButtonAction(ActionEvent e) {
-        h.move(gridPane, progressBar, textArea, "s");
+        h.move(uiState, "s");
     }
 
     @FXML
     public void eastButtonAction(ActionEvent e) {
-        h.move(gridPane, progressBar, textArea, "e");
+        h.move(uiState, "e");
     }
 
     @FXML
     public void westButtonAction(ActionEvent e) {
-        h.move(gridPane, progressBar, textArea, "w");
+        h.move(uiState, "w");
     }
 }

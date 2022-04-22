@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         GameWorld gw = new GameWorld();
-        Human h = new Human(null, null, 50, 5, new int[]{5, 5});
+        Human h = new Human(null, 50, 5, new int[]{5, 5});
         String m = "";
 
         //randomized goblin placement
@@ -37,7 +37,7 @@ public class Main {
                 break;
             }
 
-            h.move(null, null, null, m);
+            h.move(null, m);
         }
     }
 }

@@ -22,13 +22,13 @@ class CombatTest {
 
     @Test
     void resolveCombatAttWin() {
-        Human h = new Human(null, null, 5, 20, new int[] {5, 5});
+        Human h = new Human(null, 5, 20, new int[] {5, 5});
         assertEquals(h, Combat.resolveCombat(null, null, h, new Goblin()), "Attacker win failed.");
     }
 
     @Test
     void resolveCombatDefWin() {
-        Human h = new Human(null, null, 1, 0, new int[] {5, 5});
+        Human h = new Human(null, 1, 0, new int[] {5, 5});
         Goblin g = new Goblin();
         assertEquals(g, Combat.resolveCombat(null, null, h, g), "Defender win failed.");
     }

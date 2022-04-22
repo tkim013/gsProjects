@@ -2,12 +2,14 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <Group xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
    <children>
@@ -41,11 +43,21 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <Button fx:id="buttonNorth" focusTraversable="false" layoutX="660.0" layoutY="601.0" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" text="North" />
-      <Button fx:id="buttonSouth" focusTraversable="false" layoutX="660.0" layoutY="703.0" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" text="South" />
-      <Button fx:id="buttonEast" focusTraversable="false" layoutX="710.0" layoutY="651.0" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" text="East" />
-      <Button fx:id="buttonWest" focusTraversable="false" layoutX="610.0" layoutY="651.0" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" text="West" />
-      <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="14.0" layoutY="613.0" prefHeight="145.0" prefWidth="590.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-background-color: grey; -fx-border-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
-      <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="622.0" layoutY="519.0" prefHeight="18.0" prefWidth="138.0" progress="0.0" />
+      <Button fx:id="buttonNorth" focusTraversable="false" layoutX="665.0" layoutY="600.0" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" text="North" />
+      <Button fx:id="buttonSouth" focusTraversable="false" layoutX="665.0" layoutY="702.0" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" text="South" />
+      <Button fx:id="buttonEast" focusTraversable="false" layoutX="715.0" layoutY="650.0" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" text="East" />
+      <Button fx:id="buttonWest" focusTraversable="false" layoutX="615.0" layoutY="651.0" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" text="West" />
+      <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="613.0" prefHeight="145.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-background-color: grey; -fx-border-color: grey;" text="WASD/arrow keys/buttons to move.&#10;" wrapText="true" />
+      <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="619.0" layoutY="519.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
+      <Label focusTraversable="false" layoutX="622.0" layoutY="492.0" text="Health">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="hp" layoutX="724.0" layoutY="492.0" text="HP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </Group>
