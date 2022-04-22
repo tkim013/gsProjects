@@ -8,8 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/UIState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/UIState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Human.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Human extends Creature{
@@ -34,6 +35,8 @@ public class Human extends Creature{
             uiState.getProgressBar().setProgress((double)getHealth()/getMaxHealth());
             //set hp label
             uiState.getHp().setText(String.valueOf(getHealth()));
+            //set current pos
+            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
         }
     }
 
@@ -73,13 +76,15 @@ public class Human extends Creature{
                         this.currentPos[0]--;
                         if (uiState != null) {
                             uiState.getTextArea().appendText("You move north and encounter a creature.\n");
+
                         }
                         //invoke combat, set winner
                         startCombat(uiState);
                         if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
-
+                            //update position in ui
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
@@ -87,6 +92,7 @@ public class Human extends Creature{
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
+                            uiState.getPos().setText("Dead!");
                         }
 
                         return 2;
@@ -112,6 +118,7 @@ public class Human extends Creature{
                         if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                         }
 
                         return 1;
@@ -148,7 +155,8 @@ public class Human extends Creature{
                         if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
-
+                            //update position in ui
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
@@ -156,6 +164,7 @@ public class Human extends Creature{
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
+                            uiState.getPos().setText("Dead!");
                         }
 
                         return 2;
@@ -181,6 +190,7 @@ public class Human extends Creature{
                         if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                         }
 
                         return 1;
@@ -217,7 +227,8 @@ public class Human extends Creature{
                         if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
-
+                            //update position in ui
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
@@ -225,6 +236,7 @@ public class Human extends Creature{
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
+                            uiState.getPos().setText("Dead!");
                         }
 
                         return 2;
@@ -250,6 +262,7 @@ public class Human extends Creature{
                         if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                         }
 
                         return 1;
@@ -286,7 +299,8 @@ public class Human extends Creature{
                         if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
-
+                            //update position in ui
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
@@ -294,6 +308,7 @@ public class Human extends Creature{
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
+                            uiState.getPos().setText("Dead!");
                         }
 
                         return 2;
@@ -319,6 +334,7 @@ public class Human extends Creature{
                         if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
+                            uiState.getPos().setText(Arrays.toString(this.getCurrentPos()));
                         }
 
                         return 1;

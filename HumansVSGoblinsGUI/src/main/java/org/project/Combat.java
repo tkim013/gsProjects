@@ -1,5 +1,7 @@
 package org.project;
 
+import javafx.scene.control.ProgressBar;
+
 public class Combat {
 
     //d6 for combat
@@ -49,6 +51,7 @@ public class Combat {
                 System.out.println(def + " is winner.");
                 if (uiState != null) {
                     uiState.getTextArea().appendText(def.getId() + " wins.  You die.  Game Over.\n");
+                    uiState.getProgressBar().setProgress(ProgressBar.INDETERMINATE_PROGRESS);
                 }
                 return def;
             }

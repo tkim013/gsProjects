@@ -54,7 +54,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="hp" layoutX="722.0" layoutY="492.0" prefHeight="27.0" prefWidth="37.0" text="HP">
+      <Label fx:id="hp" alignment="CENTER_RIGHT" layoutX="722.0" layoutY="492.0" prefHeight="27.0" prefWidth="40.0" text="HP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="622.0" layoutY="553.0" text="Position">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="pos" alignment="CENTER_RIGHT" layoutX="691.0" layoutY="553.0" prefHeight="27.0" prefWidth="73.0" text="[0, 0]">
          <font>
             <Font size="18.0" />
          </font>

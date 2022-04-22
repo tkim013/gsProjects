@@ -11,15 +11,16 @@ public class UIState {
     private ProgressBar progressBar;
     private TextArea textArea;
     private Label hp;
-
+    private Label pos;
     public UIState() {
     }
 
-    public UIState(GridPane gp, ProgressBar pb, TextArea ta, Label hp) {
+    public UIState(GridPane gp, ProgressBar pb, TextArea ta, Label hp, Label pos) {
         this.gridPane = gp;
         this.progressBar = pb;
         this.textArea = ta;
         this.hp = hp;
+        this.pos = pos;
     }
     public GridPane getGridPane() {
         return gridPane;
@@ -51,5 +52,13 @@ public class UIState {
 
     public void setHp(Label hp) {
         this.hp = hp;
+    }
+
+    public Label getPos() {
+        return pos;
+    }
+
+    public void setPos(Label pos) {
+        this.pos = pos;
     }
 }

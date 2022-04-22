@@ -35,6 +35,9 @@ public class MyController {
     private Label hp;
 
     @FXML
+    private Label pos;
+
+    @FXML
     private ProgressBar progressBar;
 
     public MyController() {
@@ -54,7 +57,6 @@ public class MyController {
                     imageView.setFitHeight(60);
                     imageView.setFitWidth(60);
                     gridPane.add(imageView, i, j);
-
                 }
             }
         } catch (Exception e) {
@@ -62,7 +64,7 @@ public class MyController {
         }
 
         gw = new GameWorld();
-        uiState = new UIState(gridPane, progressBar, textArea, hp);
+        uiState = new UIState(gridPane, progressBar, textArea, hp, pos);
         h = new Human(uiState, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
 
         gw.populateGoblins(gridPane, 5);
