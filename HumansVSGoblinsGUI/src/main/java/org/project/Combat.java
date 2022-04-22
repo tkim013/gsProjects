@@ -24,8 +24,10 @@ public class Combat {
 
             if (def.getHealth() <= 0) {
                 System.out.println(att + " is winner.");
-                if (uiState != null) {
+                if (uiState != null && att instanceof Human) {
                     uiState.getTextArea().appendText("You slaughter an innocent " + def.getId() + ".\n");
+                } else if (uiState != null) {
+                    uiState.getTextArea().appendText(def.getId() + " dies.\n");
                 }
                 System.out.println("The real friends were the Gs we slew along the way.  What's a little murder between friends?");
                 return att;
@@ -38,8 +40,9 @@ public class Combat {
                 uiState.getTextArea().appendText(def.getId() + " attacks " + att.getId() + " for " + defDamage + " damage.\n");
             }
             att.setHealth(att.getHealth() - defDamage);
-            if (uiState != null) {
+            if (uiState != null && att instanceof Human) {
                 uiState.getProgressBar().setProgress((double)att.getHealth()/att.getMaxHealth());
+                uiState.getHp().setText(String.valueOf(att.getHealth()));
             }
 
             if (att.getHealth() <= 0) {

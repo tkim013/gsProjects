@@ -54,7 +54,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="hp" layoutX="724.0" layoutY="492.0" text="HP">
+      <Label fx:id="hp" layoutX="722.0" layoutY="492.0" prefHeight="27.0" prefWidth="37.0" text="HP">
          <font>
             <Font size="18.0" />
          </font>

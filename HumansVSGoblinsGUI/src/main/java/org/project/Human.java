@@ -32,6 +32,8 @@ public class Human extends Creature{
             addHumanImage(uiState.getGridPane());
             //set health bar
             uiState.getProgressBar().setProgress((double)getHealth()/getMaxHealth());
+            //set hp label
+            uiState.getHp().setText(String.valueOf(getHealth()));
         }
     }
 
