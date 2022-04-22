@@ -33,6 +33,7 @@ public class App extends Application {
                 new Stop(1, Color.web("#3b63a3"))));
         stage.setScene(scene);
         stage.setTitle("Goblins don't exist.");
+        stage.setResizable(false);
         stage.show();
 
         //key events for WASD and arrow key movement

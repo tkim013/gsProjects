@@ -33,6 +33,9 @@ public class MyController {
     private Button bigRedButton;
 
     @FXML
+    private Button disableRickButton;
+
+    @FXML
     private TextArea textArea;
 
     @FXML
@@ -101,5 +104,13 @@ public class MyController {
     public void bigRedButtonAction(ActionEvent e) {
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
+        disableRickButton.setVisible(true);
+    }
+
+    @FXML
+    public void disableRickButtonAction(ActionEvent e) {
+        webView.getEngine().load(null);
+        webView.setVisible(false);
+        disableRickButton.setVisible(false);
     }
 }

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -87,6 +88,11 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <WebView fx:id="webView" layoutX="25.0" layoutY="25.0" prefHeight="700.0" prefWidth="700.0" visible="false" />
+      <AnchorPane layoutX="32.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <WebView fx:id="webView" prefHeight="420.0" prefWidth="580.0" visible="false" />
+            <Button fx:id="disableRickButton" layoutX="475.0" layoutY="430.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
+         </children>
+      </AnchorPane>
    </children>
 </Group>
