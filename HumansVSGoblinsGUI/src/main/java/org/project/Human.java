@@ -1,7 +1,5 @@
 package org.project;
 
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -29,7 +27,7 @@ public class Human extends Creature{
 
         gw.get(this.currentPos[0]).get(this.currentPos[1]).setHasCreature(this);
 
-        if (uiState.getGridPane() != null) {
+        if (uiState != null) {
             //adds human image to GUI
             addHumanImage(uiState.getGridPane());
             //set health bar
@@ -53,7 +51,7 @@ public class Human extends Creature{
                     //check for move out of bounds
                     if (this.currentPos[0] - 1 < 0) {
                         System.out.println("Invalid move.");
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("Invalid move.\n");
                         }
                         return 0;
@@ -65,25 +63,25 @@ public class Human extends Creature{
                         //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[0]--;
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move north and encounter a creature.\n");
                         }
                         //invoke combat, set winner
-                        startCombat(uiState.getTextArea(), uiState.getProgressBar());
-                        if (uiState.getGridPane() != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                        startCombat(uiState);
+                        if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
-                        } else if (uiState.getGridPane() != null) {
+                        } else if (uiState != null) {
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
@@ -96,20 +94,20 @@ public class Human extends Creature{
                         //valid move, no creature in destination
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[0]--;
 
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move north.\n");
                         }
 
                         //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
                         }
@@ -122,7 +120,7 @@ public class Human extends Creature{
                     //check for move out of bounds
                     if (this.currentPos[0] + 1 > GameWorld.getLandList().size() - 1) {
                         System.out.println("Invalid move.");
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("Invalid move.\n");
                         }
                         return 0;
@@ -134,25 +132,25 @@ public class Human extends Creature{
                         //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[0]++;
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move south and encounter a creature.\n");
                         }
                         //invoke combat, set winner
-                        startCombat(uiState.getTextArea(), uiState.getProgressBar());
-                        if (uiState.getGridPane() != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                        startCombat(uiState);
+                        if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
-                        } else if (uiState.getGridPane() != null) {
+                        } else if (uiState != null) {
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
@@ -165,20 +163,20 @@ public class Human extends Creature{
                         //valid move, no creature in destination
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[0]++;
 
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move south.\n");
                         }
 
                         //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
                         }
@@ -191,7 +189,7 @@ public class Human extends Creature{
                     //check for move out of bounds
                     if (this.currentPos[1] + 1 > GameWorld.getLandList().get(0).size() - 1) {
                         System.out.println("Invalid move.");
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("Invalid move.\n");
                         }
                         return 0;
@@ -203,25 +201,25 @@ public class Human extends Creature{
                         //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[1]++;
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move east and encounter a creature.\n");
                         }
                         //invoke combat, set winner
-                        startCombat(uiState.getTextArea(), uiState.getProgressBar());
-                        if (uiState.getGridPane() != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                        startCombat(uiState);
+                        if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
-                        } else if (uiState.getGridPane() != null) {
+                        } else if (uiState != null) {
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
@@ -234,20 +232,20 @@ public class Human extends Creature{
                         //valid move, no creature in destination
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[1]++;
 
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move east.\n");
                         }
 
                         //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
                         }
@@ -260,7 +258,7 @@ public class Human extends Creature{
                     //check for move out of bounds
                     if (this.currentPos[1] - 1 < 0) {
                         System.out.println("Invalid move.");
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("Invalid move.\n");
                         }
                         return 0;
@@ -272,25 +270,25 @@ public class Human extends Creature{
                         //remove creature from current position
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[1]--;
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move west and encounter a creature.\n");
                         }
                         //invoke combat, set winner
-                        startCombat(uiState.getTextArea(), uiState.getProgressBar());
-                        if (uiState.getGridPane() != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
+                        startCombat(uiState);
+                        if (uiState != null && gw.get(currentPos[0]).get(currentPos[1]).getHasCreature() instanceof Human) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
 
                             //remove goblin image from gridPane
                             ImageView g = (ImageView) uiState.getGridPane().lookup("#goblin" + this.currentPos[1] + this.currentPos[0]);
                             uiState.getGridPane().getChildren().remove(g);
-                        } else if (uiState.getGridPane() != null) {
+                        } else if (uiState != null) {
                             //remove human image from grid
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
@@ -303,20 +301,20 @@ public class Human extends Creature{
                         //valid move, no creature in destination
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
                         this.currentPos[1]--;
 
-                        if (uiState.getTextArea() != null) {
+                        if (uiState != null) {
                             uiState.getTextArea().appendText("You move west.\n");
                         }
 
                         //add human to current position
                         gw.get(currentPos[0]).get(currentPos[1]).setHasCreature(this);
-                        if (uiState.getGridPane() != null) {
+                        if (uiState != null) {
                             //adds human image to current pos
                             addHumanImage(uiState.getGridPane());
                         }
@@ -346,9 +344,9 @@ public class Human extends Creature{
         }
     }
 
-    private void startCombat(TextArea textArea, ProgressBar progressBar) {
+    private void startCombat(UIState uiState) {
         gw.get(currentPos[0]).get(currentPos[1])
-                .setHasCreature(Combat.resolveCombat(textArea, progressBar, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                .setHasCreature(Combat.resolveCombat(uiState, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
     }
 
     public String getId() {
