@@ -57,7 +57,7 @@ public class Human extends Creature{
                     if (this.currentPos[0] - 1 < 0) {
                         System.out.println("Invalid move.");
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("Invalid move.\n");
+                            uiState.getTextArea().appendText("\nInvalid move.");
                         }
                         return 0;
                     }
@@ -75,7 +75,7 @@ public class Human extends Creature{
                         //adjust position
                         this.currentPos[0]--;
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move north and encounter a creature.\n");
+                            uiState.getTextArea().appendText("\nYou move north and encounter a creature.");
 
                         }
                         //invoke combat, set winner
@@ -110,7 +110,7 @@ public class Human extends Creature{
                         this.currentPos[0]--;
 
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move north.\n");
+                            uiState.getTextArea().appendText("\nYou move north.");
                         }
 
                         //add human to current position
@@ -130,7 +130,7 @@ public class Human extends Creature{
                     if (this.currentPos[0] + 1 > GameWorld.getLandList().size() - 1) {
                         System.out.println("Invalid move.");
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("Invalid move.\n");
+                            uiState.getTextArea().appendText("\nInvalid move.");
                         }
                         return 0;
                     }
@@ -148,7 +148,7 @@ public class Human extends Creature{
                         //adjust position
                         this.currentPos[0]++;
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move south and encounter a creature.\n");
+                            uiState.getTextArea().appendText("\nYou move south and encounter a creature.");
                         }
                         //invoke combat, set winner
                         startCombat(uiState);
@@ -182,7 +182,7 @@ public class Human extends Creature{
                         this.currentPos[0]++;
 
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move south.\n");
+                            uiState.getTextArea().appendText("\nYou move south.");
                         }
 
                         //add human to current position
@@ -202,7 +202,7 @@ public class Human extends Creature{
                     if (this.currentPos[1] + 1 > GameWorld.getLandList().get(0).size() - 1) {
                         System.out.println("Invalid move.");
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("Invalid move.\n");
+                            uiState.getTextArea().appendText("\nInvalid move.");
                         }
                         return 0;
                     }
@@ -220,7 +220,7 @@ public class Human extends Creature{
                         //adjust position
                         this.currentPos[1]++;
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move east and encounter a creature.\n");
+                            uiState.getTextArea().appendText("\nYou move east and encounter a creature.");
                         }
                         //invoke combat, set winner
                         startCombat(uiState);
@@ -254,7 +254,7 @@ public class Human extends Creature{
                         this.currentPos[1]++;
 
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move east.\n");
+                            uiState.getTextArea().appendText("\nYou move east.");
                         }
 
                         //add human to current position
@@ -274,7 +274,7 @@ public class Human extends Creature{
                     if (this.currentPos[1] - 1 < 0) {
                         System.out.println("Invalid move.");
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("Invalid move.\n");
+                            uiState.getTextArea().appendText("\nInvalid move.");
                         }
                         return 0;
                     }
@@ -292,7 +292,7 @@ public class Human extends Creature{
                         //adjust position
                         this.currentPos[1]--;
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move west and encounter a creature.\n");
+                            uiState.getTextArea().appendText("\nYou move west and encounter a creature.");
                         }
                         //invoke combat, set winner
                         startCombat(uiState);
@@ -326,7 +326,7 @@ public class Human extends Creature{
                         this.currentPos[1]--;
 
                         if (uiState != null) {
-                            uiState.getTextArea().appendText("You move west.\n");
+                            uiState.getTextArea().appendText("\nYou move west.");
                         }
 
                         //add human to current position

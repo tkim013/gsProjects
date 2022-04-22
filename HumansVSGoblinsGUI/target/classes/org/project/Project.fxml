@@ -15,7 +15,7 @@
 
 <Group stylesheets="@MyCss.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
    <children>
-      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="10.0" layoutY="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
+      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,7 +41,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <StackPane layoutX="626.0" layoutY="613.0">
+      <StackPane layoutX="626.0" layoutY="626.0">
          <children>
             <Circle fill="GREY" radius="65.0" smooth="false" stroke="BLACK" strokeType="INSIDE" />
             <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="-90.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="TOP_CENTER">
@@ -59,7 +59,7 @@
             <Circle fill="GREY" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </StackPane>
-      <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="613.0" prefHeight="145.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-background-color: grey; -fx-border-color: grey;" text="WASD/arrow keys/buttons to move.&#10;" wrapText="true" />
+      <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="145.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-background-color: grey; -fx-border-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
       <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="619.0" layoutY="519.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
       <Label focusTraversable="false" layoutX="622.0" layoutY="492.0" text="Health" textFill="RED">
          <font>
@@ -81,7 +81,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="bigRedButton" focusTraversable="false" layoutX="641.0" layoutY="28.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: red;" styleClass="big-red-button" text="BIG RED BUTTON" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="bigRedButton" focusTraversable="false" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: red;" styleClass="big-red-button" text="BIG RED BUTTON" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>

@@ -20,16 +20,16 @@ public class Combat {
             attDamage = (int) ((Math.random() * range) + min) + att.getStrength();
             System.out.println(att + " attacks " + def + " for " + attDamage + " damage.");
             if (uiState != null) {
-                uiState.getTextArea().appendText(att.getId() + " attacks " + def.getId() + " for " + attDamage + " damage.\n");
+                uiState.getTextArea().appendText("\n" + att.getId() + " attacks " + def.getId() + " for " + attDamage + " damage.");
             }
             def.setHealth(def.getHealth() - attDamage);
 
             if (def.getHealth() <= 0) {
                 System.out.println(att + " is winner.");
                 if (uiState != null && att instanceof Human) {
-                    uiState.getTextArea().appendText("You slaughter an innocent " + def.getId() + ".\n");
+                    uiState.getTextArea().appendText("\nYou slaughter an innocent " + def.getId() + ".");
                 } else if (uiState != null) {
-                    uiState.getTextArea().appendText(def.getId() + " dies.\n");
+                    uiState.getTextArea().appendText("\n" + def.getId() + " dies.");
                 }
                 System.out.println("The real friends were the Gs we slew along the way.  What's a little murder between friends?");
                 return att;
@@ -39,7 +39,7 @@ public class Combat {
             defDamage = (int) ((Math.random() * range) + min) + def.getStrength();
             System.out.println(def + " attacks " + att + " for " + defDamage + " damage.");
             if (uiState != null) {
-                uiState.getTextArea().appendText(def.getId() + " attacks " + att.getId() + " for " + defDamage + " damage.\n");
+                uiState.getTextArea().appendText("\n" + def.getId() + " attacks " + att.getId() + " for " + defDamage + " damage.");
             }
             att.setHealth(att.getHealth() - defDamage);
             if (uiState != null && att instanceof Human) {
@@ -50,7 +50,7 @@ public class Combat {
             if (att.getHealth() <= 0) {
                 System.out.println(def + " is winner.");
                 if (uiState != null) {
-                    uiState.getTextArea().appendText(def.getId() + " wins.  You die.  Game Over.\n");
+                    uiState.getTextArea().appendText("\n" + def.getId() + " wins.  You die.  Game Over.");
                     uiState.getProgressBar().setProgress(ProgressBar.INDETERMINATE_PROGRESS);
                 }
                 return def;
