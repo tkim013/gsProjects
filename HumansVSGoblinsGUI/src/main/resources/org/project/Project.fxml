@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,6 +9,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <Group stylesheets="@MyCss.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
@@ -38,10 +41,24 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="buttonNorth" focusTraversable="false" layoutX="665.0" layoutY="600.0" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" text="North" />
-      <Button fx:id="buttonSouth" focusTraversable="false" layoutX="665.0" layoutY="702.0" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" text="South" />
-      <Button fx:id="buttonEast" focusTraversable="false" layoutX="715.0" layoutY="650.0" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" text="East" />
-      <Button fx:id="buttonWest" focusTraversable="false" layoutX="615.0" layoutY="651.0" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" text="West" />
+      <StackPane layoutX="626.0" layoutY="613.0">
+         <children>
+            <Circle fill="GREY" radius="65.0" smooth="false" stroke="BLACK" strokeType="INSIDE" />
+            <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="-90.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="TOP_CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="90.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="BOTTOM_CENTER" />
+            <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </Button>
+            <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="180.0" style="-fx-background-color: orange;" styleClass="arrow-button" StackPane.alignment="CENTER_LEFT" />
+            <Circle fill="GREY" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </StackPane>
       <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="613.0" prefHeight="145.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-background-color: grey; -fx-border-color: grey;" text="WASD/arrow keys/buttons to move.&#10;" wrapText="true" />
       <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="619.0" layoutY="519.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
       <Label focusTraversable="false" layoutX="622.0" layoutY="492.0" text="Health" textFill="RED">
