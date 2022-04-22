@@ -10,5 +10,5 @@
     -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
     -fx-background-insets: 0 0 -1 0, 0;
     -fx-padding: 0.25em;
-    -fx-shape: "M 0 -3.5 v 7 l 4 -3.5 z";
+    -fx-shape: "M 50 0 L 0 70 L 30 70 L 30 100 L 70 100 L 70 70 L 100 70 L 50 0 ";
 }

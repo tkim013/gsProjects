@@ -49,9 +49,11 @@ public class Combat {
 
             if (att.getHealth() <= 0) {
                 System.out.println(def + " is winner.");
-                if (uiState != null) {
+                if (uiState != null && att instanceof Human) {
                     uiState.getTextArea().appendText("\n" + def.getId() + " wins.  You die.  Game Over.");
                     uiState.getProgressBar().setProgress(ProgressBar.INDETERMINATE_PROGRESS);
+                } else if (uiState != null) {
+                    uiState.getTextArea().appendText("\n" + att.getId() + " dies.");
                 }
                 return def;
             }

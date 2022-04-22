@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Combat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Combat.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
