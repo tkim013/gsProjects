@@ -4,10 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,11 +22,6 @@ public class App extends Application {
         Parent root = loader.load();
         MyController controller = loader.getController();
         scene = new Scene(root, 770, 770);
-        scene.setFill(new LinearGradient(
-                0, 0, 1, 1, true,          //sizing
-                CycleMethod.NO_CYCLE,                       //cycling
-                new Stop(0, Color.web("#135e3a")),    //colors
-                new Stop(1, Color.web("#3b63a3"))));
         stage.setScene(scene);
         stage.setTitle("Goblins don't exist.");
         stage.setResizable(false);

@@ -3,8 +3,9 @@
 }
 
 .big-red-button {
-    -fx-background-color: red;
+    -fx-background-color: linear-gradient(to right, #ff0000, #990000);
     -fx-shape: "M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0";
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
     }
 
 .big-red-button:pressed{
@@ -17,9 +18,9 @@
     }
 
 .arrow-button:hover {
-    -fx-background-color: blue;
+    -fx-background-color: #ffd280;
     }
 
 .arrow-button:pressed {
-    -fx-background-color: green;
+    -fx-background-color: #805300;
     }

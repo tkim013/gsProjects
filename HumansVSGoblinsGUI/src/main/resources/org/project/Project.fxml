@@ -6,98 +6,137 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<Group stylesheets="@MyCss.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
+<Pane style="-fx-background-image: url(&quot;file:src/main/resources/org/project/370649.jpg&quot;); -fx-background-repeat: stretch; -fx-background-position: center center;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
    <children>
-      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-      <StackPane layoutX="626.0" layoutY="626.0">
+      <Group stylesheets="@MyCss.css">
          <children>
-            <Circle fill="GREY" radius="65.0" smooth="false" stroke="BLACK" strokeType="INSIDE" />
-            <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="arrow-button" StackPane.alignment="TOP_CENTER">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+            <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <StackPane layoutX="626.0" layoutY="626.0">
+               <children>
+                  <Circle radius="65.0" smooth="false" stroke="#4a4a4a" strokeType="INSIDE">
+                     <fill>
+                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.7298850574712643">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.501960813999176" green="0.501960813999176" blue="0.501960813999176" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.3221476510067114">
+                                 <color>
+                                    <Color red="0.501960813999176" green="0.501960813999176" blue="0.501960813999176" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.015350877307355404" green="0.0817982479929924" blue="0.2368421107530594" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </RadialGradient>
+                     </fill>
+                  </Circle>
+                  <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onAction="#northButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);;" styleClass="arrow-button" StackPane.alignment="TOP_CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="180.0" style="-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);;" styleClass="arrow-button" StackPane.alignment="BOTTOM_CENTER" />
+                  <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="90.0" style="-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);;" styleClass="arrow-button" StackPane.alignment="CENTER_RIGHT">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </Button>
+                  <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="270.0" style="-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);;" styleClass="arrow-button" StackPane.alignment="CENTER_LEFT" />
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@helmet.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets right="7.0" />
+                     </StackPane.margin>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="145.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
+            <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="620.0" layoutY="565.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
+            <Label focusTraversable="false" layoutX="623.0" layoutY="538.0" text="Health" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="hp" alignment="CENTER_RIGHT" layoutX="723.0" layoutY="538.0" prefHeight="27.0" prefWidth="40.0" text="HP" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label focusTraversable="false" layoutX="622.0" layoutY="583.0" text="Position" textFill="#7bcdc7">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="pos" alignment="CENTER_RIGHT" layoutX="691.0" layoutY="583.0" prefHeight="27.0" prefWidth="73.0" text="[0, 0]" textFill="#7bcdc7">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="bigRedButton" focusTraversable="false" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" onAction="#bigRedButtonAction" prefHeight="125.0" prefWidth="125.0" styleClass="big-red-button" text="BIG RED BUTTON" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
             </Button>
-            <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onAction="#southButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="180.0" styleClass="arrow-button" StackPane.alignment="BOTTOM_CENTER" />
-            <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onAction="#eastButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="90.0" styleClass="arrow-button" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets />
-               </StackPane.margin>
-            </Button>
-            <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="270.0" styleClass="arrow-button" StackPane.alignment="CENTER_LEFT" />
-            <Circle fill="GREY" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+            <AnchorPane layoutX="32.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <WebView fx:id="webView" prefHeight="420.0" prefWidth="580.0" visible="false" />
+                  <Button fx:id="disableRickButton" focusTraversable="false" layoutX="475.0" layoutY="430.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="621.0" layoutY="149.0" prefHeight="24.0" prefWidth="141.0" text="DO NOT PUSH!!!" textFill="#463f3f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
-      </StackPane>
-      <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="145.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-background-color: grey; -fx-border-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
-      <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="619.0" layoutY="519.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
-      <Label focusTraversable="false" layoutX="622.0" layoutY="492.0" text="Health" textFill="RED">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="hp" alignment="CENTER_RIGHT" layoutX="722.0" layoutY="492.0" prefHeight="27.0" prefWidth="40.0" text="HP" textFill="RED">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label focusTraversable="false" layoutX="622.0" layoutY="553.0" text="Position" textFill="BLUE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="pos" alignment="CENTER_RIGHT" layoutX="691.0" layoutY="553.0" prefHeight="27.0" prefWidth="73.0" text="[0, 0]" textFill="BLUE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="bigRedButton" focusTraversable="false" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" onAction="#bigRedButtonAction" prefHeight="125.0" prefWidth="125.0" styleClass="big-red-button" text="BIG RED BUTTON" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <AnchorPane layoutX="32.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <WebView fx:id="webView" prefHeight="420.0" prefWidth="580.0" visible="false" />
-            <Button fx:id="disableRickButton" layoutX="475.0" layoutY="430.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
-         </children>
-      </AnchorPane>
-      <Label layoutX="624.0" layoutY="155.0" prefHeight="24.0" prefWidth="140.0" text="DO NOT PUSH!!!" textFill="RED">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      </Group>
    </children>
-</Group>
+</Pane>

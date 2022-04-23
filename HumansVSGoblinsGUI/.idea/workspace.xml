@@ -10,9 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HumansVSGoblinsGUI_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HumansVSGoblinsGUI_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +57,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/gsProjects/HumansVSGoblinsGUI/src/main/resources/org/project",
+    "last_opened_file_path": "D:/gsProjects/HumansVSGoblinsGUI/src/main/resources",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -61,6 +71,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project" />
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources" />
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\test\org\project" />
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\java\org\project" />
     </key>
@@ -71,22 +82,9 @@
       <recent name="org.project" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JAR Application.HumansVSGoblinsGUI.jar">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.project.App" />
-      <module name="HumansVSGoblinsGUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.project.Main" />
       <module name="HumansVSGoblinsGUI" />
       <extension name="coverage">
         <pattern>
@@ -113,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CombatTest.resolveCombatHumanVHuman" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameWorldTest.populateGoblins" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblinsGUI" />
       <extension name="coverage">
         <pattern>
@@ -122,8 +120,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.project" />
-      <option name="MAIN_CLASS_NAME" value="org.project.CombatTest" />
-      <option name="METHOD_NAME" value="resolveCombatHumanVHuman" />
+      <option name="MAIN_CLASS_NAME" value="org.project.GameWorldTest" />
+      <option name="METHOD_NAME" value="populateGoblins" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,20 +142,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HumansVSGoblinsGUI.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
+      <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
       <item itemvalue="JUnit.CombatTest" />
-      <item itemvalue="JUnit.CombatTest.resolveCombatHumanVHuman" />
       <item itemvalue="JUnit.HumanTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CombatTest" />
-        <item itemvalue="JUnit.CombatTest.resolveCombatHumanVHuman" />
         <item itemvalue="JUnit.HumanTest" />
+        <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
       </list>
     </recent_temporary>
   </component>
