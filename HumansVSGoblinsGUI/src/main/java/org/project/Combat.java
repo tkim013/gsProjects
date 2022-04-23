@@ -56,6 +56,7 @@ public class Combat {
                 if (uiState != null && att instanceof Human) {
                     uiState.getTextArea().appendText("\n" + def.getId() + " wins.  You die.  Game Over.");
                     uiState.getProgressBar().setProgress(ProgressBar.INDETERMINATE_PROGRESS);
+                    humanSound();
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + att.getId() + " dies.");
                 }
@@ -68,6 +69,15 @@ public class Combat {
     private static void goblinSound() {
         try {
             AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/sf_sheep_03.mp3").toURI().toString());
+            audioClip.play();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private static void humanSound() {
+        try {
+            AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/Wilhelm_scream.mp3").toURI().toString());
             audioClip.play();
         } catch (Exception e){
             e.printStackTrace();
