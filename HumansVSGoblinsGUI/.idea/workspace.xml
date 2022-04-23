@@ -11,15 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/goblin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/goblin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/hooded-assassin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Combat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Combat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/goblin.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/goblin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/hooded-assassin.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

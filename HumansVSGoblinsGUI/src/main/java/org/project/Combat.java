@@ -1,6 +1,9 @@
 package org.project;
 
 import javafx.scene.control.ProgressBar;
+import javafx.scene.media.AudioClip;
+
+import java.io.File;
 
 public class Combat {
 
@@ -28,6 +31,7 @@ public class Combat {
                 System.out.println(att + " is winner.");
                 if (uiState != null && att instanceof Human) {
                     uiState.getTextArea().appendText("\nYou slaughter an innocent " + def.getId() + ".");
+                    goblinSound();
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + def.getId() + " dies.");
                 }
@@ -59,6 +63,14 @@ public class Combat {
             }
 
             System.out.println(att + " health: " + att.getHealth() + "\n" + def + " health: " + def.getHealth());
+        }
+    }
+    private static void goblinSound() {
+        try {
+            AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/sf_sheep_03.mp3").toURI().toString());
+            audioClip.play();
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
