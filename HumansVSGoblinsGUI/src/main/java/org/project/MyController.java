@@ -6,7 +6,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.web.WebView;
+
+import java.io.File;
 
 public class MyController {
 
@@ -50,6 +54,9 @@ public class MyController {
     @FXML
     private WebView webView;
 
+    @FXML
+    private MediaPlayer mediaPlayer;
+
     public MyController() {
     }
 
@@ -69,6 +76,13 @@ public class MyController {
                     gridPane.add(imageView, i, j);
                 }
             }
+
+            //music
+            Media media = new Media(new File("src/main/resources/org/project/slow-trap-18565.mp3").toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.setVolume(0.6);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,6 +116,7 @@ public class MyController {
 
     @FXML
     public void bigRedButtonAction(ActionEvent e) {
+        mediaPlayer.pause();
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
         disableRickButton.setVisible(true);
@@ -109,6 +124,7 @@ public class MyController {
 
     @FXML
     public void disableRickButtonAction(ActionEvent e) {
+        mediaPlayer.play();
         webView.getEngine().load(null);
         webView.setVisible(false);
         disableRickButton.setVisible(false);
