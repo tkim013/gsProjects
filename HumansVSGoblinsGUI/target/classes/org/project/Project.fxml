@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<Pane style="-fx-background-image: url(&quot;file:src/main/resources/org/project/370649.jpg&quot;); -fx-background-repeat: stretch; -fx-background-position: center center;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
+<Pane style="-fx-background-image: url(&quot;file:src/main/resources/org/project/image/background.jpg&quot;); -fx-background-repeat: stretch; -fx-background-position: center center;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
    <children>
       <Group stylesheets="@MyCss.css">
          <children>
@@ -90,7 +90,7 @@
                   <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onAction="#westButtonAction" prefHeight="50.0" prefWidth="50.0" rotate="270.0" style="-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);;" styleClass="arrow-button" StackPane.alignment="CENTER_LEFT" />
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@helmet.png" />
+                        <Image url="@image/helmet.png" />
                      </image>
                      <StackPane.margin>
                         <Insets right="7.0" />

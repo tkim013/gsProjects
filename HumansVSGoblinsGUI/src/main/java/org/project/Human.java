@@ -352,7 +352,7 @@ public class Human extends Creature{
     private void addHumanImage(GridPane gridPane) {
 
         try {
-            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/Orcbolg.png"));
+            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/image/Orcbolg.png"));
             imageView.setFitHeight(60);
             imageView.setFitWidth(40);
             imageView.setId("human");

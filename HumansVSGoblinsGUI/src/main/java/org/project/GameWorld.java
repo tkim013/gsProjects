@@ -70,7 +70,7 @@ public class GameWorld {
                     if (gridPane != null) {
                         //adds goblin image to GUI
                         try {
-                            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/goblin.png"));
+                            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/image/goblin.png"));
                             imageView.setFitHeight(60);
                             imageView.setFitWidth(60);
                             imageView.setId("goblin" + r + c);  //goblin id with coordinates for lookup

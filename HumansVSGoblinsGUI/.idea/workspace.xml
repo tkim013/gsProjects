@@ -10,19 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HumansVSGoblinsGUI_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HumansVSGoblinsGUI_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/370649.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Daco_1521053.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/Daco_1521053.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Orcbolg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/Orcbolg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Wilhelm_scream.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/audio/sound/Wilhelm_scream.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/goblin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/goblin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/helmet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/helmet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/sf_sheep_03.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/audio/sound/sf_sheep_03.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/slow-trap-18565.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/audio/music/slow-trap-18565.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/tile_grass.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/tile_grass.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/370649.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Combat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Combat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Wilhelm_scream.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/sf_sheep_03.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/slow-trap-18565.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +66,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/gsProjects/HumansVSGoblinsGUI/src/main/resources",
+    "last_opened_file_path": "D:/gsProjects/HumansVSGoblinsGUI/src/main/resources/org/project",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -78,11 +87,18 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project\image" />
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project\audio\sound" />
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project\audio\music" />
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project\audio" />
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.project" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.HumansVSGoblinsGUI.jar">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.project.App" />
       <module name="HumansVSGoblinsGUI" />
@@ -142,8 +158,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HumansVSGoblinsGUI.jar" type="JarApplication" temporary="true">
+    <configuration name="HumansVSGoblinsGUI.jar" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Java\openjfx-18_windows-x64_bin-sdk\javafx-sdk-18\lib&quot; --add-modules=javafx.controls,javafx.fxml,javafx.web,javafx.media" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
     <list>
@@ -155,7 +173,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.CombatTest" />
         <item itemvalue="JUnit.HumanTest" />

@@ -68,7 +68,7 @@ public class Combat {
     }
     private static void goblinSound() {
         try {
-            AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/sf_sheep_03.mp3").toURI().toString());
+            AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/audio/sound/sf_sheep_03.mp3").toURI().toString());
             audioClip.play();
         } catch (Exception e){
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class Combat {
 
     private static void humanSound() {
         try {
-            AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/Wilhelm_scream.mp3").toURI().toString());
+            AudioClip audioClip = new AudioClip(new File("src/main/resources/org/project/audio/sound/Wilhelm_scream.mp3").toURI().toString());
             audioClip.play();
         } catch (Exception e){
             e.printStackTrace();

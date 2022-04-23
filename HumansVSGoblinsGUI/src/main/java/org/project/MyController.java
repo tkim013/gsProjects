@@ -1,5 +1,6 @@
 package org.project;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,6 +11,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import javafx.scene.web.WebView;
+import javafx.util.Duration;
 
 import java.io.File;
 
@@ -67,7 +69,7 @@ public class MyController {
         progressBar.setStyle("-fx-accent: red;");
         //load gridPane with tile_grass image
         try {
-            Image image = new Image("file:src/main/resources/org/project/tile_grass.png");
+            Image image = new Image("file:src/main/resources/org/project/image/tile_grass.png");
 
             for (int i = 0; i < GameWorld.col; i++) {
                 for (int j = 0; j < GameWorld.row; j++) {
@@ -79,7 +81,7 @@ public class MyController {
             }
 
             //music
-            Media media = new Media(new File("src/main/resources/org/project/slow-trap-18565.mp3").toURI().toString());
+            Media media = new Media(new File("src/main/resources/org/project/audio/music/slow-trap-18565.mp3").toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -120,7 +122,14 @@ public class MyController {
         mediaPlayer.pause();
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
-        disableRickButton.setVisible(true);
+        //delay 5 seconds until disableRickButton is visible
+        PauseTransition visiblePause = new PauseTransition(
+                Duration.seconds(5)
+        );
+        visiblePause.setOnFinished(
+                event -> disableRickButton.setVisible(true)
+        );
+        visiblePause.play();
     }
 
     @FXML
