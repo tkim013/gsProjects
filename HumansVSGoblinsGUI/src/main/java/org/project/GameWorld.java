@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class GameWorld {
                     if (gridPane != null) {
                         //adds goblin image to GUI
                         try {
-                            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/image/goblin.png"));
+                            ImageView imageView = new ImageView(new Image(String.valueOf(GameWorld.class.getResource("image/goblin.png"))));
                             imageView.setFitHeight(60);
                             imageView.setFitWidth(60);
                             imageView.setId("goblin" + r + c);  //goblin id with coordinates for lookup

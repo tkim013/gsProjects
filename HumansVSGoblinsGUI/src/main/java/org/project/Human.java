@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
+import java.io.FileInputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -352,9 +353,9 @@ public class Human extends Creature{
     private void addHumanImage(GridPane gridPane) {
 
         try {
-            ImageView imageView = new ImageView(new Image("file:src/main/resources/org/project/image/Orcbolg.png"));
+            ImageView imageView = new ImageView(new Image(String.valueOf(getClass().getResource("image/Orcbolg.png"))));
             imageView.setFitHeight(60);
-            imageView.setFitWidth(40);
+            imageView.setFitWidth(35);
             imageView.setId("human");
             gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
         } catch (Exception e) {

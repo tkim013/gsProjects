@@ -21,8 +21,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<Pane style="-fx-background-image: url(&quot;file:src/main/resources/org/project/image/background.jpg&quot;); -fx-background-repeat: stretch; -fx-background-position: center center;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
+<Pane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.MyController">
    <children>
+      <ImageView fitHeight="770.0" fitWidth="770.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/background.jpg" />
+         </image>
+      </ImageView>
       <Group stylesheets="@MyCss.css">
          <children>
             <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
@@ -98,7 +103,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="145.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
+            <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="144.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
             <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="620.0" layoutY="565.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
             <Label focusTraversable="false" layoutX="623.0" layoutY="538.0" text="Health" textFill="RED">
                <font>
@@ -131,7 +136,7 @@
                   <Button fx:id="disableRickButton" focusTraversable="false" layoutX="475.0" layoutY="430.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
                </children>
             </AnchorPane>
-            <Label layoutX="621.0" layoutY="149.0" prefHeight="24.0" prefWidth="141.0" text="DO NOT PUSH!!!" textFill="#463f3f">
+            <Label layoutX="621.0" layoutY="149.0" prefHeight="24.0" prefWidth="141.0" text="DO NOT PUSH!!!" textFill="ORANGE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

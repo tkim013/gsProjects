@@ -69,7 +69,7 @@ public class MyController {
         progressBar.setStyle("-fx-accent: red;");
         //load gridPane with tile_grass image
         try {
-            Image image = new Image("file:src/main/resources/org/project/image/tile_grass.png");
+            Image image = new Image(String.valueOf(getClass().getResource("image/tile_grass.png")));
 
             for (int i = 0; i < GameWorld.col; i++) {
                 for (int j = 0; j < GameWorld.row; j++) {
@@ -81,7 +81,7 @@ public class MyController {
             }
 
             //music
-            Media media = new Media(new File("src/main/resources/org/project/audio/music/slow-trap-18565.mp3").toURI().toString());
+            Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
