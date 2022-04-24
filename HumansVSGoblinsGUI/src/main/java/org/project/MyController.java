@@ -57,6 +57,9 @@ public class MyController {
     @FXML
     private MediaPlayer mediaPlayer;
 
+    @FXML
+    private Button resetButton;
+
     public MyController() {
     }
 
@@ -64,34 +67,8 @@ public class MyController {
 
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
-        //load gridPane with tile_grass image
-        try {
-            Image image = new Image(String.valueOf(getClass().getResource("image/tile_grass.png")));
 
-            for (int i = 0; i < GameWorld.col; i++) {
-                for (int j = 0; j < GameWorld.row; j++) {
-                    ImageView imageView = new ImageView(image);
-                    imageView.setFitHeight(60);
-                    imageView.setFitWidth(60);
-                    gridPane.add(imageView, i, j);
-                }
-            }
-
-            //music
-            Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            mediaPlayer.setVolume(0.6);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        gw = new GameWorld();
-        uiState = new UIState(gridPane, progressBar, textArea, hp, pos);
-        h = new Human(uiState, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
-
-        gw.populateGoblins(gridPane, 5);
+        newGameState();
     }
 
     @FXML
@@ -115,7 +92,7 @@ public class MyController {
     }
 
     @FXML
-    public void bigRedButtonAction(ActionEvent e) {
+    private void bigRedButtonAction(ActionEvent e) {
         //rickroll
         mediaPlayer.pause();
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
@@ -131,11 +108,60 @@ public class MyController {
     }
 
     @FXML
-    public void disableRickButtonAction(ActionEvent e) {
+    private void disableRickButtonAction(ActionEvent e) {
         //norickroll
         mediaPlayer.play();
         webView.getEngine().load(null);
         webView.setVisible(false);
         disableRickButton.setVisible(false);
+    }
+
+    private void loadGrassTiles() {
+        //load gridPane with tile_grass image
+        try {
+            Image image = new Image(String.valueOf(getClass().getResource("image/tile_grass.png")));
+
+            for (int i = 0; i < GameWorld.col; i++) {
+                for (int j = 0; j < GameWorld.row; j++) {
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitHeight(60);
+                    imageView.setFitWidth(60);
+                    gridPane.add(imageView, i, j);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void playMusic() {
+        try {
+            //music
+            Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.setVolume(0.5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void newGameState() {
+
+        gridPane.getChildren().clear();
+        textArea.clear();
+        textArea.setText("Use WASD/arrow keys/buttons to move.");
+        loadGrassTiles();
+        if(mediaPlayer != null) {
+            mediaPlayer.dispose();
+        }
+        playMusic();
+
+        gw = new GameWorld();
+        uiState = new UIState(gridPane, progressBar, textArea, hp, pos);
+        h = new Human(uiState, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
+
+        gw.populateGoblins(gridPane, 5);
     }
 }

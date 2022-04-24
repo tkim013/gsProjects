@@ -103,7 +103,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="144.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: grey;" text="WASD/arrow keys/buttons to move." wrapText="true" />
+            <TextArea fx:id="textArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="618.0" prefHeight="144.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: grey;" wrapText="true" />
             <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="620.0" layoutY="565.0" prefHeight="18.0" prefWidth="143.0" progress="0.0" />
             <Label focusTraversable="false" layoutX="623.0" layoutY="538.0" text="Health" textFill="RED">
                <font>
@@ -141,6 +141,7 @@
                   <Button fx:id="disableRickButton" focusTraversable="false" layoutX="500.0" layoutY="425.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rickroll" visible="false" />
                </children>
             </AnchorPane>
+            <Button fx:id="resetButton" focusTraversable="false" layoutX="653.0" layoutY="482.0" mnemonicParsing="false" onAction="#newGameState" text="RESET" />
          </children>
       </Group>
    </children>
