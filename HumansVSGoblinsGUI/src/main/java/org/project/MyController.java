@@ -9,11 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
-
-import java.io.File;
 
 public class MyController {
 
@@ -67,6 +64,7 @@ public class MyController {
 
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
+        webView.setPickOnBounds(false);
         //load gridPane with tile_grass image
         try {
             Image image = new Image(String.valueOf(getClass().getResource("image/tile_grass.png")));

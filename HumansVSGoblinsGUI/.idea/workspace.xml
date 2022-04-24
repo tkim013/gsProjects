@@ -10,17 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HumansVSGoblinsGUI_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HumansVSGoblinsGUI_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/warning.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Combat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Combat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/GameWorld.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Human.class" afterDir="false" />
@@ -68,7 +68,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/Java/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/bin",
+    "last_opened_file_path": "D:/gsProjects/HumansVSGoblinsGUI/src/main/resources/org/project/image",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -82,6 +82,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project\image" />
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project" />
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources" />
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\test\org\project" />
@@ -164,16 +165,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HumansVSGoblinsGUI.jar" type="JarApplication">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Java\openjfx-18_windows-x64_bin-sdk\javafx-sdk-18\lib&quot; --add-modules=javafx.controls,javafx.fxml,javafx.web,javafx.media" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Application.Start" />
       <item itemvalue="Application.App" />
-      <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
       <item itemvalue="JUnit.CombatTest" />
       <item itemvalue="JUnit.HumanTest" />
     </list>

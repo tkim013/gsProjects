@@ -8,8 +8,18 @@
     -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
     }
 
-.big-red-button:pressed{
-    -fx-background-color: grey;
+.big-red-button:hover {
+    -fx-background-image: url("image/warning.png");
+    -fx-background-size: cover, auto;
+    -fx-background-position: center, center;
+    -fx-text-fill: transparent;
+    }
+
+.big-red-button:pressed {
+    -fx-background-image: url("image/sb.png");
+    -fx-background-size: cover, auto;
+    -fx-background-position: center, center;
+    -fx-background-color: black;
     }
 
 .arrow-button {

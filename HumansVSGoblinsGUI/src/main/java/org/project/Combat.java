@@ -3,8 +3,6 @@ package org.project;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.media.AudioClip;
 
-import java.io.File;
-
 public class Combat {
 
     //d6 for combat

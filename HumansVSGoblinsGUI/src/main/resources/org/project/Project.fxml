@@ -130,17 +130,17 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Button>
-            <AnchorPane layoutX="32.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <WebView fx:id="webView" prefHeight="420.0" prefWidth="580.0" visible="false" />
-                  <Button fx:id="disableRickButton" focusTraversable="false" layoutX="475.0" layoutY="430.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
-               </children>
-            </AnchorPane>
             <Label layoutX="621.0" layoutY="149.0" prefHeight="24.0" prefWidth="141.0" text="DO NOT PUSH!!!" textFill="ORANGE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <AnchorPane layoutX="32.0" layoutY="32.0" pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <WebView fx:id="webView" focusTraversable="false" layoutX="-21.0" layoutY="-15.0" prefHeight="435.0" prefWidth="748.0" visible="false" />
+                  <Button fx:id="disableRickButton" focusTraversable="false" layoutX="600.0" layoutY="450.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rick Roll" visible="false" />
+               </children>
+            </AnchorPane>
          </children>
       </Group>
    </children>
