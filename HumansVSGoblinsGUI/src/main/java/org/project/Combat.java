@@ -1,6 +1,9 @@
 package org.project;
 
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.media.AudioClip;
 
 public class Combat {
@@ -10,7 +13,7 @@ public class Combat {
     private final static int min = 1;
     private final static int range = max - min + 1;
 
-    public static Creature resolveCombat(UIState uiState, Creature att, Creature def) {
+    public static Creature resolveCombat(UIState uiState, Creature att, Creature def, int[] currentPos) {
 
         int attDamage;
         int defDamage;
@@ -30,6 +33,7 @@ public class Combat {
                 if (uiState != null && att instanceof Human) {
                     uiState.getTextArea().appendText("\nYou slaughter an innocent " + def.getId() + ".");
                     goblinSound();
+                    addMuttonImage(uiState.getGridPane(), currentPos);
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + def.getId() + " dies.");
                 }
@@ -79,6 +83,20 @@ public class Combat {
             audioClip.play();
         } catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    private static void addMuttonImage(GridPane gridPane, int[] currentPos) {
+        if (gridPane != null) {
+            //adds goblin image to GUI
+            try {
+                ImageView imageView = new ImageView(new Image(String.valueOf(GameWorld.class.getResource("image/mutton.png"))));
+                imageView.setFitHeight(60);
+                imageView.setFitWidth(60);
+                gridPane.add(imageView, currentPos[1], currentPos[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

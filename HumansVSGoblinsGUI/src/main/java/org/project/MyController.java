@@ -64,7 +64,6 @@ public class MyController {
 
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
-        webView.setPickOnBounds(false);
         //load gridPane with tile_grass image
         try {
             Image image = new Image(String.valueOf(getClass().getResource("image/tile_grass.png")));
@@ -117,6 +116,7 @@ public class MyController {
 
     @FXML
     public void bigRedButtonAction(ActionEvent e) {
+        //rickroll
         mediaPlayer.pause();
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
@@ -132,6 +132,7 @@ public class MyController {
 
     @FXML
     public void disableRickButtonAction(ActionEvent e) {
+        //norickroll
         mediaPlayer.play();
         webView.getEngine().load(null);
         webView.setVisible(false);

@@ -20,6 +20,7 @@
     -fx-background-size: cover, auto;
     -fx-background-position: center, center;
     -fx-background-color: black;
+    -fx-text-fill: transparent;
     }
 
 .arrow-button {

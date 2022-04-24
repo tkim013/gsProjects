@@ -64,6 +64,7 @@ public class GameWorld {
                 if (table.get(c).get(r) && landList.get(c).get(r).getHasCreature() == null) {
                     landList.get(c).get(r).setHasCreature(new Goblin());
                     table.get(c).set(r, false);
+                    //increment on successful goblin placement
                     i++;
 
                     if (gridPane != null) {

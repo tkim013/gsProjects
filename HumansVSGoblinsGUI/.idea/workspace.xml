@@ -10,23 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/image/warning.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Combat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/MyCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Combat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Combat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/org/project/CombatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/org/project/CombatTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/GameWorld.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Human.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,25 +61,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/gsProjects/HumansVSGoblinsGUI/src/main/resources/org/project/image",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/gsProjects/HumansVSGoblinsGUI/src/main/resources/org/project/image&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "CSS"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;CSS&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\gsProjects\HumansVSGoblinsGUI\src\main\resources\org\project\image" />
@@ -106,6 +106,7 @@
     <option name="myCommands">
       <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean javafx:jlink" />
     </option>
   </component>
   <component name="RunManager" selected="Application.App">

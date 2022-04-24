@@ -3,6 +3,8 @@ package org.project;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,7 +70,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -89,7 +91,7 @@ public class Human extends Creature{
                             uiState.getGridPane().getChildren().remove(g);
                         } else if (uiState != null) {
                             //remove human image from grid
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                             uiState.getPos().setText("Dead!");
                         }
@@ -102,7 +104,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -141,7 +143,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -161,7 +163,7 @@ public class Human extends Creature{
                             uiState.getGridPane().getChildren().remove(g);
                         } else if (uiState != null) {
                             //remove human image from grid
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                             uiState.getPos().setText("Dead!");
                         }
@@ -174,7 +176,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -213,7 +215,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -233,7 +235,7 @@ public class Human extends Creature{
                             uiState.getGridPane().getChildren().remove(g);
                         } else if (uiState != null) {
                             //remove human image from grid
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                             uiState.getPos().setText("Dead!");
                         }
@@ -246,7 +248,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -285,7 +287,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -305,7 +307,7 @@ public class Human extends Creature{
                             uiState.getGridPane().getChildren().remove(g);
                         } else if (uiState != null) {
                             //remove human image from grid
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                             uiState.getPos().setText("Dead!");
                         }
@@ -318,7 +320,7 @@ public class Human extends Creature{
                         gw.get(currentPos[0]).get(currentPos[1]).removeCreature();
                         //remove human image from grid
                         if (uiState != null) {
-                            ImageView h = (ImageView) uiState.getGridPane().lookup("#human");
+                            StackPane h = (StackPane) uiState.getGridPane().lookup("#human");
                             uiState.getGridPane().getChildren().remove(h);
                         }
                         //adjust position
@@ -351,11 +353,14 @@ public class Human extends Creature{
     private void addHumanImage(GridPane gridPane) {
 
         try {
+            //StackPane for center alignment of image
+            StackPane stackPane = new StackPane();
             ImageView imageView = new ImageView(new Image(String.valueOf(getClass().getResource("image/Orcbolg.png"))));
             imageView.setFitHeight(60);
             imageView.setFitWidth(35);
-            imageView.setId("human");
-            gridPane.add(imageView, this.currentPos[1], this.currentPos[0]);
+            stackPane.getChildren().add(imageView);
+            stackPane.setId("human");  //id for removal
+            gridPane.add(stackPane, this.currentPos[1], this.currentPos[0]);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -363,7 +368,8 @@ public class Human extends Creature{
 
     private void startCombat(UIState uiState) {
         gw.get(currentPos[0]).get(currentPos[1])
-                .setHasCreature(Combat.resolveCombat(uiState, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature()));
+                .setHasCreature(
+                        Combat.resolveCombat(uiState, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature(), currentPos));
     }
 
     public String getId() {
