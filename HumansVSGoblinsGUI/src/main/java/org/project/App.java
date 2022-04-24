@@ -31,19 +31,19 @@ public class App extends Application {
             switch (keyEvent.getCode()) {
                 case UP:
                 case W:
-                    controller.northButtonAction(null);
+                    controller.getButtonNorth().fire();
                     break;
                 case DOWN:
                 case S:
-                    controller.southButtonAction(null);
+                    controller.getButtonSouth().fire();
                     break;
                 case LEFT:
                 case A:
-                    controller.westButtonAction(null);
+                    controller.getButtonWest().fire();;
                     break;
                 case RIGHT:
                 case D:
-                    controller.eastButtonAction(null);
+                    controller.getButtonEast().fire();
                     break;
                 default:
                     break;

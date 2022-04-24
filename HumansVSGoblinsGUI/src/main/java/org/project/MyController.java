@@ -20,43 +20,30 @@ public class MyController {
 
     @FXML
     private GridPane gridPane;
-
     @FXML
     private Button buttonNorth;
-
     @FXML
     private Button buttonSouth;
-
     @FXML
     private Button buttonEast;
-
     @FXML
     private Button buttonWest;
-
     @FXML
     private Button bigRedButton;
-
     @FXML
     private Button disableRickButton;
-
     @FXML
     private TextArea textArea;
-
     @FXML
     private Label hp;
-
     @FXML
     private Label pos;
-
     @FXML
     private ProgressBar progressBar;
-
     @FXML
     private WebView webView;
-
     @FXML
     private MediaPlayer mediaPlayer;
-
     @FXML
     private Button resetButton;
 
@@ -98,19 +85,17 @@ public class MyController {
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
         //delay 5 seconds until disableRickButton is visible
-        PauseTransition visiblePause = new PauseTransition(
-                Duration.seconds(5)
-        );
-        visiblePause.setOnFinished(
-                event -> disableRickButton.setVisible(true)
-        );
+        PauseTransition visiblePause = new PauseTransition(Duration.seconds(5));
+        visiblePause.setOnFinished( event -> disableRickButton.setVisible(true));
         visiblePause.play();
     }
 
     @FXML
     private void disableRickButtonAction(ActionEvent e) {
         //norickroll
-        mediaPlayer.play();
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+        }
         webView.getEngine().load(null);
         webView.setVisible(false);
         disableRickButton.setVisible(false);
@@ -149,11 +134,12 @@ public class MyController {
     @FXML
     private void newGameState() {
 
+        //fresh game state
         gridPane.getChildren().clear();
         textArea.clear();
         textArea.setText("Use WASD/arrow keys/buttons to move.");
         loadGrassTiles();
-        if(mediaPlayer != null) {
+        if (mediaPlayer != null) {
             mediaPlayer.dispose();
         }
         playMusic();
@@ -163,5 +149,21 @@ public class MyController {
         h = new Human(uiState, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
 
         gw.populateGoblins(gridPane, 5);
+    }
+
+    public Button getButtonNorth() {
+        return buttonNorth;
+    }
+
+    public Button getButtonSouth() {
+        return buttonSouth;
+    }
+
+    public Button getButtonEast() {
+        return buttonEast;
+    }
+
+    public Button getButtonWest() {
+        return buttonWest;
     }
 }

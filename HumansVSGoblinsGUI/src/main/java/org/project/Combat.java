@@ -69,9 +69,29 @@ public class Combat {
         }
     }
     private static void goblinSound() {
+        //random goblins sounds
         try {
-            AudioClip audioClip = new AudioClip(Combat.class.getResource("audio/sound/sf_sheep_03.mp3").toExternalForm());
-            audioClip.play();
+            String fName = null;
+
+            int rand = (int) (Math.random() * 3);
+            switch (rand) {
+                case 0:
+                    fName = "audio/sound/sf_sheep_03.mp3";
+                    break;
+                case 1:
+                    fName = "audio/sound/sf_lamb_01.mp3";
+                    break;
+                case 2:
+                    fName = "audio/sound/SF_sheep_bleat_03.mp3";
+                    break;
+                default:
+                    break;
+            }
+
+            if (fName != null) {
+                AudioClip audioClip = new AudioClip(Combat.class.getResource(fName).toExternalForm());
+                audioClip.play();
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
