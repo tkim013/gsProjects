@@ -11,9 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/org/project/GameWorldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/org/project/GameWorldTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Goblin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Goblin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +116,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.project.Start" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.project.Main" />
       <module name="HumansVSGoblinsGUI" />
       <extension name="coverage">
         <pattern>
@@ -153,7 +159,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HumanTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameWorldTest.populateGoblins" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HumansVSGoblinsGUI" />
       <extension name="coverage">
         <pattern>
@@ -162,26 +168,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.project" />
-      <option name="MAIN_CLASS_NAME" value="org.project.HumanTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.project.GameWorldTest" />
+      <option name="METHOD_NAME" value="populateGoblins" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Start" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.App" />
       <item itemvalue="JUnit.GameWorldTest" />
+      <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
       <item itemvalue="JUnit.CombatTest" />
-      <item itemvalue="JUnit.HumanTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.HumanTest" />
         <item itemvalue="JUnit.GameWorldTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
         <item itemvalue="JUnit.CombatTest" />
-        <item itemvalue="Application.Start" />
       </list>
     </recent_temporary>
   </component>
@@ -206,5 +213,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/org/project/GameWorldTest.java</url>
+          <line>13</line>
+          <properties class="org.project.GameWorldTest" method="populateGoblins">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

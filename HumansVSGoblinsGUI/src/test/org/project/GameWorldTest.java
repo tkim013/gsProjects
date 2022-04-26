@@ -16,7 +16,7 @@ class GameWorldTest {
         int actualGoblins = 0;
 
         //random spawn goblins in GameWorld
-        GameWorld.populateGoblins(null, numberOfGoblins);
+        GameWorld.populateGoblins(null, numberOfGoblins, 1, 0);
 
         //count Goblin in GameWorld
         for (List<Land> list : gw.getLandList()) {

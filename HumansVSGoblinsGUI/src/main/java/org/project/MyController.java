@@ -62,6 +62,10 @@ public class MyController {
     private ToggleButton randomToggle;
     @FXML
     private TextField gSpawn;
+    @FXML
+    private TextField gHealth;
+    @FXML
+    private TextField gStrength;
 
     public MyController() {
     }
@@ -127,6 +131,30 @@ public class MyController {
                         gSpawn.clear();
                     } else if (isNumeric(t1) && Integer.parseInt(t1) >= 1 && Integer.parseInt(t1) <= 50) {
                         gSpawn.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
+        //gHealth textField input validation
+        gHealth.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        gHealth.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) >= 1 && Integer.parseInt(t1) <= 200) {
+                        gHealth.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
+        //gStrength textField input validation
+        gStrength.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        gStrength.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) >= 0 && Integer.parseInt(t1) <= 30) {
+                        gStrength.setText(t1);
                     } else ((StringProperty)observableValue).setValue(s);
                 })
         );
@@ -255,7 +283,10 @@ public class MyController {
                         new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)}
                         : new int[] {Integer.parseInt(hPosY.getText()), Integer.parseInt(hPosX.getText())});
 
-        gw.populateGoblins(gridPane, Integer.parseInt(gSpawn.getText()));
+        gw.populateGoblins(gridPane,
+                Integer.parseInt(gSpawn.getText()),
+                Integer.parseInt(gHealth.getText()),
+                Integer.parseInt(gStrength.getText()));
     }
 
     public Button getButtonNorth() {

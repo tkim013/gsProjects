@@ -11,7 +11,7 @@ public class Main {
         String m = "";
 
         //randomized goblin placement
-        gw.populateGoblins(null, 5);
+        gw.populateGoblins(null, 5, 20, 3);
 
         while (true) {
 

@@ -11,6 +11,12 @@ public class Goblin extends Creature {
     public Goblin() {
     }
 
+    public Goblin(int h, int s) {
+        this.health = h;
+        this.maxHealth = h;
+        this.strength = s;
+    }
+
     @Override
     public String toString() {
         return "G";
@@ -26,12 +32,24 @@ public class Goblin extends Creature {
         this.id = id;
     }
 
+    @Override
     public int getHealth() {
         return health;
     }
 
+    @Override
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    @Override
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    @Override
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public int getStrength() {

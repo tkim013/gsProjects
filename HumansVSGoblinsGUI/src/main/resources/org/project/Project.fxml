@@ -173,17 +173,41 @@
             <TextField fx:id="hPosY" alignment="CENTER" focusTraversable="false" layoutX="207.0" layoutY="91.0" prefHeight="25.0" prefWidth="35.0" text="0" />
             <ToggleButton fx:id="randomToggle" focusTraversable="false" layoutX="248.0" layoutY="91.0" mnemonicParsing="false" text="Random Pos" />
             <Button fx:id="start" focusTraversable="false" layoutX="350.0" layoutY="255.0" mnemonicParsing="false" onAction="#newGameState" text="Start" />
-            <Label layoutX="203.0" layoutY="41.0" text="1 - 1000" />
-            <Label layoutX="203.0" layoutY="68.0" text="0 - 100" />
-            <Label layoutX="154.0" layoutY="117.0" text="0 - 9" />
-            <Label layoutX="211.0" layoutY="117.0" text="0 - 9" />
-            <Label focusTraversable="false" layoutX="61.0" layoutY="168.0" text="Goblin Spawn">
+            <Label focusTraversable="false" layoutX="203.0" layoutY="41.0" text="1 - 1000" />
+            <Label focusTraversable="false" layoutX="203.0" layoutY="68.0" text="0 - 100" />
+            <Label focusTraversable="false" layoutX="154.0" layoutY="117.0" text="0 - 9" />
+            <Label focusTraversable="false" layoutX="211.0" layoutY="117.0" text="0 - 9" />
+            <Label focusTraversable="false" layoutX="61.0" layoutY="168.0" text="Spawn">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="gSpawn" alignment="CENTER" focusTraversable="false" layoutX="178.0" layoutY="169.0" prefHeight="25.0" prefWidth="35.0" text="5" />
-            <Label layoutX="219.0" layoutY="173.0" text="1 - 50" />
+            <TextField fx:id="gSpawn" alignment="CENTER" focusTraversable="false" layoutX="150.0" layoutY="169.0" prefHeight="25.0" prefWidth="35.0" text="5" />
+            <Label focusTraversable="false" layoutX="203.0" layoutY="173.0" text="1 - 50" />
+            <Label focusTraversable="false" layoutX="61.0" layoutY="138.0" text="Goblin">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label focusTraversable="false" layoutX="61.0" layoutY="6.0" text="Human">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label focusTraversable="false" layoutX="61.0" layoutY="194.0" text="Health">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label focusTraversable="false" layoutX="61.0" layoutY="221.0" text="Strength">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="gHealth" alignment="CENTER" focusTraversable="false" layoutX="150.0" layoutY="195.0" prefHeight="25.0" prefWidth="35.0" text="20" />
+            <TextField fx:id="gStrength" alignment="CENTER" focusTraversable="false" layoutX="150.0" layoutY="222.0" prefHeight="25.0" prefWidth="35.0" text="3" />
+            <Label focusTraversable="false" layoutX="203.0" layoutY="199.0" text="1 - 200" />
+            <Label focusTraversable="false" layoutX="203.0" layoutY="226.0" text="0 - 30" />
          </children>
       </Pane>
    </children>

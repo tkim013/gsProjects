@@ -38,7 +38,7 @@ public class GameWorld {
         return sb.toString();
     }
 
-    public static void populateGoblins(GridPane gridPane, int num) {
+    public static void populateGoblins(GridPane gridPane, int num, int gHealth, int gStrength) {
 
         //set limit on num to half map size
         if (num <= (row * col) / 2 && num > 0 && col > 0 && row > 0) {
@@ -62,7 +62,7 @@ public class GameWorld {
 
                 //check for valid spawn position in table and null Land.hasCreature, sets position invalid
                 if (table.get(c).get(r) && landList.get(c).get(r).getHasCreature() == null) {
-                    landList.get(c).get(r).setHasCreature(new Goblin());
+                    landList.get(c).get(r).setHasCreature(new Goblin(gHealth, gStrength));
                     table.get(c).set(r, false);
                     //increment on successful goblin placement
                     i++;
