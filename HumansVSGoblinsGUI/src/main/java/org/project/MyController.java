@@ -1,12 +1,14 @@
 package org.project;
 
 import javafx.animation.PauseTransition;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.web.WebView;
@@ -46,6 +48,20 @@ public class MyController {
     private MediaPlayer mediaPlayer;
     @FXML
     private Button resetButton;
+    @FXML
+    Pane pane;
+    @FXML
+    private Button start;
+    @FXML
+    private TextField hHealth;
+    @FXML
+    private TextField hStrength;
+    @FXML
+    private TextField hPosX;
+    @FXML
+    private TextField hPosY;
+    @FXML
+    private ToggleButton randomToggle;
 
     public MyController() {
     }
@@ -55,9 +71,77 @@ public class MyController {
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
 
-        newGameState();
+        //hHealth textField input validation
+        hHealth.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        hHealth.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) > 0 && Integer.parseInt(t1) <= 1000) {
+                        hHealth.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
+        //hStrength textField input validation
+        hStrength.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        hStrength.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) >= 0 && Integer.parseInt(t1) <= 100) {
+                        hStrength.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
+        //hPosX textField input validation
+        hPosX.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        hPosX.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) >= 0 && Integer.parseInt(t1) <= 9) {
+                        hPosX.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
+        //hPosY textField input validation
+        hPosY.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        hPosY.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) >= 0 && Integer.parseInt(t1) <= 9) {
+                        hPosY.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
+        //listener to disable human x, y position input textfields on randomtoggle selection
+        randomToggle.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
+            if (t1.equals(true)) {
+                hPosX.setDisable(true);
+                hPosY.setDisable(true);
+            } else {
+                hPosX.setDisable(false);
+                hPosY.setDisable(false);
+            }
+        });
     }
 
+    public static boolean isNumeric(String str) {
+        if (str == null) {
+            return false;
+        }
+        try {
+            int i = Integer.parseInt(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
     @FXML
     public void northButtonAction(ActionEvent e) {
         h.move(uiState, "n");
@@ -144,9 +228,15 @@ public class MyController {
         }
         playMusic();
 
+        pane.setVisible(false);
         gw = new GameWorld();
         uiState = new UIState(gridPane, progressBar, textArea, hp, pos);
-        h = new Human(uiState, 50, 5, new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)});
+        h = new Human(uiState,
+                Integer.parseInt(hHealth.getText()),
+                Integer.parseInt(hStrength.getText()),
+                randomToggle.isSelected() ?
+                        new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)}
+                        : new int[] {Integer.parseInt(hPosY.getText()), Integer.parseInt(hPosX.getText())});
 
         gw.populateGoblins(gridPane, 5);
     }

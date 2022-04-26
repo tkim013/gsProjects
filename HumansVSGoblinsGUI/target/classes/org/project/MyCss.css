@@ -1,6 +1,6 @@
 * {
     -fx-base: #424242;
-}
+    }
 
 .big-red-button {
     -fx-background-color: linear-gradient(to right, #ff0000, #990000);
