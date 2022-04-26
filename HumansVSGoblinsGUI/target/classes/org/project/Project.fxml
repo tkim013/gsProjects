@@ -143,10 +143,9 @@
                   <Button fx:id="disableRickButton" focusTraversable="false" layoutX="500.0" layoutY="425.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rickroll" visible="false" />
                </children>
             </AnchorPane>
-            <Button fx:id="resetButton" focusTraversable="false" layoutX="653.0" layoutY="482.0" mnemonicParsing="false" text="RESET" />
          </children>
       </Group>
-      <Pane fx:id="pane" layoutX="100.0" layoutY="50.0" prefHeight="580.0" prefWidth="580.0" style="-fx-background-color: #808080;">
+      <Pane fx:id="pane" layoutX="100.0" layoutY="50.0" prefHeight="294.0" prefWidth="377.0" style="-fx-background-color: #808080;">
          <children>
             <Label focusTraversable="false" layoutX="61.0" layoutY="36.0" text="Health">
                <font>
@@ -173,11 +172,18 @@
             <TextField fx:id="hPosX" alignment="CENTER" focusTraversable="false" layoutX="150.0" layoutY="91.0" prefHeight="25.0" prefWidth="35.0" text="0" />
             <TextField fx:id="hPosY" alignment="CENTER" focusTraversable="false" layoutX="207.0" layoutY="91.0" prefHeight="25.0" prefWidth="35.0" text="0" />
             <ToggleButton fx:id="randomToggle" focusTraversable="false" layoutX="248.0" layoutY="91.0" mnemonicParsing="false" text="Random Pos" />
-            <Button fx:id="start" focusTraversable="false" layoutX="512.0" layoutY="525.0" mnemonicParsing="false" onAction="#newGameState" text="Start" />
+            <Button fx:id="start" focusTraversable="false" layoutX="322.0" layoutY="255.0" mnemonicParsing="false" onAction="#newGameState" text="Start" />
             <Label layoutX="203.0" layoutY="41.0" text="1 - 1000" />
             <Label layoutX="203.0" layoutY="68.0" text="0 - 100" />
             <Label layoutX="154.0" layoutY="117.0" text="0 - 9" />
             <Label layoutX="211.0" layoutY="117.0" text="0 - 9" />
+            <Label focusTraversable="false" layoutX="61.0" layoutY="168.0" text="Goblin Spawn">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="gSpawn" alignment="CENTER" focusTraversable="false" layoutX="178.0" layoutY="169.0" prefHeight="25.0" prefWidth="35.0" text="5" />
+            <Label layoutX="219.0" layoutY="173.0" text="1 - 50" />
          </children>
       </Pane>
    </children>

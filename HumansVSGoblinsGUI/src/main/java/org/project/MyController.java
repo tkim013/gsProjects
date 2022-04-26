@@ -47,8 +47,6 @@ public class MyController {
     @FXML
     private MediaPlayer mediaPlayer;
     @FXML
-    private Button resetButton;
-    @FXML
     Pane pane;
     @FXML
     private Button start;
@@ -62,6 +60,8 @@ public class MyController {
     private TextField hPosY;
     @FXML
     private ToggleButton randomToggle;
+    @FXML
+    private TextField gSpawn;
 
     public MyController() {
     }
@@ -119,6 +119,18 @@ public class MyController {
                 })
         );
 
+        //gSpawn textField input validation
+        gSpawn.textProperty().addListener(
+                ((observableValue, s, t1) -> {
+                    start.setDisable(t1.equals("")); //disables start button on empty field, enabled when valid
+                    if (t1.equals("")) {
+                        gSpawn.clear();
+                    } else if (isNumeric(t1) && Integer.parseInt(t1) >= 1 && Integer.parseInt(t1) <= 50) {
+                        gSpawn.setText(t1);
+                    } else ((StringProperty)observableValue).setValue(s);
+                })
+        );
+
         //listener to disable human x, y position input textfields on randomtoggle selection
         randomToggle.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
             if (t1.equals(true)) {
@@ -129,15 +141,20 @@ public class MyController {
                 hPosY.setDisable(false);
             }
         });
+
+        //design flaw - arrow/wasd/buttons cause errors before game start, my bad
+        gw = new GameWorld();
+        h = new Human();
     }
 
     public static boolean isNumeric(String str) {
+        //check for input validation int datatype
         if (str == null) {
             return false;
         }
         try {
             int i = Integer.parseInt(str);
-        } catch (NumberFormatException nfe) {
+        } catch (NumberFormatException e) {
             return false;
         }
         return true;
@@ -238,7 +255,7 @@ public class MyController {
                         new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)}
                         : new int[] {Integer.parseInt(hPosY.getText()), Integer.parseInt(hPosX.getText())});
 
-        gw.populateGoblins(gridPane, 5);
+        gw.populateGoblins(gridPane, Integer.parseInt(gSpawn.getText()));
     }
 
     public Button getButtonNorth() {
