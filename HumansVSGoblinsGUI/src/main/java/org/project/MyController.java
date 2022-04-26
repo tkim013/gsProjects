@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -44,10 +45,16 @@ public class MyController {
     private ProgressBar progressBar;
     @FXML
     private WebView webView;
-    @FXML
+
     private MediaPlayer mediaPlayer;
     @FXML
-    Pane pane;
+    private Pane pane;
+    private double layoutX = 100;
+    private double layoutY = 50;
+    private double newPosX;
+    private double newPosY;
+    private double xOffset;
+    private double yOffset;
     @FXML
     private Button start;
     @FXML
@@ -74,6 +81,19 @@ public class MyController {
 
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
+
+        pane.setOnMouseDragged(event -> {
+            pane.setTranslateX(pane.getTranslateX()
+                    + event.getX()
+                    - xOffset
+                    + layoutX);
+            newPosX = pane.getLayoutX() + pane.getTranslateX();
+            pane.setTranslateY(pane.getTranslateY()
+                    + event.getY()
+                    - yOffset
+                    + layoutY);
+            newPosY = pane.getLayoutY() + pane.getTranslateY();
+        });
 
         //hHealth textField input validation
         hHealth.textProperty().addListener(
@@ -289,6 +309,30 @@ public class MyController {
                 Integer.parseInt(gStrength.getText()));
     }
 
+    @FXML
+    public void getOffset(MouseEvent e) {
+        xOffset = e.getSceneX();
+        yOffset = e.getSceneY();
+    }
+
+    @FXML
+    public void setPanePos(MouseEvent e) {
+        layoutX = newPosX;
+        layoutY = newPosY;
+    }
+    @FXML
+    public void dragPane(MouseEvent e) {
+        pane.setTranslateX(pane.getTranslateX()
+                + e.getX()
+                - xOffset
+                + layoutX);
+        newPosX = pane.getLayoutX() + pane.getTranslateX();
+        pane.setTranslateY(pane.getTranslateY()
+                + e.getY()
+                - yOffset
+                + layoutY);
+        newPosY = pane.getLayoutY() + pane.getTranslateY();
+    }
     public Button getButtonNorth() {
         return buttonNorth;
     }

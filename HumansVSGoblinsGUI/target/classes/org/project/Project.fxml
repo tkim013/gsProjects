@@ -145,7 +145,7 @@
             </AnchorPane>
          </children>
       </Group>
-      <Pane fx:id="pane" layoutX="100.0" layoutY="50.0" prefHeight="294.0" prefWidth="405.0" style="-fx-background-color: #808080;">
+      <Pane fx:id="pane" layoutX="100.0" layoutY="50.0" onMouseDragged="#dragPane" onMousePressed="#getOffset" onMouseReleased="#setPanePos" prefHeight="294.0" prefWidth="405.0" style="-fx-background-color: lightgrey;">
          <children>
             <Label focusTraversable="false" layoutX="61.0" layoutY="36.0" text="Health">
                <font>
