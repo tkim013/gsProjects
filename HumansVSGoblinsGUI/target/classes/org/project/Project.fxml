@@ -30,7 +30,7 @@
             <Image url="@image/background.jpg" />
          </image>
       </ImageView>
-      <Group stylesheets="@MyCss.css">
+      <Group fx:id="group" disable="true" stylesheets="@MyCss.css">
          <children>
             <GridPane fx:id="gridPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
               <columnConstraints>
@@ -137,14 +137,14 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="32.0" layoutY="32.0" pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <WebView fx:id="webView" focusTraversable="false" layoutX="-21.0" layoutY="-15.0" prefHeight="435.0" prefWidth="748.0" visible="false" />
-                  <Button fx:id="disableRickButton" focusTraversable="false" layoutX="500.0" layoutY="425.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rickroll" visible="false" />
-               </children>
-            </AnchorPane>
          </children>
       </Group>
+      <AnchorPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <WebView fx:id="webView" focusTraversable="false" layoutX="20.0" layoutY="10.0" prefHeight="435.0" prefWidth="730.0" visible="false" />
+            <Button fx:id="disableRickButton" focusTraversable="false" layoutX="500.0" layoutY="450.0" mnemonicParsing="false" onAction="#disableRickButtonAction" text="Disable Rickroll" visible="false" />
+         </children>
+      </AnchorPane>
       <Pane fx:id="pane" layoutX="100.0" layoutY="50.0" onMouseDragged="#dragPane" onMousePressed="#getOffset" onMouseReleased="#setPanePos" prefHeight="294.0" prefWidth="405.0" style="-fx-background-color: lightgrey;">
          <children>
             <Label focusTraversable="false" layoutX="61.0" layoutY="36.0" text="Health">

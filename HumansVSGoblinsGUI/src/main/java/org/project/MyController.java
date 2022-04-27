@@ -4,6 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,6 +24,8 @@ public class MyController {
 
     @FXML
     private GridPane gridPane;
+    @FXML
+    private Group group;
     @FXML
     private Button buttonNorth;
     @FXML
@@ -189,10 +192,6 @@ public class MyController {
                 hPosY.setDisable(false);
             }
         });
-
-        //design flaw - arrow/wasd/buttons cause errors before game start, my bad
-        gw = new GameWorld();
-        h = new Human();
     }
 
     public static boolean isNumeric(String str) {
@@ -231,6 +230,7 @@ public class MyController {
     private void bigRedButtonAction(ActionEvent e) {
         //rickroll
         mediaPlayer.pause();
+        group.setDisable(true);
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
         //delay 5 seconds until disableRickButton is visible
@@ -245,6 +245,7 @@ public class MyController {
         if (mediaPlayer != null) {
             mediaPlayer.play();
         }
+        group.setDisable(false);
         webView.getEngine().load(null);
         webView.setVisible(false);
         disableRickButton.setVisible(false);
@@ -284,6 +285,7 @@ public class MyController {
     private void newGameState() {
 
         //fresh game state
+        group.setDisable(false);
         gridPane.getChildren().clear();
         textArea.clear();
         textArea.setText("Use WASD/arrow keys/buttons to move.");
@@ -311,12 +313,14 @@ public class MyController {
 
     @FXML
     public void getOffset(MouseEvent e) {
+        //mouse offset
         xOffset = e.getSceneX();
         yOffset = e.getSceneY();
     }
 
     @FXML
     public void setPanePos(MouseEvent e) {
+        //new position of pane into layout variables for drag calculation
         layoutX = newPosX;
         layoutY = newPosY;
     }
