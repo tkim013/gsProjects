@@ -16,10 +16,11 @@ public class UIState {
     private Group gameOverGroup;
     private Label gameOverLabel;
     private Label youWinLabel;
+    private Group mainGroup;
     public UIState() {
     }
 
-    public UIState(GridPane gp, ProgressBar pb, TextArea ta, Label hp, Label pos, Group gog, Label gl, Label wl) {
+    public UIState(GridPane gp, ProgressBar pb, TextArea ta, Label hp, Label pos, Group gog, Label gl, Label wl, Group mg) {
         this.gridPane = gp;
         this.progressBar = pb;
         this.textArea = ta;
@@ -28,6 +29,7 @@ public class UIState {
         this.gameOverGroup = gog;
         this.gameOverLabel = gl;
         this.youWinLabel = wl;
+        this.mainGroup = mg;
     }
     public GridPane getGridPane() {
         return gridPane;
@@ -91,5 +93,13 @@ public class UIState {
 
     public void setYouWinLabel(Label youWinLabel) {
         this.youWinLabel = youWinLabel;
+    }
+
+    public Group getMainGroup() {
+        return mainGroup;
+    }
+
+    public void setMainGroup(Group mainGroup) {
+        this.mainGroup = mainGroup;
     }
 }

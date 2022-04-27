@@ -33,11 +33,12 @@ public class Combat {
                 if (uiState != null && att instanceof Human) {
                     uiState.getTextArea().appendText("\nYou slaughter an innocent " + def.getId() + ".");
                     goblinSound();
-                    addMuttonImage(uiState.getGridPane(), currentPos);
+                    addDeadGoblinImage(uiState.getGridPane(), currentPos);
                     GameWorld.setGoblinCount(GameWorld.getGoblinCount() - 1);
                     if (GameWorld.getGoblinCount() == 0) {
                         uiState.getGameOverGroup().setVisible(true);
                         uiState.getYouWinLabel().setVisible(true);
+                        uiState.getMainGroup().setDisable(true);
                     }
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + def.getId() + " dies.");
@@ -66,6 +67,7 @@ public class Combat {
                     humanSound();
                     uiState.getGameOverGroup().setVisible(true);
                     uiState.getGameOverLabel().setVisible(true);
+                    uiState.getMainGroup().setDisable(true);
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + att.getId() + " dies.");
                 }
@@ -113,11 +115,26 @@ public class Combat {
         }
     }
 
-    private static void addMuttonImage(GridPane gridPane, int[] currentPos) {
+    private static void addDeadGoblinImage(GridPane gridPane, int[] currentPos) {
         if (gridPane != null) {
             //adds goblin image to GUI
             try {
-                ImageView imageView = new ImageView(new Image(String.valueOf(GameWorld.class.getResource("image/mutton.png"))));
+                String fName = null;
+                int rand = (int) (Math.random() * 3);
+                switch (rand) {
+                    case 0:
+                        fName = "image/mutton.png";
+                        break;
+                    case 1:
+                        fName = "image/ribrack.png";
+                        break;
+                    case 2:
+                        fName = "image/lamb.png";
+                        break;
+                    default:
+                        break;
+                }
+                ImageView imageView = new ImageView(new Image(String.valueOf(GameWorld.class.getResource(fName))));
                 imageView.setFitHeight(60);
                 imageView.setFitWidth(60);
                 gridPane.add(imageView, currentPos[1], currentPos[0]);

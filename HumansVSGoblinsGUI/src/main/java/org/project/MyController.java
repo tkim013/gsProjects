@@ -291,7 +291,7 @@ public class MyController {
 
         pane.setVisible(false);
         gw = new GameWorld();
-        uiState = new UIState(gridPane, progressBar, textArea, hp, pos, gameOverGroup, gameOverLabel, youWinLabel);
+        uiState = new UIState(gridPane, progressBar, textArea, hp, pos, gameOverGroup, gameOverLabel, youWinLabel, group);
         h = new Human(uiState,
                 Integer.parseInt(hHealth.getText()),
                 Integer.parseInt(hStrength.getText()),
