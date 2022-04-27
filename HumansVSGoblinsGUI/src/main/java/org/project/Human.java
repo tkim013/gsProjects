@@ -369,7 +369,11 @@ public class Human extends Creature{
     private void startCombat(UIState uiState) {
         gw.get(currentPos[0]).get(currentPos[1])
                 .setHasCreature(
-                        Combat.resolveCombat(uiState, this, (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature(), currentPos));
+                        Combat.resolveCombat(uiState,
+                                this,
+                                (Creature) gw.get(currentPos[0]).get(currentPos[1]).getHasCreature(),
+                                currentPos
+                        ));
     }
 
     public String getId() {

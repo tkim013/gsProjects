@@ -12,6 +12,8 @@ public class GameWorld {
     final static int row = 10;
     final static int col = 10;
 
+    private static int goblinCount;
+
     public GameWorld() {
 
         landList = new ArrayList<>();
@@ -39,6 +41,8 @@ public class GameWorld {
     }
 
     public static void populateGoblins(GridPane gridPane, int num, int gHealth, int gStrength) {
+
+        goblinCount = 0;
 
         //set limit on num to half map size
         if (num <= (row * col) / 2 && num > 0 && col > 0 && row > 0) {
@@ -75,6 +79,7 @@ public class GameWorld {
                             imageView.setFitWidth(60);
                             imageView.setId("goblin" + r + c);  //goblin id with coordinates for lookup
                             gridPane.add(imageView, r, c);
+                            goblinCount++;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -92,5 +97,13 @@ public class GameWorld {
 
     public static void setLandList(List<List<Land>> list) {
         GameWorld.landList = list;
+    }
+
+    public static int getGoblinCount() {
+        return goblinCount;
+    }
+
+    public static void setGoblinCount(int goblinCount) {
+        GameWorld.goblinCount = goblinCount;
     }
 }

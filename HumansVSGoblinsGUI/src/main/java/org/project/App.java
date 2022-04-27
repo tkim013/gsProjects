@@ -39,7 +39,7 @@ public class App extends Application {
                     break;
                 case LEFT:
                 case A:
-                    controller.getButtonWest().fire();;
+                    controller.getButtonWest().fire();
                     break;
                 case RIGHT:
                 case D:

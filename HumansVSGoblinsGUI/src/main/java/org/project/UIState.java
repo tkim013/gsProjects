@@ -1,5 +1,6 @@
 package org.project;
 
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
@@ -12,15 +13,21 @@ public class UIState {
     private TextArea textArea;
     private Label hp;
     private Label pos;
+    private Group gameOverGroup;
+    private Label gameOverLabel;
+    private Label youWinLabel;
     public UIState() {
     }
 
-    public UIState(GridPane gp, ProgressBar pb, TextArea ta, Label hp, Label pos) {
+    public UIState(GridPane gp, ProgressBar pb, TextArea ta, Label hp, Label pos, Group gog, Label gl, Label wl) {
         this.gridPane = gp;
         this.progressBar = pb;
         this.textArea = ta;
         this.hp = hp;
         this.pos = pos;
+        this.gameOverGroup = gog;
+        this.gameOverLabel = gl;
+        this.youWinLabel = wl;
     }
     public GridPane getGridPane() {
         return gridPane;
@@ -60,5 +67,29 @@ public class UIState {
 
     public void setPos(Label pos) {
         this.pos = pos;
+    }
+
+    public Group getGameOverGroup() {
+        return gameOverGroup;
+    }
+
+    public void setGameOverGroup(Group gameOverGroup) {
+        this.gameOverGroup = gameOverGroup;
+    }
+
+    public Label getGameOverLabel() {
+        return gameOverLabel;
+    }
+
+    public void setGameOverLabel(Label gameOverLabel) {
+        this.gameOverLabel = gameOverLabel;
+    }
+
+    public Label getYouWinLabel() {
+        return youWinLabel;
+    }
+
+    public void setYouWinLabel(Label youWinLabel) {
+        this.youWinLabel = youWinLabel;
     }
 }

@@ -48,12 +48,11 @@ public class MyController {
     private ProgressBar progressBar;
     @FXML
     private WebView webView;
-
     private MediaPlayer mediaPlayer;
     @FXML
     private Pane pane;
-    private double layoutX = 100;
-    private double layoutY = 50;
+    private double layoutX = 200;
+    private double layoutY = 200;
     private double newPosX;
     private double newPosY;
     private double xOffset;
@@ -76,6 +75,14 @@ public class MyController {
     private TextField gHealth;
     @FXML
     private TextField gStrength;
+    @FXML
+    private Label gameOverLabel;
+    @FXML
+    private Label youWinLabel;
+    @FXML
+    private Button restart;
+    @FXML
+    private Group gameOverGroup;
 
     public MyController() {
     }
@@ -84,19 +91,6 @@ public class MyController {
 
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
-
-        pane.setOnMouseDragged(event -> {
-            pane.setTranslateX(pane.getTranslateX()
-                    + event.getX()
-                    - xOffset
-                    + layoutX);
-            newPosX = pane.getLayoutX() + pane.getTranslateX();
-            pane.setTranslateY(pane.getTranslateY()
-                    + event.getY()
-                    - yOffset
-                    + layoutY);
-            newPosY = pane.getLayoutY() + pane.getTranslateY();
-        });
 
         //hHealth textField input validation
         hHealth.textProperty().addListener(
@@ -297,7 +291,7 @@ public class MyController {
 
         pane.setVisible(false);
         gw = new GameWorld();
-        uiState = new UIState(gridPane, progressBar, textArea, hp, pos);
+        uiState = new UIState(gridPane, progressBar, textArea, hp, pos, gameOverGroup, gameOverLabel, youWinLabel);
         h = new Human(uiState,
                 Integer.parseInt(hHealth.getText()),
                 Integer.parseInt(hStrength.getText()),
@@ -308,7 +302,8 @@ public class MyController {
         gw.populateGoblins(gridPane,
                 Integer.parseInt(gSpawn.getText()),
                 Integer.parseInt(gHealth.getText()),
-                Integer.parseInt(gStrength.getText()));
+                Integer.parseInt(gStrength.getText())
+        );
     }
 
     @FXML
@@ -336,7 +331,30 @@ public class MyController {
                 - yOffset
                 + layoutY);
         newPosY = pane.getLayoutY() + pane.getTranslateY();
+
+        //alternate code for initialize()
+//        pane.setOnMouseDragged(event -> {
+//            pane.setTranslateX(pane.getTranslateX()
+//                    + event.getX()
+//                    - xOffset
+//                    + layoutX);
+//            newPosX = pane.getLayoutX() + pane.getTranslateX();
+//            pane.setTranslateY(pane.getTranslateY()
+//                    + event.getY()
+//                    - yOffset
+//                    + layoutY);
+//            newPosY = pane.getLayoutY() + pane.getTranslateY();
+//        });
     }
+
+    @FXML
+    private void restart() {
+        gameOverLabel.setVisible(false);
+        youWinLabel.setVisible(false);
+        gameOverGroup.setVisible(false);
+        pane.setVisible(true);
+    }
+
     public Button getButtonNorth() {
         return buttonNorth;
     }

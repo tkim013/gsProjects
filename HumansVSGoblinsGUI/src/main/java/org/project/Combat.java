@@ -34,6 +34,11 @@ public class Combat {
                     uiState.getTextArea().appendText("\nYou slaughter an innocent " + def.getId() + ".");
                     goblinSound();
                     addMuttonImage(uiState.getGridPane(), currentPos);
+                    GameWorld.setGoblinCount(GameWorld.getGoblinCount() - 1);
+                    if (GameWorld.getGoblinCount() == 0) {
+                        uiState.getGameOverGroup().setVisible(true);
+                        uiState.getYouWinLabel().setVisible(true);
+                    }
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + def.getId() + " dies.");
                 }
@@ -59,6 +64,8 @@ public class Combat {
                     uiState.getTextArea().appendText("\n" + def.getId() + " wins.  You die.  Game Over.");
                     uiState.getProgressBar().setProgress(ProgressBar.INDETERMINATE_PROGRESS);
                     humanSound();
+                    uiState.getGameOverGroup().setVisible(true);
+                    uiState.getGameOverLabel().setVisible(true);
                 } else if (uiState != null) {
                     uiState.getTextArea().appendText("\n" + att.getId() + " dies.");
                 }
