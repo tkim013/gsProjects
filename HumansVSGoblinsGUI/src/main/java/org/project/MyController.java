@@ -83,6 +83,8 @@ public class MyController {
     private Button restart;
     @FXML
     private Group gameOverGroup;
+    @FXML
+    private Slider vSlider;
 
     public MyController() {
     }
@@ -271,6 +273,9 @@ public class MyController {
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.setVolume(0.5);
+            vSlider.setValue(mediaPlayer.getVolume() * 100);
+            vSlider.valueProperty().addListener(
+                    e -> mediaPlayer.setVolume(vSlider.getValue() / 100));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -299,6 +304,7 @@ public class MyController {
                         new int[] {(int) (Math.random() * 10),(int) (Math.random() * 10)}
                         : new int[] {Integer.parseInt(hPosY.getText()), Integer.parseInt(hPosX.getText())});
 
+        //random goblin spawn
         gw.populateGoblins(gridPane,
                 Integer.parseInt(gSpawn.getText()),
                 Integer.parseInt(gHealth.getText()),
@@ -353,6 +359,11 @@ public class MyController {
         youWinLabel.setVisible(false);
         gameOverGroup.setVisible(false);
         pane.setVisible(true);
+    }
+
+    @FXML
+    private void loseFocus() {
+        progressBar.requestFocus();
     }
 
     public Button getButtonNorth() {
