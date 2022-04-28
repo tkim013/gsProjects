@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -94,6 +95,8 @@ public class MyController {
     private TextField bRedTextLock;
     @FXML
     private Label dnp;
+    private FadeTransition fadeTransition;
+    private AudioClip audioClip;
 
     public MyController() {
     }
@@ -198,9 +201,9 @@ public class MyController {
             }
         });
 
-        //
+        //listener for togglebutton
         bRedButtonLock.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.8), dnp);
+            fadeTransition = new FadeTransition(Duration.seconds(0.8), dnp);
             fadeTransition.setFromValue(1.0);
             fadeTransition.setToValue(0.7);
             fadeTransition.setCycleCount(Animation.INDEFINITE);
@@ -209,12 +212,14 @@ public class MyController {
                 bigRedButton.setDisable(false);
                 dnp.setVisible(true);
                 fadeTransition.play();
+                playKlaxon();
                 bRedButtonLock.setText("UNLOCKED");
                 bRedButtonLock.setTextFill(Color.RED);
             } else {
                 bigRedButton.setDisable(true);
                 dnp.setVisible(false);
                 fadeTransition.stop();
+                audioClip.stop();
                 bRedButtonLock.setText("LOCKED");
             }
         });
@@ -256,9 +261,11 @@ public class MyController {
     private void bigRedButtonAction(ActionEvent e) {
         //rickroll
         mediaPlayer.pause();
+        fadeTransition.stop();
         group.setDisable(true);
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         webView.setVisible(true);
+                audioClip.stop();
         //delay 5 seconds until disableRickButton is visible
         PauseTransition visiblePause = new PauseTransition(Duration.seconds(5));
         visiblePause.setOnFinished( event -> disableRickButton.setVisible(true));
@@ -402,7 +409,18 @@ public class MyController {
     @FXML
     private void bRedTextLock() {
         bRedButtonLock.setDisable(!bRedTextLock.getText().equals("YES"));
+        if(!bRedTextLock.getText().equals("YES")) {
+            dnp.setVisible(false);
+            bRedButtonLock.setSelected(false);
+        }
         loseFocus();
+    }
+
+    private void playKlaxon() {
+        audioClip = new AudioClip(getClass().getResource("audio/sound/Klaxon-sound.mp3").toExternalForm());
+        audioClip.setCycleCount(AudioClip.INDEFINITE);
+        audioClip.setVolume(0.2);
+        audioClip.play();
     }
 
     public Button getButtonNorth() {
