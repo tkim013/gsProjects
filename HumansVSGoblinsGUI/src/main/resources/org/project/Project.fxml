@@ -128,18 +128,29 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="bigRedButton" focusTraversable="false" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" onAction="#bigRedButtonAction" prefHeight="125.0" prefWidth="125.0" styleClass="big-red-button" text="BIG RED BUTTON" textFill="WHITE" wrapText="true">
+            <Button fx:id="bigRedButton" disable="true" focusTraversable="false" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" onAction="#bigRedButtonAction" prefHeight="125.0" prefWidth="125.0" styleClass="big-red-button" text="BIG RED BUTTON" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="621.0" layoutY="149.0" prefHeight="24.0" prefWidth="141.0" text="DO NOT PUSH!!!" textFill="ORANGE">
+            <Label fx:id="dnp" layoutX="621.0" layoutY="151.0" prefHeight="24.0" prefWidth="141.0" text="DO NOT PUSH!!!" textFill="ORANGE" visible="false">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <ToggleButton fx:id="bRedButtonLock" disable="true" focusTraversable="false" layoutX="650.0" layoutY="179.0" mnemonicParsing="false" prefWidth="79.0" text="LOCKED" />
+            <Label layoutX="628.0" layoutY="212.0" text="Type 'YES' to unlock" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="bRedTextLock" focusTraversable="false" layoutX="672.0" layoutY="235.0" onAction="#bRedTextLock" prefWidth="35.0" />
             <Slider fx:id="vSlider" focusTraversable="false" layoutX="621.0" layoutY="482.0" onMouseReleased="#loseFocus" />
-            <Label layoutX="629.0" layoutY="463.0" text="BGM Volume" textFill="AQUA" />
+            <Label layoutX="629.0" layoutY="463.0" text="BGM Volume" textFill="AQUA">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </Group>
       <AnchorPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">

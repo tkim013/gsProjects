@@ -1,5 +1,7 @@
 package org.project;
 
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
 
@@ -85,6 +88,12 @@ public class MyController {
     private Group gameOverGroup;
     @FXML
     private Slider vSlider;
+    @FXML
+    private ToggleButton bRedButtonLock;
+    @FXML
+    private TextField bRedTextLock;
+    @FXML
+    private Label dnp;
 
     public MyController() {
     }
@@ -186,6 +195,27 @@ public class MyController {
             } else {
                 hPosX.setDisable(false);
                 hPosY.setDisable(false);
+            }
+        });
+
+        //
+        bRedButtonLock.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.8), dnp);
+            fadeTransition.setFromValue(1.0);
+            fadeTransition.setToValue(0.7);
+            fadeTransition.setCycleCount(Animation.INDEFINITE);
+
+            if (t1.equals(true)) {
+                bigRedButton.setDisable(false);
+                dnp.setVisible(true);
+                fadeTransition.play();
+                bRedButtonLock.setText("UNLOCKED");
+                bRedButtonLock.setTextFill(Color.RED);
+            } else {
+                bigRedButton.setDisable(true);
+                dnp.setVisible(false);
+                fadeTransition.stop();
+                bRedButtonLock.setText("LOCKED");
             }
         });
     }
@@ -293,8 +323,10 @@ public class MyController {
             mediaPlayer.dispose();
         }
         playMusic();
-
+        bRedButtonLock.setSelected(false);
+        bRedTextLock.clear();
         pane.setVisible(false);
+
         gw = new GameWorld();
         uiState = new UIState(gridPane, progressBar, textArea, hp, pos, gameOverGroup, gameOverLabel, youWinLabel, group);
         h = new Human(uiState,
@@ -363,7 +395,14 @@ public class MyController {
 
     @FXML
     private void loseFocus() {
+        //required for volume slider to lose focus, interferes with arrow movement
         progressBar.requestFocus();
+    }
+
+    @FXML
+    private void bRedTextLock() {
+        bRedButtonLock.setDisable(!bRedTextLock.getText().equals("YES"));
+        loseFocus();
     }
 
     public Button getButtonNorth() {
