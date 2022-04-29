@@ -147,7 +147,7 @@
             <TextField fx:id="bRedTextLock" focusTraversable="false" layoutX="672.0" layoutY="235.0" onAction="#bRedTextLock" prefWidth="35.0" />
             <AnchorPane fx:id="playerPane" layoutX="621.0" layoutY="324.0" prefHeight="101.0" prefWidth="124.0">
                <children>
-                  <Label fx:id="musicLabel" alignment="CENTER" focusTraversable="false" prefHeight="28.0" prefWidth="140.0" style="-fx-background-color: #222222;" text="Label" textFill="AQUA">
+                  <Label fx:id="musicLabel" alignment="CENTER" focusTraversable="false" prefHeight="28.0" prefWidth="140.0" style="-fx-background-color: #222222;" text="MP3" textFill="AQUA">
                      <font>
                         <Font size="17.0" />
                      </font>

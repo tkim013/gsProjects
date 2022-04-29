@@ -392,6 +392,7 @@ public class MyController {
         musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
         beginTimer();
         mediaPlayer.setAutoPlay(true);
+        vSlider.setValue(50);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
@@ -412,6 +413,7 @@ public class MyController {
         musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
         beginTimer();
         mediaPlayer.setAutoPlay(true);
+        vSlider.setValue(50);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
