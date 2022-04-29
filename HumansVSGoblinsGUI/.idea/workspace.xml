@@ -12,12 +12,7 @@
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/Project.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/audio/music/slow-trap-18565.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/MyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/MyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/project/Project.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,36 +152,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameWorldTest.populateGoblins" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HumansVSGoblinsGUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.project" />
-      <option name="MAIN_CLASS_NAME" value="org.project.GameWorldTest" />
-      <option name="METHOD_NAME" value="populateGoblins" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="HumansVSGoblinsGUI.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.App" />
+      <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
       <item itemvalue="JUnit.GameWorldTest" />
-      <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
       <item itemvalue="JUnit.CombatTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
         <item itemvalue="JUnit.CombatTest" />
         <item itemvalue="JUnit.GameWorldTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.GameWorldTest.populateGoblins" />
       </list>
     </recent_temporary>
   </component>

@@ -348,9 +348,9 @@ public class MyController {
         try {
             //music
 //          Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
-            media = new Media(musicList.get(musicNumber).toURI().toString());
+            media = new Media(musicList.get(0).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
+            musicLabel.setText(musicList.get(0).getName().substring(1));
             beginTimer();
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
