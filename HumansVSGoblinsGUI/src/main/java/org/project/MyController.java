@@ -71,7 +71,7 @@ public class MyController {
     private Button prevButton;
     private File musicDir;
     private File[] files;
-    private List<File> musicList;
+    private List<Media> musicList;
     private int musicNumber;
     private Timer timer;
     private TimerTask task;
@@ -134,13 +134,25 @@ public class MyController {
             musicList = new ArrayList<>();
 //            musicList = Arrays.asList(new File(getClass().getResource("audio/music").toURI()).listFiles());
 
-            musicDir = new File(getClass().getResource("audio/music").toURI());
-            files = musicDir.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    musicList.add(file);
-                }
-            }
+//            musicDir = new File(getClass().getResource("audio/music").toURI());
+//            files = musicDir.listFiles();
+//            if (files != null) {
+//                for (File file : files) {
+//                    musicList.add(file);
+//                }
+//            }
+            musicList.add(new Media(getClass().getResource("audio/music/0slow-trap-18565.mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/1Nightcore - Levitating.mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/2Nightcore - Darkside - (Alan Walker - Lyrics).mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/3Black Sun Empire feat. Inne Eysermans - Killing the Light (Official Music Video).mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/4Current Value - Dark Rain HD.mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/5Silence - Delirium ft Sarah Mclachlan.mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/6BT - Dreaming (original version).mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/7DJ icey - Escape.mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/8DJ Icey - The One.mp3").toExternalForm()));
+            musicList.add(new Media(getClass().getResource("audio/music/9Above & Beyond pres. OceanLab - Clear Blue Water.mp3").toExternalForm()));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -348,9 +360,9 @@ public class MyController {
         try {
             //music
 //          Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
-            media = new Media(musicList.get(0).toURI().toString());
+            media = musicList.get(0);
             mediaPlayer = new MediaPlayer(media);
-            musicLabel.setText(musicList.get(0).getName().substring(1));
+            musicLabel.setText(musicList.get(0).getSource().substring(79));
             beginTimer();
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -387,9 +399,9 @@ public class MyController {
         if (running) {
             cancelTimer();
         }
-        media = new Media(musicList.get(musicNumber).toURI().toString());
+        media = musicList.get(musicNumber);
         mediaPlayer = new MediaPlayer(media);
-        musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
+        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79));
         beginTimer();
         mediaPlayer.setAutoPlay(true);
         vSlider.setValue(50);
@@ -408,9 +420,9 @@ public class MyController {
         if (running) {
             cancelTimer();
         }
-        media = new Media(musicList.get(musicNumber).toURI().toString());
+        media = musicList.get(musicNumber);
         mediaPlayer = new MediaPlayer(media);
-        musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
+        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79));
         beginTimer();
         mediaPlayer.setAutoPlay(true);
         vSlider.setValue(50);
