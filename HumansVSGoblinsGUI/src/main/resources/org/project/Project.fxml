@@ -113,7 +113,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="hp" alignment="CENTER_RIGHT" layoutX="723.0" layoutY="538.0" prefHeight="27.0" prefWidth="45.0" text="HP" textFill="RED">
+            <Label fx:id="hp" alignment="CENTER_RIGHT" layoutX="717.0" layoutY="538.0" prefHeight="27.0" prefWidth="45.0" text="HP" textFill="RED">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -145,12 +145,37 @@
                </font>
             </Label>
             <TextField fx:id="bRedTextLock" focusTraversable="false" layoutX="672.0" layoutY="235.0" onAction="#bRedTextLock" prefWidth="35.0" />
-            <Slider fx:id="vSlider" focusTraversable="false" layoutX="621.0" layoutY="482.0" onMouseReleased="#loseFocus" />
-            <Label layoutX="629.0" layoutY="463.0" text="BGM Volume" textFill="AQUA">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <AnchorPane fx:id="playerPane" layoutX="621.0" layoutY="324.0" prefHeight="101.0" prefWidth="124.0">
+               <children>
+                  <Label fx:id="musicLabel" alignment="CENTER" focusTraversable="false" prefHeight="28.0" prefWidth="140.0" style="-fx-background-color: #222222;" text="Label" textFill="AQUA">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="vSlider" focusTraversable="false" layoutY="67.0" onMouseReleased="#loseFocus" />
+                  <ProgressBar fx:id="musicProgressBar" focusTraversable="false" layoutY="28.0" prefHeight="13.0" prefWidth="140.0" progress="0.0" />
+                  <Button fx:id="playButton" focusTraversable="false" layoutY="40.0" mnemonicParsing="false" onAction="#playMedia" prefHeight="25.0" prefWidth="35.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="pauseButton" focusTraversable="false" layoutX="35.0" layoutY="40.0" mnemonicParsing="false" onAction="#pauseMedia" prefHeight="25.0" prefWidth="35.0" text="||">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="prevButton" focusTraversable="false" layoutX="70.0" layoutY="40.0" mnemonicParsing="false" onAction="#previousMedia" prefHeight="25.0" prefWidth="35.0" text="&lt;&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nextButton" focusTraversable="false" layoutX="105.0" layoutY="40.0" mnemonicParsing="false" onAction="#nextMedia" prefHeight="25.0" prefWidth="35.0" text="&gt;&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </Group>
       <AnchorPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">

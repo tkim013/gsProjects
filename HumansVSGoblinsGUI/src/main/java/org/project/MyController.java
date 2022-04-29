@@ -20,6 +20,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
 
+import java.io.File;
+import java.util.*;
+
 public class MyController {
 
     Human h;
@@ -53,6 +56,26 @@ public class MyController {
     @FXML
     private WebView webView;
     private MediaPlayer mediaPlayer;
+    private Media media;
+    @FXML
+    private Label musicLabel;
+    @FXML
+    private ProgressBar musicProgressBar;
+    @FXML
+    private Button playButton;
+    @FXML
+    private Button pauseButton;
+    @FXML
+    private Button nextButton;
+    @FXML
+    private Button prevButton;
+    private File musicDir;
+    private File[] files;
+    private List<File> musicList;
+    private int musicNumber;
+    private Timer timer;
+    private TimerTask task;
+    private boolean running;
     @FXML
     private Pane pane;
     private double layoutX = 200;
@@ -106,6 +129,21 @@ public class MyController {
         //set color of progress bar to red
         progressBar.setStyle("-fx-accent: red;");
 
+        //load music player
+        try {
+            musicList = new ArrayList<>();
+//            musicList = Arrays.asList(new File(getClass().getResource("audio/music").toURI()).listFiles());
+
+            musicDir = new File(getClass().getResource("audio/music").toURI());
+            files = musicDir.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    musicList.add(file);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //hHealth textField input validation
         hHealth.textProperty().addListener(
                 ((observableValue, s, t1) -> {
@@ -193,6 +231,12 @@ public class MyController {
         //listener to disable human x, y position input textfields on randomtoggle selection
         randomToggle.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
             if (t1.equals(true)) {
+                if (hPosX.getText().isEmpty()) {
+                    hPosX.setText("0");
+                }
+                if (hPosY.getText().isEmpty()) {
+                    hPosY.setText("0");
+                }
                 hPosX.setDisable(true);
                 hPosY.setDisable(true);
             } else {
@@ -275,9 +319,7 @@ public class MyController {
     @FXML
     private void disableRickButtonAction(ActionEvent e) {
         //norickroll
-        if (mediaPlayer != null) {
-            mediaPlayer.play();
-        }
+        mediaPlayer.play();
         group.setDisable(false);
         webView.getEngine().load(null);
         webView.setVisible(false);
@@ -305,8 +347,11 @@ public class MyController {
     private void playMusic() {
         try {
             //music
-            Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
+//          Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
+            media = new Media(musicList.get(musicNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
+            musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
+            beginTimer();
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.setVolume(0.5);
@@ -316,6 +361,83 @@ public class MyController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void playMedia() {
+        beginTimer();
+        mediaPlayer.play();
+    }
+
+    @FXML
+    private void pauseMedia() {
+        cancelTimer();
+        mediaPlayer.pause();
+    }
+
+    @FXML
+    private void nextMedia() {
+        if (musicNumber < musicList.size() - 1) {
+            musicNumber++;
+        }
+        else {
+            musicNumber = 0;
+        }
+        mediaPlayer.stop();
+        if (running) {
+            cancelTimer();
+        }
+        media = new Media(musicList.get(musicNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
+        beginTimer();
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    }
+
+    @FXML
+    private void previousMedia() {
+        if (musicNumber > 0) {
+            musicNumber--;
+        }
+        else {
+            musicNumber = musicList.size() - 1;
+        }
+        mediaPlayer.stop();
+        if (running) {
+            cancelTimer();
+        }
+        media = new Media(musicList.get(musicNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        musicLabel.setText(musicList.get(musicNumber).getName().substring(1));
+        beginTimer();
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    }
+
+    private void beginTimer() {
+
+        timer = new Timer();
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                running = true;
+                double current = mediaPlayer.getCurrentTime().toSeconds();
+                double end = media.getDuration().toSeconds();
+                musicProgressBar.setProgress(current / end);
+                if (current / end == 1) {
+                    cancelTimer();
+                }
+            }
+        };
+
+        timer.scheduleAtFixedRate(task, 0, 1000);
+    }
+
+    private void cancelTimer() {
+
+        running = false;
+        timer.cancel();
     }
     @FXML
     private void newGameState() {

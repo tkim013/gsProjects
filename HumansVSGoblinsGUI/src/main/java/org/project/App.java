@@ -1,6 +1,7 @@
 package org.project;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +26,12 @@ public class App extends Application {
         stage.setTitle("Goblins don't exist.");
         stage.setResizable(false);
         stage.show();
+
+        //required for clean exit. music player causes errors.
+        stage.setOnCloseRequest(e -> {
+            Platform.exit();
+            System.exit(0);
+        });
 
         //key events for WASD and arrow key movement
         scene.setOnKeyPressed(keyEvent -> {
