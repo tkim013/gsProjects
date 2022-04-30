@@ -361,8 +361,9 @@ public class MyController {
             //music
 //          Media media = new Media(getClass().getResource("audio/music/slow-trap-18565.mp3").toExternalForm());
             media = musicList.get(0);
+            musicNumber = 0;
             mediaPlayer = new MediaPlayer(media);
-            musicLabel.setText(musicList.get(0).getSource().substring(79));
+            musicLabel.setText(musicList.get(0).getSource().substring(79).replaceAll("%20", " "));
             beginTimer();
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -401,10 +402,11 @@ public class MyController {
         }
         media = musicList.get(musicNumber);
         mediaPlayer = new MediaPlayer(media);
-        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79));
+        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
         beginTimer();
         mediaPlayer.setAutoPlay(true);
         vSlider.setValue(50);
+        mediaPlayer.setVolume(0.5);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
@@ -422,10 +424,11 @@ public class MyController {
         }
         media = musicList.get(musicNumber);
         mediaPlayer = new MediaPlayer(media);
-        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79));
+        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
         beginTimer();
         mediaPlayer.setAutoPlay(true);
         vSlider.setValue(50);
+        mediaPlayer.setVolume(0.5);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
@@ -555,7 +558,7 @@ public class MyController {
     private void playKlaxon() {
         audioClip = new AudioClip(getClass().getResource("audio/sound/Klaxon-sound.mp3").toExternalForm());
         audioClip.setCycleCount(AudioClip.INDEFINITE);
-        audioClip.setVolume(0.2);
+        audioClip.setVolume(0.5);
         audioClip.play();
     }
 
