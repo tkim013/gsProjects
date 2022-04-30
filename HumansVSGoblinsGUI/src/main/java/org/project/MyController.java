@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
@@ -84,6 +85,20 @@ public class MyController {
     private double newPosY;
     private double xOffset;
     private double yOffset;
+    @FXML
+    private AnchorPane playerPane;
+    private double mPLayoutX = 621;
+    private double mPLayoutY = 324;
+    private double playButtonLayoutX = 0;
+    private double playButtonLayoutY = 40;
+    private double pauseButtonLayoutX = 35;
+    private double pauseButtonLayoutY = 40;
+    private double prevButtonLayoutX = 70;
+    private double prevButtonLayoutY = 40;
+    private double nextButtonLayoutX = 105;
+    private double nextButtonLayoutY = 40;
+    private double newMPPosX;
+    private double newMPPosY;
     @FXML
     private Button start;
     @FXML
@@ -506,6 +521,7 @@ public class MyController {
     }
     @FXML
     public void dragPane(MouseEvent e) {
+        //drag start option pane
         pane.setTranslateX(pane.getTranslateX()
                 + e.getX()
                 - xOffset
@@ -533,6 +549,91 @@ public class MyController {
     }
 
     @FXML
+    public void setMPPos(MouseEvent e) {
+        //new position of media player into layout variables for drag calculation
+        mPLayoutX = newMPPosX;
+        mPLayoutY = newMPPosY;
+    }
+    @FXML
+    public void dragMediaPlayer(MouseEvent e) {
+        //drag media player anchorpane
+        playerPane.setTranslateX(playerPane.getTranslateX()
+                + e.getX()
+                - xOffset
+                + mPLayoutX);
+        newMPPosX = playerPane.getLayoutX() + playerPane.getTranslateX();
+        playerPane.setTranslateY(playerPane.getTranslateY()
+                + e.getY()
+                - yOffset
+                + mPLayoutY);
+        newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+    }
+
+    @FXML
+    public void dragPlayButton(MouseEvent e) {
+        //drag media player anchorpane from play button
+        playerPane.setTranslateX(playerPane.getTranslateX()
+                + e.getX()
+                - xOffset
+                + mPLayoutX
+                + playButtonLayoutX);
+        newMPPosX = playerPane.getLayoutX() + playerPane.getTranslateX();
+        playerPane.setTranslateY(playerPane.getTranslateY()
+                + e.getY()
+                - yOffset
+                + mPLayoutY
+                + playButtonLayoutY);
+        newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+    }
+    @FXML
+    public void dragPauseButton(MouseEvent e) {
+        //drag media player anchorpane from pause button
+        playerPane.setTranslateX(playerPane.getTranslateX()
+                + e.getX()
+                - xOffset
+                + mPLayoutX
+                + pauseButtonLayoutX);
+        newMPPosX = playerPane.getLayoutX() + playerPane.getTranslateX();
+        playerPane.setTranslateY(playerPane.getTranslateY()
+                + e.getY()
+                - yOffset
+                + mPLayoutY
+                + pauseButtonLayoutY);
+        newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+    }
+    @FXML
+    public void dragPrevButton(MouseEvent e) {
+        //drag media player anchorpane from previous button
+        playerPane.setTranslateX(playerPane.getTranslateX()
+                + e.getX()
+                - xOffset
+                + mPLayoutX
+                + prevButtonLayoutX);
+        newMPPosX = playerPane.getLayoutX() + playerPane.getTranslateX();
+        playerPane.setTranslateY(playerPane.getTranslateY()
+                + e.getY()
+                - yOffset
+                + mPLayoutY
+                + prevButtonLayoutY);
+        newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+    }
+    @FXML
+    public void dragNextButton(MouseEvent e) {
+        //drag media player anchorpane from next button
+        playerPane.setTranslateX(playerPane.getTranslateX()
+                + e.getX()
+                - xOffset
+                + mPLayoutX
+                + nextButtonLayoutX);
+        newMPPosX = playerPane.getLayoutX() + playerPane.getTranslateX();
+        playerPane.setTranslateY(playerPane.getTranslateY()
+                + e.getY()
+                - yOffset
+                + mPLayoutY
+                + nextButtonLayoutY);
+        newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+    }
+    @FXML
     private void restart() {
         //enables start options pane
         gameOverLabel.setVisible(false);
@@ -559,10 +660,14 @@ public class MyController {
     }
 
     private void playKlaxon() {
-        audioClip = new AudioClip(getClass().getResource("audio/sound/Klaxon-sound.mp3").toExternalForm());
-        audioClip.setCycleCount(AudioClip.INDEFINITE);
-        audioClip.setVolume(0.5);
-        audioClip.play();
+        try {
+            audioClip = new AudioClip(getClass().getResource("audio/sound/Klaxon-sound.mp3").toExternalForm());
+            audioClip.setCycleCount(AudioClip.INDEFINITE);
+            audioClip.setVolume(0.5);
+            audioClip.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Button getButtonNorth() {
