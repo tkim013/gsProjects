@@ -87,6 +87,7 @@ public class MyController {
     private double yOffset;
     @FXML
     private AnchorPane playerPane;
+    private boolean mDragged;
     private double mPLayoutX = 621;
     private double mPLayoutY = 324;
     private double playButtonLayoutX = 0;
@@ -396,54 +397,66 @@ public class MyController {
 
     @FXML
     private void playMedia() {
-        beginTimer();
-        mediaPlayer.play();
+        //check for drag
+        if (!mDragged) {
+            beginTimer();
+            mediaPlayer.play();
+        }
     }
 
     @FXML
     private void pauseMedia() {
-        cancelTimer();
-        mediaPlayer.pause();
+        //check for drag
+        if (!mDragged) {
+            cancelTimer();
+            mediaPlayer.pause();
+        }
     }
 
     @FXML
     private void nextMedia() {
-        //set index
-        musicNumber = musicNumber < musicList.size() - 1 ? ++musicNumber : 0;
-        mediaPlayer.stop();
-        //terminate progress bar if active
-        if (running) {
-            cancelTimer();
+        //check for drag
+        if (!mDragged) {
+            //set index
+            musicNumber = musicNumber < musicList.size() - 1 ? ++musicNumber : 0;
+            mediaPlayer.stop();
+            //terminate progress bar if active
+            if (running) {
+                cancelTimer();
+            }
+            media = musicList.get(musicNumber);
+            mediaPlayer = new MediaPlayer(media);
+            musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
+            //set progress bar
+            beginTimer();
+            mediaPlayer.setAutoPlay(true);
+            vSlider.setValue(50);
+            mediaPlayer.setVolume(0.5);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         }
-        media = musicList.get(musicNumber);
-        mediaPlayer = new MediaPlayer(media);
-        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
-        //set progress bar
-        beginTimer();
-        mediaPlayer.setAutoPlay(true);
-        vSlider.setValue(50);
-        mediaPlayer.setVolume(0.5);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
     @FXML
     private void previousMedia() {
-        //set index
-        musicNumber = musicNumber > 0 ? --musicNumber : musicList.size() - 1;
-        mediaPlayer.stop();
-        //terminate progress bar if active
-        if (running) {
-            cancelTimer();
+        //check for drag
+        if (!mDragged) {
+            //set index
+            musicNumber = musicNumber > 0 ? --musicNumber : musicList.size() - 1;
+            mediaPlayer.stop();
+            //terminate progress bar if active
+            if (running) {
+                cancelTimer();
+            }
+            media = musicList.get(musicNumber);
+            mediaPlayer = new MediaPlayer(media);
+            musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
+            //set progress bar
+            beginTimer();
+            mediaPlayer.setAutoPlay(true);
+            vSlider.setValue(50);
+            mediaPlayer.setVolume(0.5);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         }
-        media = musicList.get(musicNumber);
-        mediaPlayer = new MediaPlayer(media);
-        musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
-        //set progress bar
-        beginTimer();
-        mediaPlayer.setAutoPlay(true);
-        vSlider.setValue(50);
-        mediaPlayer.setVolume(0.5);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
     private void beginTimer() {
@@ -553,6 +566,7 @@ public class MyController {
         //new position of media player into layout variables for drag calculation
         mPLayoutX = newMPPosX;
         mPLayoutY = newMPPosY;
+        mDragged = false;
     }
     @FXML
     public void dragMediaPlayer(MouseEvent e) {
@@ -584,6 +598,7 @@ public class MyController {
                 + mPLayoutY
                 + playButtonLayoutY);
         newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+        mDragged = true;
     }
     @FXML
     public void dragPauseButton(MouseEvent e) {
@@ -600,6 +615,7 @@ public class MyController {
                 + mPLayoutY
                 + pauseButtonLayoutY);
         newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+        mDragged = true;
     }
     @FXML
     public void dragPrevButton(MouseEvent e) {
@@ -616,6 +632,7 @@ public class MyController {
                 + mPLayoutY
                 + prevButtonLayoutY);
         newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+        mDragged = true;
     }
     @FXML
     public void dragNextButton(MouseEvent e) {
@@ -632,6 +649,7 @@ public class MyController {
                 + mPLayoutY
                 + nextButtonLayoutY);
         newMPPosY = playerPane.getLayoutY() + playerPane.getTranslateY();
+        mDragged = true;
     }
     @FXML
     private void restart() {
