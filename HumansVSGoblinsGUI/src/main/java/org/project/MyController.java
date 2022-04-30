@@ -318,6 +318,7 @@ public class MyController {
     private void bigRedButtonAction(ActionEvent e) {
         //rickroll
         mediaPlayer.pause();
+        cancelTimer();
         fadeTransition.stop();
         group.setDisable(true);
         webView.getEngine().load("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
@@ -334,6 +335,7 @@ public class MyController {
         //norickroll
         mediaPlayer.play();
         group.setDisable(false);
+        beginTimer();
         webView.getEngine().load(null);
         webView.setVisible(false);
         disableRickButton.setVisible(false);
