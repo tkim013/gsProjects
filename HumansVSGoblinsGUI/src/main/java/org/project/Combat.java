@@ -35,6 +35,7 @@ public class Combat {
                     goblinSound();
                     addDeadGoblinImage(uiState.getGridPane(), currentPos);
                     GameWorld.setGoblinCount(GameWorld.getGoblinCount() - 1);
+                    //if all goblins dead, show gameover screen
                     if (GameWorld.getGoblinCount() == 0) {
                         uiState.getGameOverGroup().setVisible(true);
                         uiState.getYouWinLabel().setVisible(true);
@@ -65,6 +66,7 @@ public class Combat {
                     uiState.getTextArea().appendText("\n" + def.getId() + " wins.  You die.  Game Over.");
                     uiState.getProgressBar().setProgress(ProgressBar.INDETERMINATE_PROGRESS);
                     humanSound();
+                    //if human dies, show game over group
                     uiState.getGameOverGroup().setVisible(true);
                     uiState.getGameOverLabel().setVisible(true);
                     uiState.getMainGroup().setDisable(true);
@@ -107,6 +109,7 @@ public class Combat {
     }
 
     private static void humanSound() {
+        //human death sound
         try {
             AudioClip audioClip = new AudioClip(Combat.class.getResource("audio/sound/Wilhelm_scream.mp3").toExternalForm());
             audioClip.play();
@@ -117,7 +120,7 @@ public class Combat {
 
     private static void addDeadGoblinImage(GridPane gridPane, int[] currentPos) {
         if (gridPane != null) {
-            //adds goblin image to GUI
+            //adds random dead goblin image to GUI
             try {
                 String fName = null;
                 int rand = (int) (Math.random() * 3);

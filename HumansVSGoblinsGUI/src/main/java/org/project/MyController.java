@@ -132,8 +132,6 @@ public class MyController {
         //load music player
         try {
             musicList = new ArrayList<>();
-//            musicList = Arrays.asList(new File(getClass().getResource("audio/music").toURI()).listFiles());
-
 //            musicDir = new File(getClass().getResource("audio/music").toURI());
 //            files = musicDir.listFiles();
 //            if (files != null) {
@@ -141,6 +139,8 @@ public class MyController {
 //                    musicList.add(file);
 //                }
 //            }
+
+            //workaround for deployment
             musicList.add(new Media(getClass().getResource("audio/music/0slow-trap-18565.mp3").toExternalForm()));
             musicList.add(new Media(getClass().getResource("audio/music/1Nightcore - Levitating.mp3").toExternalForm()));
             musicList.add(new Media(getClass().getResource("audio/music/2Nightcore - Darkside - (Alan Walker - Lyrics).mp3").toExternalForm()));
@@ -257,8 +257,9 @@ public class MyController {
             }
         });
 
-        //listener for togglebutton
+        //listener for togglebutton that locks Big Red Button
         bRedButtonLock.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
+            //flashy text
             fadeTransition = new FadeTransition(Duration.seconds(0.8), dnp);
             fadeTransition.setFromValue(1.0);
             fadeTransition.setToValue(0.7);
@@ -390,19 +391,17 @@ public class MyController {
 
     @FXML
     private void nextMedia() {
-        if (musicNumber < musicList.size() - 1) {
-            musicNumber++;
-        }
-        else {
-            musicNumber = 0;
-        }
+        //set index
+        musicNumber = musicNumber < musicList.size() - 1 ? ++musicNumber : 0;
         mediaPlayer.stop();
+        //terminate progress bar if active
         if (running) {
             cancelTimer();
         }
         media = musicList.get(musicNumber);
         mediaPlayer = new MediaPlayer(media);
         musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
+        //set progress bar
         beginTimer();
         mediaPlayer.setAutoPlay(true);
         vSlider.setValue(50);
@@ -412,19 +411,17 @@ public class MyController {
 
     @FXML
     private void previousMedia() {
-        if (musicNumber > 0) {
-            musicNumber--;
-        }
-        else {
-            musicNumber = musicList.size() - 1;
-        }
+        //set index
+        musicNumber = musicNumber > 0 ? --musicNumber : musicList.size() - 1;
         mediaPlayer.stop();
+        //terminate progress bar if active
         if (running) {
             cancelTimer();
         }
         media = musicList.get(musicNumber);
         mediaPlayer = new MediaPlayer(media);
         musicLabel.setText(musicList.get(musicNumber).getSource().substring(79).replaceAll("%20", " "));
+        //set progress bar
         beginTimer();
         mediaPlayer.setAutoPlay(true);
         vSlider.setValue(50);
@@ -434,6 +431,7 @@ public class MyController {
 
     private void beginTimer() {
 
+        //progress bar for music player
         timer = new Timer();
         task = new TimerTask() {
             @Override
@@ -453,6 +451,7 @@ public class MyController {
 
     private void cancelTimer() {
 
+        //terminates progress bar
         running = false;
         timer.cancel();
     }
@@ -533,6 +532,7 @@ public class MyController {
 
     @FXML
     private void restart() {
+        //enables start options pane
         gameOverLabel.setVisible(false);
         youWinLabel.setVisible(false);
         gameOverGroup.setVisible(false);
@@ -547,6 +547,7 @@ public class MyController {
 
     @FXML
     private void bRedTextLock() {
+        //text lock for togglebutton that locks Big Red Button
         bRedButtonLock.setDisable(!bRedTextLock.getText().equals("YES"));
         if(!bRedTextLock.getText().equals("YES")) {
             dnp.setVisible(false);
