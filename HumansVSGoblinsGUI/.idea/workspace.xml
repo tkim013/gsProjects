@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8d766929-1524-413a-813a-63257931a6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HumansVSGoblinsGUI_jar/HumansVSGoblinsGUI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/MyController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/gsProjects/HumansVSGoblinsGUI/src/main/resources/org/project/audio/music&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
@@ -157,11 +155,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.App" />
-      <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
-      <item itemvalue="JUnit.GameWorldTest" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.CombatTest" />
+      <item itemvalue="JUnit.GameWorldTest" />
+      <item itemvalue="JAR Application.HumansVSGoblinsGUI.jar" />
     </list>
     <recent_temporary>
       <list>
