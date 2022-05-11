@@ -10,14 +10,24 @@
         <property name="name" value="Dirk"/>
         <property name="ph">
             <list>
-                <ref bean="phone"/>
+                <ref bean="phone1"/>
+                <ref bean="phone2"/>
+                <ref bean="phone3"/>
             </list>
         </property>
         <property name="add" ref="address"/>
     </bean>
 
-    <bean id="phone" class="org.genspark.Phone">
+    <bean id="phone1" class="org.genspark.Phone">
         <property name="mob" value="123-456-7890"/>
+    </bean>
+
+    <bean id="phone2" class="org.genspark.Phone">
+        <property name="mob" value="098-765-4321"/>
+    </bean>
+
+    <bean id="phone3" class="org.genspark.Phone">
+        <property name="mob" value="111-222-3333"/>
     </bean>
 
     <bean id="address" class="org.genspark.Address">
