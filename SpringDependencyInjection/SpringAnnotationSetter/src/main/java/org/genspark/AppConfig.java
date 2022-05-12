@@ -1,5 +1,6 @@
 package org.genspark;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,11 +14,11 @@ public class AppConfig {
 
     @Bean
     Integer getId() {
-        Integer i = 50;
-        return i;
+        return 50;
     }
 
     @Bean
+    @Qualifier("name")
     String getName() {
         return "Some Name";
     }
@@ -25,15 +26,37 @@ public class AppConfig {
     @Bean
     List<Phone> getPh() {
         List<Phone> number = new ArrayList<>();
-        number.add(new Phone("1234567890"));
-        number.add(new Phone("0000000000"));
-        number.add(new Phone("0987654321"));
+        number.add(new Phone());
+        number.get(0).setMob("1234567890");
+        number.add(new Phone());
+        number.get(1).setMob("0987654321");
+        number.add(new Phone());
+        number.get(2).setMob("5555555555");
         return number;
     }
 
     @Bean
     Address getAdd() {
-        Address add = new Address("Atlanta", "Georgia", "USA", "30311");
-        return add;
+        return new Address();
+    }
+
+    @Bean(name = "getCity")
+    String getCity() {
+        return "Columbus";
+    }
+
+    @Bean(name = "getState")
+    String getState() {
+        return "Ohio";
+    }
+
+    @Bean(name = "getCountry")
+    String getCountry() {
+        return "USA";
+    }
+
+    @Bean(name = "getZipCode")
+    String getZipCode() {
+        return "43081";
     }
 }
