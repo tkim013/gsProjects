@@ -29,4 +29,21 @@ public class ExceptionHandlerControllerAdvice {
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public @ResponseBody ResponseEntity<CustomErrorMessage> handleNotFoundException(
+            final Exception exception,
+            final WebRequest request
+    ) {
+        CustomErrorMessage body = new CustomErrorMessage(
+                LocalDateTime.now(),
+                HttpStatus.NOT_FOUND.value(),
+                "Not Found",
+                exception.getMessage(),
+                request.getDescription(false).substring(4)
+        );
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
 }

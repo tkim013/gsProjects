@@ -15,8 +15,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.*;
 
 @Service
@@ -72,6 +72,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public ChangePasswordResponse changePassword(NewPassword newpassword, UserDetailsImpl details) {
         User user = this.userRepository.findUserByEmail(details.getEmail().toLowerCase()).get();
 
@@ -97,11 +98,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<UserResponse> getAllUsers() {
         List<UserResponse> list = new ArrayList<>();
         List<User> users = this.userRepository.findAll();
 
-        //return empty list if no information
+        //return empty list if no entries in db
         if (users.size() == 0) {
             return list;
         }
@@ -120,6 +122,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public DeleteUserResponse deleteUserByEmail(String email, UserDetailsImpl details) {
 
         //check for ADMINISTRATOR removing self

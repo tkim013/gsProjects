@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .csrf().disable().headers().frameOptions().disable() // for Postman, the H2 console
                 .and()
                 .authorizeRequests() // manage access
-                .mvcMatchers("/api/auth/register").permitAll()
+                .mvcMatchers("/api/**").permitAll()
                 .and()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler())
                 .and()
