@@ -23,15 +23,17 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
             HttpServletResponse response,
             AccessDeniedException exc) throws IOException, ServletException {
 
+        //similar to @AuthenticationPrincipal UserDetailsImpl that you can access anywhere
         Authentication auth
                 = SecurityContextHolder.getContext().getAuthentication();
+
         if (auth != null) {
 
             LOGGER.warn("User: " + auth.getName()
                     + " attempted to access the protected URL: "
                     + request.getRequestURI());
 
-            //log security event
+            //TODO: log security event
         }
 
         response.sendError(HttpStatus.FORBIDDEN.value(), "Access Denied!");

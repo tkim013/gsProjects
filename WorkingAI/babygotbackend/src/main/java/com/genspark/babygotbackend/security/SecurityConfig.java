@@ -3,14 +3,8 @@ package com.genspark.babygotbackend.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,14 +23,16 @@ public class SecurityConfig {
     @Autowired
     BCryptPasswordEncoder encoder;
 
+    //configured with SecurityFilterChain since WebSecurityConfigurerAdapter deprecated
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.httpBasic()
                 .authenticationEntryPoint(restAuthenticationEntryPoint) // Handle auth error
                 .and()
-                .authenticationProvider(authenticationProvider())
-                .csrf().disable().headers().frameOptions().disable() // for Postman, the H2 console
+                .authenticationProvider(authenticationProvider()) //DaoAuthenticationProvider
+                .csrf().disable()  //for Postman
+                .headers().frameOptions().disable() // for H2 console
                 .and()
                 .authorizeRequests() // manage access
                 .mvcMatchers("/api/**").permitAll()

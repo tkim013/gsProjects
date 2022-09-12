@@ -15,19 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     @Autowired
     UserService userService;
 
-    @PostMapping("/auth/register")
+    @PostMapping("/register")
     UserResponse registerUser(@RequestBody User user) {
 
         return userService.addUser(user);
     }
 
-    @PostMapping("/auth/changepwd")
+    @PostMapping("/changepwd")
     @Secured({ "ROLE_USER", "ROLE_ADMINISTRATOR" })
     ChangePasswordResponse changePassword(
             @RequestBody NewPassword newpassword,

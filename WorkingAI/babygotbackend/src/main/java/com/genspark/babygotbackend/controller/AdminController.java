@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
-@Secured("ROLE_ADMINISTRATOR")
+@Secured("ROLE_ADMINISTRATOR")  //class level, enabled by MethodSecurityConfig
 public class AdminController {
 
     @Autowired
