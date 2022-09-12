@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
@@ -23,9 +22,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    private HttpServletRequest request;
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -33,17 +29,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Optional<User> o = this.userRepository.findUserByEmail(email.toLowerCase());
 
         if (o.isEmpty()){
-
             throw new UsernameNotFoundException(email);
         }
 
         user = o.get();
 
-        UserDetailsImpl userDetails = UserDetailsImpl.builder()
-                .email(user.getEmail())
-                .password(user.getPassword())
-                .authorities(getAuthorities(user))
-                .enabled(user.isEnabled())
+        UserDetailsImpl userDetails = UserDetailsImpl.CustomUserBuilder.aCustomUser()
+                .withEmail(user.getEmail())
+                .withPassword(user.getPassword())
+                .withAuthorities(getAuthorities(user))
+                .withEnabled(user.isEnabled())
                 .build();
 
         return userDetails;

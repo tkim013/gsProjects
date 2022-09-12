@@ -1,4 +1,4 @@
-package com.genspark.babygotbackend.payload;
+package com.genspark.babygotbackend.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

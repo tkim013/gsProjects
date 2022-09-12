@@ -1,12 +1,10 @@
 package com.genspark.babygotbackend.security;
 
-import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-@Builder
 public class UserDetailsImpl implements UserDetails {
 
     private String email;
@@ -70,63 +68,45 @@ public class UserDetailsImpl implements UserDetails {
         return this.enabled;
     }
 
-//    public static final class CustomUserBuilder {
-//
-//        private String email;
-//        private String password;
-//        private Collection<GrantedAuthority> authorities;
-//        private boolean enabled;
-//        private boolean accountNonLocked;
-//        private int failedAttempt;
-//        private Date lockTime;
-//
-//        private CustomUserBuilder() {
-//        }
-//
-//        public static CustomUserBuilder aCustomUser() {
-//            return new CustomUserBuilder();
-//        }
-//
-//        public CustomUserBuilder withEmail(String email) {
-//            this.email = email;
-//            return this;
-//        }
-//
-//        public CustomUserBuilder withPassword(String password) {
-//            this.password = password;
-//            return this;
-//        }
-//
-//        public CustomUserBuilder withAuthorities(Collection<GrantedAuthority> authorities) {
-//            this.authorities = authorities;
-//            return this;
-//        }
-//
-//        public CustomUserBuilder withEnabled(boolean enabled) {
-//            this.enabled = enabled;
-//            return this;
-//        }
-//
-//        public CustomUserBuilder withAccountNonLocked(boolean accountNonLocked) {
-//            this.accountNonLocked = accountNonLocked;
-//            return this;
-//        }
-//
-//        public CustomUserBuilder withFailedAttempt(int failedAttempt) {
-//            this.failedAttempt = failedAttempt;
-//            return this;
-//        }
-//
-//        public CustomUserBuilder withLockTime(Date lockTime) {
-//            this.lockTime = lockTime;
-//            return this;
-//        }
-//
-//        public UserDetailsImpl build() {
-//            UserDetailsImpl userDetailsImpl = new UserDetailsImpl(email, password, authorities,
-//                    enabled, accountNonLocked, failedAttempt, lockTime);
-//            userDetailsImpl.authorities = this.authorities;
-//            return userDetailsImpl;
-//        }
-//    }
+    public static final class CustomUserBuilder {
+
+        private String email;
+        private String password;
+        private Collection<GrantedAuthority> authorities;
+        private boolean enabled;
+
+        private CustomUserBuilder() {
+        }
+
+        public static CustomUserBuilder aCustomUser() {
+            return new CustomUserBuilder();
+        }
+
+        public CustomUserBuilder withEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public CustomUserBuilder withPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public CustomUserBuilder withAuthorities(Collection<GrantedAuthority> authorities) {
+            this.authorities = authorities;
+            return this;
+        }
+
+        public CustomUserBuilder withEnabled(boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public UserDetailsImpl build() {
+            UserDetailsImpl userDetailsImpl = new UserDetailsImpl(email, password, authorities,
+                    enabled);
+            userDetailsImpl.authorities = this.authorities;
+            return userDetailsImpl;
+        }
+    }
 }
