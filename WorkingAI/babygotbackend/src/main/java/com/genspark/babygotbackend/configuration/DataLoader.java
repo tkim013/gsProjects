@@ -18,7 +18,7 @@ public class DataLoader {
 
     private void createRoles() {
         try {
-            //check for empty table, add group/roles
+            //check for empty table, add group/roles as required
             if (groupRepository.count() == 0) {
                 groupRepository.save(new Group("administrator", "ROLE_ADMINISTRATOR"));
                 groupRepository.save(new Group("user", "ROLE_USER"));

@@ -22,8 +22,8 @@ import java.util.Set;
     a UserDetails object.  Overridden as String email for clarity.
 
     This method will be used by Spring Security when someone tries to authenticate. In the method, we need to retrieve
-    user data by email from the storage and convert that data to UserDetails. If the user with a specified username
-    is not found, we throw UsernameNotFoundException.
+    user data by email from the storage and convert that data to UserDetails. If the user with a specified
+    username(email) is not found, we throw UsernameNotFoundException.
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -55,11 +55,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 /*  We injected UserRepository to use it in the loadUserByUsername method to retrieve user info.
     Note that the class is annotated with the @Service annotation.
 
-    Why do we retrieve user data just by username without checking the password or authorities/roles? The answer is
-    they will be checked automatically by Spring Security. Our only task is to return the UserDetails object that
+    Why do we retrieve user data just by username(email) without checking the password or authorities/roles? The answer
+    is they will be checked automatically by Spring Security. Our only task is to return the UserDetails object that
     stores user info. It doesn't matter how we convert user data to UserDetails, and where our users are stored.
  */
 
+    //used to pass authorities to builder
     private Collection<GrantedAuthority> getAuthorities(User user){
         Set<Group> userGroups = user.getUserGroups();
         Collection<GrantedAuthority> authorities = new ArrayList<>(userGroups.size());
