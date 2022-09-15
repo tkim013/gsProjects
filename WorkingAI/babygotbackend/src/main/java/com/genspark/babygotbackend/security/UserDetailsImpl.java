@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-/*  The UserDetails interface has 7 self-explanatory methods that needs to be implemented.
+/*  The UserDetails interface has 7 methods that needs to be implemented.
 
     - String getUsername() returns the username used to authenticate the user. Since we are using email to authenticate
         the user, it is set to return email if it ever gets called.  String getEmail() added for the same purpose.
@@ -31,9 +31,8 @@ import java.util.Collection;
     to implement these functionalities in your application, you can simply make these four methods return true,
     which means that the users are active.
 
-    Now let's provide our implementation of the UserDetails interface. As we've mentioned before, the class that
-    implements the interface (UserDetailsImpl) will be used to store and transfer core user information from the
-    user store to Spring Security. In the UserRepository the info about one user is stored in a User object.
+    The class that implements the interface (UserDetailsImpl) will be used to store and transfer core user information
+    from the user store to Spring Security. In the UserRepository the info about one user is stored in a User object.
     Now we need to provide a converter from User to UserDetails. We will do it with a custom builder that will
     construct UserDetails object from User object information and store its content.
 

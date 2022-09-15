@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
-@Secured("ROLE_ADMINISTRATOR")  //class level, enabled by MethodSecurityConfig
+@Secured("ROLE_ADMINISTRATOR")  //class level authorization, enabled by MethodSecurityConfig
 public class AdminController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class AdminController {
 
     @DeleteMapping("/user/{email}")
     DeleteUserResponse deleteUser(@PathVariable String email,
-                                  //retrieves user information into object
+                                  //retrieves user authentication information into object
                                   @AuthenticationPrincipal UserDetailsImpl details) {
 
         return this.userService.deleteUserByEmail(email, details);

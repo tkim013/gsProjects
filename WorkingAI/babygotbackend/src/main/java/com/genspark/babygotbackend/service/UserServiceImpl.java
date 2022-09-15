@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -110,22 +111,24 @@ public class UserServiceImpl implements UserService {
 
         for (User u : users) {
             UserResponse ur = new UserResponse();
-            BeanUtils.copyProperties(u, ur);
-            ur.setRoles(getRoles(u.getUserGroups()));
+            BeanUtils.copyProperties(u, ur);  //copies properties with similar type/names
+            ur.setRoles(getRoles(u.getUserGroups()));  //List<String> from Set usergroups that copyProperties() does not handle
             list.add(ur);
         }
 
         //sort by id ascending
-        list.sort(Comparator.comparing(UserResponse::getId));
+//        list.sort(Comparator.comparing(UserResponse::getId));
 
-        return list;
+        return list.stream()
+                .sorted(Comparator.comparing(UserResponse::getId))
+                .collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public DeleteUserResponse deleteUserByEmail(String email, UserDetailsImpl details) {
 
-        //check for ADMINISTRATOR removing self
+        //check for ADMINISTRATOR removing self TODO: logic for multiple administrator
         if (email.equalsIgnoreCase(details.getEmail())) {
             throw new BadRequestException("cannot remove ADMINISTRATOR account");
         }

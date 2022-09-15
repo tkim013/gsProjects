@@ -19,7 +19,7 @@ import java.util.Set;
 /*  This interface has only one method that we need to override:
 
     UserDetails loadUserByUsername(String username) throws UsernameNotFoundException receives a username and returns
-    a UserDetails object.  Overridden as String email for clarity.
+    a UserDetails object.  **Overridden as (String email) parameter for clarity since we are using email to authenticate**
 
     This method will be used by Spring Security when someone tries to authenticate. In the method, we need to retrieve
     user data by email from the storage and convert that data to UserDetails. If the user with a specified
